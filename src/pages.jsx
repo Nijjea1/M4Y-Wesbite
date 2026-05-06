@@ -598,7 +598,7 @@ function ContactPage() {
               <div className="field"><label>Last name</label><input placeholder="Lastname"/></div>
               <div className="field" style={{gridColumn:"span 2"}}><label>Email</label><input placeholder="you@school.edu"/></div>
               <div className="field"><label>School / Institution</label><input placeholder="University of Toronto"/></div>
-              <div className="field"><label>Grade / Year</label><select><option>Grade 11</option><option>Grade 12</option><option>Undergrad Yr 1</option><option>Undergrad Yr 2+</option><option>Graduate</option></select></div>
+              <div className="field"><label>Grade / Year</label><select><option>9-10</option><option>11-12</option><option>Undergraduate Year 1-2</option><option>Undergraduate Year 3-4</option><option>Graduate</option></select></div>
               <div className="field" style={{gridColumn:"span 2"}}><label>Interests</label>
                 <div style={{display:"flex", gap:8, flexWrap:"wrap"}}>
                   {["Mentorship","SRP","Neuroscience","Psychology","Dentistry","Pharmacy","BioEng","Optometry","Charity","Endopath","Rehab","Surgery","Chapter Lead"].map(x => (
@@ -625,9 +625,9 @@ function ContactPage() {
               </div>
             </div>
             <div className="card" style={{padding:28, background:"var(--g50)"}}>
-              <h3 style={{fontSize:20}}>Apply to the Team</h3>
-              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>We open roles across operations, design, research, branches, and outreach.</p>
-              <a href="https://forms.gle/" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm" style={{marginTop:14}}>See Open Roles <I.arrow className="arr"/></a>
+              <h3 style={{fontSize:20}}>Sponsorship Inquiry</h3>
+              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>Interested in sponsoring Medicine4Youth programs or events? Reach out and we will send our sponsorship package and next steps.</p>
+              <a href="https://forms.gle/" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm" style={{marginTop:14}}>Open Sponsorship Form <I.arrow className="arr"/></a>
             </div>
             <div className="card" style={{padding:28}}>
               <h3 style={{fontSize:20}}>Linktree</h3>
