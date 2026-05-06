@@ -409,11 +409,7 @@ function SponsorsPage() {
                     </div>
                     <button type="button" className="btn btn-sm btn-ghost" onClick={()=>navigator.clipboard?.writeText(s.code)}>Copy</button>
                   </div>
-                ) : (
-                  <div style={{marginTop:20, padding:"14px 18px", borderRadius:12, background:"var(--cream)", border:"1px solid var(--line)", fontSize:14, color:"var(--ink2)"}}>
-                    No member discount code. This partner emphasizes workshops, training, or in-kind programming. Codes from your sponsorship package will be added here when applicable.
-                  </div>
-                )}
+                ) : null}
               </Reveal>
             ))}
           </div>
