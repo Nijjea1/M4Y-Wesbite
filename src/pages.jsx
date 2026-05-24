@@ -1,27 +1,35 @@
 /* Main pages */
 
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
 function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About Medicine4Youth" title="Student-led. Clinician-mentored. Built to last."
-        blurb="We are a registered not-for-profit charity with the Canada Revenue Agency (CRA). Medicine4Youth is not a U.S. 501(c) organization; we operate as a Canadian nonprofit serving students here and abroad."
-        rightSlot={<div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
-          <PH label="Medicine4Youth leadership" src={SITE_PHOTOS.aboutTeam} aspect="3/4" variant="sage"/>
-          <PH label="Students in a Medicine4Youth workshop" src={SITE_PHOTOS.aboutPrograms} aspect="3/4" variant="dark" style={{marginTop:40}}/>
-        </div>}
+      <PageHero
+        eyebrow="About Medicine4Youth"
+        title="Student-led. Clinician-mentored. Built to last."
+        blurb="We are a registered not-for-profit organization with the Canada Revenue Agency (CRA). Medicine4Youth is not a U.S. 501(c) organization — we operate as a Canadian not-for-profit serving students here and abroad."
+        rightSlot={
+          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
+            <PH label="Medicine4Youth leadership" src={SITE_PHOTOS.aboutTeam} aspect="3/4" variant="sage"/>
+            <PH label="Students in a Medicine4Youth workshop" src={SITE_PHOTOS.aboutPrograms} aspect="3/4" variant="dark" style={{marginTop:40}}/>
+          </div>
+        }
       />
+
       <section className="section">
         <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:60}}>
           <SectionHead eyebrow="Our story" title="Why Medicine4Youth exists."/>
           <div className="stack" style={{gap:20, fontSize:17, color:"var(--ink2)"}}>
             <p>
-              Medicine4Youth is a registered not-for-profit charity organization in Canada for aspiring students pursuing careers in medicine. Our ultimate mission is to empower youth who share our passion for medicine by providing essential resources and opportunities to explore a future in healthcare. Through student-led research projects, interactive webinars with medical students, and hands-on workshops at high school and university chapters, we cultivate an environment that nurtures and inspires the next generation of medical professionals.
+              Medicine4Youth started from a simple observation: the path into medicine is opaque, and that opacity isn't evenly distributed. Students at under-resourced schools, in smaller cities, or without family connections to healthcare often have no map. We built one.
             </p>
             <p>
-              Mentorship connects youth with medical students, residents, and healthcare professionals. Education means workshops, panels, and Q&amp;A on admissions, careers, and pathways. Community building happens through chapters worldwide at secondary and post-secondary schools: each chapter advances mentorship, outreach, and programming locally.
+              We are a CRA-registered Canadian not-for-profit. Our work happens through student-led research projects, mentorship with clinicians and residents, workshops at high school and university chapters, and international partnerships that extend our reach beyond Canada. The goal is consistent: give every student who wants to pursue healthcare a real foothold — not just inspiration, but structure.
             </p>
             <p>
-              Medicine4Youth also supports branches that let members explore passions across clinical and scientific fields. Programs and initiatives include the chapter network, international tutoring partnerships, and the Summer Research Program described on the Programs and SRP pages.
+              Medicine4Youth also supports ten specialty branches, each focused on a distinct healthcare field. Alongside the chapter network and our flagship programs, we run the Philippines tutoring project through a partnership with Solander PH, supporting children in local care organizations with academic mentorship.
             </p>
           </div>
         </div>
@@ -32,8 +40,19 @@ function AboutPage() {
           <SectionHead eyebrow="Meet the presidents" title="The people behind the program."/>
           <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:24, marginTop:40}}>
             {[
-              { n:"Anita Alizadeh", r:"Founder & President", photo:"./assets/headshots/anita.png", b:"Anita is an Honours Psychology, Neuroscience & Behaviour student at McMaster University. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leading outreach efforts and fostering meaningful community connections.", li:"https://www.linkedin.com/in/anita-alizadeh-a60ba8286/" },
-              { n:"Ibrahim Khan", r:"President", photo:"./assets/headshots/ibrahim.png", b:"Ibrahim is an Honours Health Sciences student at the University of Ottawa. His research interests include disability, assistive technology, and rehabilitation sciences, with a focus on mental health. As President, Ibrahim spearheads initiatives that bridge gaps in health education, empowering youth through accessible, community-based programming.", li:"https://www.linkedin.com/in/ibrahim-khan-05ik4308/" },
+              {
+                n:"Anita Alizadeh",
+                r:"Founder & President",
+                photo:"./assets/headshots/anita.png",
+                b:"Anita is an Honours Psychology, Neuroscience & Behaviour student at McMaster University. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leads outreach efforts, and builds the community connections that keep M4Y moving."
+              },
+              {
+                n:"Ibrahim Khan",
+                r:"President",
+                photo:"./assets/headshots/ibrahim.png",
+                b:"Ibrahim is an Honours Health Sciences student at the University of Ottawa. His research interests span disability, assistive technology, and rehabilitation sciences, with a focus on mental health. As President, Ibrahim leads initiatives that close gaps in health education — making opportunities accessible and community-grounded.",
+                li:"https://www.linkedin.com/in/ibrahim-khan-05ik4308/"
+              },
             ].map((p,i) => (
               <Reveal key={i} delay={i*80} className="card" style={{padding:0, display:"grid", gridTemplateColumns:"200px 1fr", overflow:"hidden"}}>
                 <div style={{position:"relative", minHeight:280, background:"var(--g100)"}}>
@@ -43,9 +62,11 @@ function AboutPage() {
                   <span className="mono" style={{color:"var(--g800)"}}>{p.r}</span>
                   <h3 style={{fontSize:26}}>{p.n}</h3>
                   <p style={{color:"var(--ink2)", fontSize:14}}>{p.b}</p>
-                  <div style={{display:"flex", gap:8, marginTop:"auto"}}>
-                    <a href={p.li} target="_blank" rel="noreferrer" className="pill link-underline" style={{display:"inline-flex", gap:8, alignItems:"center"}}><I.link/> LinkedIn</a>
-                  </div>
+                  {p.li && (
+                    <div style={{display:"flex", gap:8, marginTop:"auto"}}>
+                      <a href={p.li} target="_blank" rel="noreferrer" className="pill link-underline" style={{display:"inline-flex", gap:8, alignItems:"center"}}><I.link/> LinkedIn</a>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}
@@ -58,10 +79,10 @@ function AboutPage() {
           <SectionHead eyebrow="Values" title="What we optimize for." align="center"/>
           <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:40}}>
             {[
-              ["Credibility", "Programs with real outputs, not filler."],
-              ["Access", "Opportunities that find students, not the other way around."],
-              ["Mentorship", "Every member gets a human, not a portal."],
-              ["Scalability", "A system that grows without breaking."],
+              ["Credibility","Programs with real outputs — not filler."],
+              ["Access","Opportunities that find students, not the other way around."],
+              ["Mentorship","Every member gets a human, not a portal."],
+              ["Scalability","A system that grows without breaking."],
             ].map(([a,b], i) => (
               <Reveal key={i} delay={i*60} className="card" style={{padding:28}}>
                 <div className="mono" style={{color:"var(--g800)"}}>0{i+1}</div>
@@ -78,10 +99,10 @@ function AboutPage() {
           <SectionHead eyebrow="Frequently asked" title="Answers, briefly."/>
           <div style={{marginTop:32, maxWidth:820}}>
             <FAQ items={[
-              {q:"Is Medicine4Youth a registered charity?", a:"Yes. We are registered as a Canadian not-for-profit charity with the Canada Revenue Agency (CRA). We are not a U.S. 501(c) nonprofit."},
+              {q:"Is Medicine4Youth a registered organization?", a:"Yes. We are registered as a Canadian not-for-profit with the Canada Revenue Agency (CRA). We are not a charity in the traditional sense and not a U.S. 501(c) nonprofit."},
               {q:"Who can join?", a:"Any high school or post-secondary student interested in medicine, healthcare, or allied health sciences."},
-              {q:"Is there a cost to join?", a:"General membership is free. Some paid programs (e.g. specialized workshops) may carry a small fee; sponsor codes typically reduce external costs when available."},
-              {q:"Can I start a chapter?", a:"Yes. Visit the Chapters page to submit interest; we will send a playbook and schedule an intake call."},
+              {q:"Is there a cost to join?", a:"General membership is free. Some paid programs may carry a small fee; sponsor codes typically reduce external costs when available."},
+              {q:"Can I start a chapter?", a:"Yes. Visit the Chapters page to submit interest — we'll send a playbook and schedule an intake call."},
               {q:"How do I apply to SRP?", a:"Applications open seasonally. See the Summer Research Program page for eligibility, timelines, and previous scholar outputs."},
             ]}/>
           </div>
@@ -92,158 +113,237 @@ function AboutPage() {
   );
 }
 
+/* ============================================================
+   PROGRAMS PAGE (combined Events + Programs)
+   ============================================================ */
 function ProgramsPage() {
   const [filter, setFilter] = useState("All");
   const tags = ["All", "Research", "Programs", "Events"];
   const shown = filter === "All" ? EVENTS : EVENTS.filter((e) => e.tag === filter);
+
   const programs = [
-    { t:"Summer Research Program (SRP)", d:"Secondary and post-secondary students join mentored research aligned with their interests: curiosity, critical thinking, mentorship, and fundamentals of healthcare research, ending in symposium and publication.", tag:"Flagship", to:"/srp" },
-    { t:"Mentorship Program", d:"1:1 mentorship pairings with clinicians, grad students, and senior mentees.", tag:"Community" },
-    { t:"Healthcare Bowl", d:"M4Y's annual case-based competition across student teams. Dates and host details are in the flagship calendar below.", tag:"Programs" },
-    { t:"Healthcare Horizons", d:"Interdisciplinary panel on medicine, dentistry, pharmacy, and optometry: pathways, workforce themes, and real-world experience. See the calendar below.", tag:"Events" },
-    { t:"Chapter Program", d:"University chapters with shared brand and playbook.", tag:"Leadership", to:"/chapters" },
+    { t:"Summer Research Program (SRP)", d:"Secondary and post-secondary students join mentored research aligned with their interests — critical thinking, scientific inquiry, and real deliverables. The program culminates in a closing symposium and publication pipeline.", tag:"Flagship", to:"/srp" },
+    { t:"Mentorship Program", d:"1:1 mentorship pairings with clinicians, graduate students, and senior mentees, matched to your field and goals.", tag:"Community" },
+    { t:"Healthcare Bowl", d:"M4Y's annual case-based competition across student teams. Fast-paced healthcare scenarios, collaborative problem-solving, and near-peer mentorship.", tag:"Programs" },
+    { t:"Healthcare Horizons", d:"An interdisciplinary panel spanning medicine, dentistry, pharmacy, and optometry — education pathways, workforce themes, and candid insight. Past sessions have drawn close to 100 attendees.", tag:"Events" },
+    { t:"Chapter Program", d:"University chapters with shared brand, playbook, and programming support — your local entry point into the M4Y network.", tag:"Leadership", to:"/chapters" },
   ];
+
   return (
     <>
-      <PageHero eyebrow="Programs" title="Programs, outreach, and flagship events." blurb="Medicine4Youth runs national offerings and chapter-led programming: mentored research, competitions, interdisciplinary panels, and global outreach. That includes the Philippines tutoring project with Solander PH, supporting children through local child care organizations and orphanages with academic help and mentorship. From applications to event dates, this page is the single hub."/>
-      <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16}}>
-          {programs.map((p,i) => (
-            <Reveal key={p.t} delay={i*60} className="card" style={{padding:32, display:"flex", flexDirection:"column", gap:12}}>
-              <div style={{display:"flex", justifyContent:"space-between"}}>
-                <span className={"pill "+(p.tag==="Coming Soon"?"deep":"sage")}>{p.tag}</span>
-                <span className="mono" style={{color:"var(--mute)"}}>Program {String(i+1).padStart(2,"0")}</span>
-              </div>
-              <h3 style={{fontSize:24, marginTop:8}}>{p.t}</h3>
-              <p style={{color:"var(--ink2)", fontSize:15}}>{p.d}</p>
-              {p.to && <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:8, display:"inline-flex", gap:6, alignItems:"center"}}>Learn more <I.arrow/></Link>}
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Programs & Events"
+        title="Every M4Y program, on one page."
+        blurb="From mentored research and case competitions to interdisciplinary panels and international outreach — this is the full picture of what Medicine4Youth runs, hosts, and builds."
+      />
 
-      <section id="flagship-events" className="section" style={{scrollMarginTop: 88}}>
+      {/* Program cards */}
+      <section className="section">
         <div className="container">
-          <SectionHead eyebrow="Flagship calendar" title="SRP symposium, Healthcare Bowl, and Healthcare Horizons." blurb="Filter by Research, Programs, or Events. Specialty branches host additional programming on their own sites."/>
-          <div className="tabs" style={{marginBottom:32}}>
-            {tags.map((t) => (
-              <div key={t} className={"tab " + (filter === t ? "active" : "")} onClick={() => setFilter(t)} role="button" tabIndex={0} onKeyDown={(ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); setFilter(t); } }}>
-                {t}
-              </div>
-            ))}
-          </div>
-          <div
-            className="grid"
-            style={{
-              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 340px))",
-              justifyContent: "start",
-              gap: 16,
-            }}
-          >
-            {shown.map((e, i) => (
-              <Reveal key={e.t + e.date} delay={i * 50} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", maxWidth: 340, width: "100%"}}>
-                <PH label={e.t} src={e.photo} aspect="4/3" variant={i % 3 === 0 ? "dark" : i % 3 === 1 ? "sage" : ""} />
-                <div style={{padding:18, display:"flex", flexDirection:"column", gap:8, flex:1}}>
-                  <div style={{display:"flex", gap:8}}>
-                    <span className={"pill " + (e.tag === "Coming Soon" || e.date === "Coming Soon" ? "deep" : "sage")}>{e.tag}</span>
-                  </div>
-                  <h3 style={{fontSize:17, lineHeight:1.2}}>{e.t}</h3>
-                  <p style={{fontSize:13, color:"var(--ink2)", lineHeight:1.5}}>{e.blurb}</p>
-                  <div style={{marginTop:"auto", display:"flex", gap:14, fontSize:12, color:"var(--mute)", paddingTop:14, borderTop:"1px solid var(--line)", flexWrap:"wrap"}}>
-                    <span style={{display:"flex", gap:6, alignItems:"center"}}><I.cal /> {e.date}</span>
-                    <span style={{display:"flex", gap:6, alignItems:"center"}}><I.pin /> {e.loc}</span>
-                  </div>
+          <SectionHead eyebrow="Core programs" title="What we run year-round."/>
+          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:16, marginTop:32}}>
+            {programs.map((p,i) => (
+              <Reveal key={p.t} delay={i*60} className="card" style={{padding:32, display:"flex", flexDirection:"column", gap:12}}>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                  <span className={"pill "+(p.tag==="Flagship"?"deep":"sage")}>{p.tag}</span>
+                  <span className="mono" style={{color:"var(--mute)"}}>Program {String(i+1).padStart(2,"0")}</span>
                 </div>
+                <h3 style={{fontSize:22, marginTop:8}}>{p.t}</h3>
+                <p style={{color:"var(--ink2)", fontSize:15}}>{p.d}</p>
+                {p.to && (
+                  <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:8, display:"inline-flex", gap:6, alignItems:"center"}}>
+                    Learn more <I.arrow/>
+                  </Link>
+                )}
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.length > 0 ? (
-        <section className="section" style={{paddingTop:0}}>
-          <div className="container">
-            <div className="divider" style={{marginBottom:28}} />
-            <span className="eyebrow">Partners</span>
-            <p style={{color:"var(--ink2)", fontSize:15, marginTop:12, maxWidth:720}}>Organizations that support Healthcare Horizons and other flagship Medicine4Youth events. Logos are shown as provided by each partner.</p>
-            <div
-              className="grid"
-              style={{
-                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 132px), 168px))",
-                justifyContent: "start",
-                gap: 14,
-                marginTop: 24,
-              }}
-            >
-              {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.map((logo) => (
-                <div
-                  key={logo.src}
-                  className="card"
-                  style={{
-                    padding: "14px 16px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minHeight: 76,
-                    background: "var(--paper)",
-                  }}
-                >
-                  <img src={logo.src} alt={logo.alt} loading="lazy" decoding="async" style={{maxHeight: 44, maxWidth: "100%", width: "auto", objectFit: "contain"}} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className="section" style={{background:"var(--g50)"}}>
+      {/* Featured events spotlight */}
+      <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
         <div className="container">
-          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:20}}>
-            <div className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"linear-gradient(135deg, var(--g100), var(--g300))"}}>
-              <PH label="Student teams collaborating at a Healthcare Bowl style event" src={SITE_PHOTOS.eventsFeaturedBowl} aspect="16/9" style={{borderRadius:0}} />
+          <SectionHead eyebrow="Flagship events" title="Healthcare Bowl and Healthcare Horizons."/>
+          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:20, marginTop:36}}>
+            <Reveal className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"linear-gradient(135deg,var(--g50),var(--cream))"}}>
+              <PH label="Student teams collaborating at a Healthcare Bowl event" src={SITE_PHOTOS.eventsFeaturedBowl} aspect="16/9" style={{borderRadius:0}}/>
               <div style={{padding:32}}>
                 <span className="pill deep">Programs</span>
                 <h2 style={{marginTop:18}}>Healthcare Bowl</h2>
-                <p style={{color:"var(--ink2)", fontSize:16, marginTop:12, maxWidth:420}}>M4Y's annual case-based competition for student teams. Fast-paced scenarios, collaborative problem solving, and mentorship from people across healthcare pathways.</p>
+                <p style={{color:"var(--ink2)", fontSize:16, marginTop:12, maxWidth:420}}>
+                  M4Y's annual case-based competition. Student teams tackle real-world healthcare scenarios under time pressure — collaborative, mentored, and genuinely competitive.
+                </p>
                 <div style={{display:"flex", gap:18, marginTop:24, flexWrap:"wrap"}}>
                   <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>40+</div><div style={{fontSize:12, color:"var(--mute)"}}>Teams</div></div>
                   <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>{"Mar '26"}</div><div style={{fontSize:12, color:"var(--mute)"}}>Next edition</div></div>
                   <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>UofT</div><div style={{fontSize:12, color:"var(--mute)"}}>Host</div></div>
                 </div>
               </div>
-            </div>
-            <div className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"var(--g900)", color:"#fff", position:"relative"}}>
-              <PH label="Healthcare Horizons interdisciplinary panel" src={SITE_PHOTOS.eventsFeaturedHorizons} aspect="16/9" variant="dark" style={{borderRadius:0, opacity:.95}} />
+            </Reveal>
+            <Reveal className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"var(--g900)", color:"#fff", position:"relative"}}>
+              <PH label="Healthcare Horizons interdisciplinary panel" src={SITE_PHOTOS.eventsFeaturedHorizons} aspect="16/9" variant="dark" style={{borderRadius:0, opacity:.92}}/>
               <div style={{padding:32, position:"relative"}}>
-                <div style={{position:"absolute", right:-40, top:-80, width:200, height:200, borderRadius:"50%", background:"var(--g500)", opacity:.25}} />
-                <span className="pill sage" style={{background:"rgba(255,255,255,.95)", color:"var(--g900)", borderColor:"transparent"}}>Events</span>
+                <div style={{position:"absolute", right:-40, top:-80, width:200, height:200, borderRadius:"50%", background:"var(--g500)", opacity:.2}}/>
+                <span className="pill sage" style={{background:"rgba(255,255,255,.92)", color:"var(--g900)", borderColor:"transparent"}}>Events</span>
                 <h2 style={{marginTop:18, color:"#fff"}}>Healthcare Horizons</h2>
-                <p style={{color:"#c3d2c7", fontSize:16, marginTop:12, maxWidth:420}}>Interdisciplinary panel on medicine, dentistry, pharmacy, and optometry: education pathways, workforce themes, and candid experiences across fields.</p>
+                <p style={{color:"#c3d2c7", fontSize:16, marginTop:12, maxWidth:420}}>
+                  An interdisciplinary panel on medicine, dentistry, pharmacy, and optometry — education pathways, workforce themes, and candid experience from practitioners across fields.
+                </p>
                 <div style={{display:"flex", gap:18, marginTop:24, flexWrap:"wrap"}}>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"#fff"}}>Nov 23</div><div style={{fontSize:12, color:"#a8b8ae"}}>Last session date</div></div>
+                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"#fff"}}>Nov 23</div><div style={{fontSize:12, color:"#a8b8ae"}}>Last session</div></div>
                   <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"#fff"}}>~100</div><div style={{fontSize:12, color:"#a8b8ae"}}>Attendees</div></div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
+      {/* Filtered calendar */}
+      <section id="flagship-events" className="section" style={{scrollMarginTop:88}}>
         <div className="container">
-          <SectionHead eyebrow="More initiatives" title="Chapters, the Philippines project, and research." align="center"/>
-          <div className="grid" style={{gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap:16, marginTop:36}}>
-            {[
-              { t:"Philippines tutoring project", d:"In partnership with Solander PH, a local non-profit, Medicine4Youth supports child care organizations and orphanages with academic support and mentorship for children in need." },
-              { t:"Medicine4Youth chapters", d:"Chapters at secondary and post-secondary schools worldwide bring the mission to life through local mentorship, outreach, and educational programming." },
-              { t:"Summer Research Program", d:"Secondary and post-secondary students engage in research aligned with their interests and passions, with intellectual curiosity, critical thinking, mentorship, and foundations in scientific inquiry and healthcare research." },
-            ].map((row, i) => (
-              <Reveal key={row.t} delay={i * 60} className="card" style={{padding:26}}>
-                <h3 style={{fontSize:19}}>{row.t}</h3>
-                <p style={{color:"var(--ink2)", fontSize:14, marginTop:10, lineHeight:1.55}}>{row.d}</p>
+          <SectionHead eyebrow="Flagship calendar" title="SRP symposium, Healthcare Bowl, Healthcare Horizons." blurb="Filter by category. Specialty branches host additional programming on their own pages."/>
+          <div className="tabs" style={{marginBottom:32, marginTop:24}}>
+            {tags.map((t) => (
+              <div key={t} className={"tab "+(filter===t?"active":"")} onClick={()=>setFilter(t)} role="button" tabIndex={0}
+                onKeyDown={(ev)=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();setFilter(t);}}}>
+                {t}
+              </div>
+            ))}
+          </div>
+          <div className="grid" style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,260px),340px))", justifyContent:"start", gap:16}}>
+            {shown.map((e,i) => (
+              <Reveal key={e.t+e.date} delay={i*50} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", maxWidth:340, width:"100%"}}>
+                <PH label={e.t} src={e.photo} aspect="4/3" variant={i%3===0?"dark":i%3===1?"sage":""}/>
+                <div style={{padding:18, display:"flex", flexDirection:"column", gap:8, flex:1}}>
+                  <span className={"pill "+(e.tag==="Coming Soon"||e.date==="Coming Soon"?"deep":"sage")}>{e.tag}</span>
+                  <h3 style={{fontSize:17, lineHeight:1.2}}>{e.t}</h3>
+                  <p style={{fontSize:13, color:"var(--ink2)", lineHeight:1.5}}>{e.blurb}</p>
+                  <div style={{marginTop:"auto", display:"flex", gap:14, fontSize:12, color:"var(--mute)", paddingTop:14, borderTop:"1px solid var(--line)", flexWrap:"wrap"}}>
+                    <span style={{display:"flex", gap:6, alignItems:"center"}}><I.cal/>{e.date}</span>
+                    <span style={{display:"flex", gap:6, alignItems:"center"}}><I.pin/>{e.loc}</span>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Philippines Tutoring — dedicated section */}
+      <PhilippinesSection/>
+
+      {/* Partners */}
+      {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.length > 0 && (
+        <section className="section" style={{paddingTop:0}}>
+          <div className="container">
+            <div className="divider" style={{marginBottom:28}}/>
+            <span className="eyebrow">Partners</span>
+            <p style={{color:"var(--ink2)", fontSize:15, marginTop:12, maxWidth:720}}>Organizations that support Healthcare Horizons and other flagship Medicine4Youth events.</p>
+            <div className="grid" style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,132px),168px))", justifyContent:"start", gap:14, marginTop:24}}>
+              {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.map((logo)=>(
+                <div key={logo.src} className="card" style={{padding:"14px 16px", display:"flex", alignItems:"center", justifyContent:"center", minHeight:76, background:"var(--paper)"}}>
+                  <img src={logo.src} alt={logo.alt} loading="lazy" decoding="async" style={{maxHeight:44, maxWidth:"100%", width:"auto", objectFit:"contain"}}/>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Summary CTA */}
+      <CTABand title="Find your program." sub="Whether you're joining SRP, starting a chapter, or attending Healthcare Bowl — your path starts here."/>
+    </>
+  );
+}
+
+function PhilippinesSection() {
+  return (
+    <section className="section philippines-section">
+      <div className="container" style={{position:"relative", zIndex:1}}>
+        <div style={{display:"grid", gridTemplateColumns:"1fr 1.2fr", gap:64, alignItems:"center"}}>
+          <div className="stack" style={{gap:22}}>
+            <div style={{display:"inline-flex", alignItems:"center", gap:10, padding:"8px 14px", borderRadius:999, background:"rgba(135,183,131,.18)", border:"1px solid rgba(135,183,131,.3)", width:"fit-content"}}>
+              <I.globe style={{color:"#a8dba0"}}/>
+              <span style={{fontFamily:"var(--f-mono)", fontSize:10.5, letterSpacing:".12em", textTransform:"uppercase", color:"#a8dba0"}}>International Program</span>
+            </div>
+            <h2 style={{color:"#fff", fontSize:"clamp(28px,3.5vw,48px)"}}>Philippines Tutoring Project</h2>
+            <p style={{fontSize:18, color:"rgba(255,255,255,.72)", lineHeight:1.62}}>
+              In partnership with <strong style={{color:"rgba(255,255,255,.92)"}}>Solander PH</strong>, a local non-profit, Medicine4Youth volunteers provide academic support and mentorship to children in care organizations and orphanages across the Philippines.
+            </p>
+            <p style={{fontSize:16, color:"rgba(255,255,255,.58)", lineHeight:1.6}}>
+              Sessions span core subjects and study skills — delivered by trained M4Y volunteers who connect with students remotely. The program reflects our belief that mentorship isn't bound by borders.
+            </p>
+            <div style={{display:"flex", gap:12, flexWrap:"wrap", marginTop:8}}>
+              <Link to="/join" className="btn btn-primary" style={{background:"rgba(255,255,255,.12)", borderColor:"rgba(255,255,255,.25)", color:"#fff"}}>Get Involved <I.arrow className="arr"/></Link>
+              <Link to="/programs" className="btn btn-ghost" style={{borderColor:"rgba(255,255,255,.2)", color:"rgba(255,255,255,.7)"}}>All Programs</Link>
+            </div>
+          </div>
+          <div className="stack" style={{gap:16}}>
+            <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:14}}>
+              {[
+                ["Partner","Solander PH — a Philippines-based not-for-profit"],
+                ["Scope","Children in care organizations and orphanages"],
+                ["Format","Remote tutoring and mentorship sessions"],
+                ["Focus","Academic support, study skills, and encouragement"],
+              ].map(([label,val], i) => (
+                <div key={i} className="philippines-stat-box">
+                  <div style={{fontFamily:"var(--f-mono)", fontSize:9.5, letterSpacing:".1em", textTransform:"uppercase", color:"rgba(135,183,131,.7)", marginBottom:8}}>{label}</div>
+                  <div style={{fontSize:14, color:"rgba(255,255,255,.82)", lineHeight:1.4, fontWeight:600}}>{val}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{padding:"22px 24px", borderRadius:"var(--r-lg)", background:"rgba(255,255,255,.05)", border:"1px solid rgba(255,255,255,.1)"}}>
+              <div style={{fontFamily:"var(--f-display)", fontSize:56, lineHeight:.65, color:"rgba(135,183,131,.4)", marginBottom:16}}>"</div>
+              <p style={{fontSize:15, color:"rgba(255,255,255,.7)", lineHeight:1.55, fontStyle:"italic"}}>
+                Mentorship should reach the students who need it most — not just those who already have access.
+              </p>
+              <div style={{marginTop:14, fontSize:12, color:"rgba(255,255,255,.38)", fontFamily:"var(--f-mono)", letterSpacing:".06em", textTransform:"uppercase"}}>Medicine4Youth — Program Mandate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   BRANCHES PAGE
+   ============================================================ */
+function BranchesPage() {
+  return (
+    <>
+      <PageHero eyebrow="Specialty branches" title="Ten sub-organizations. One scalable brand." blurb="Each branch operates independently with its own mentorship threads, events, and research output — connected through shared infrastructure and a common mission."/>
+      <section className="section">
+        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:20}}>
+          {BRANCHES.map((b, i) => (
+            <Reveal key={b.slug} delay={i*50}>
+              <Link to={"/branches/"+b.slug} className="card" data-branch={b.slug} style={{display:"grid", gridTemplateColumns:"1fr 1.3fr", padding:0, overflow:"hidden", minHeight:260}}>
+                <div style={{
+                  padding:"18px 16px 22px",
+                  background:b.panelBg||"var(--accent)",
+                  display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"stretch", textAlign:"center", gap:14,
+                  color:"#fff", textShadow:"0 1px 2px rgba(0,0,0,.22)",
+                }}>
+                  <div style={{flex:"1 1 auto", display:"flex", alignItems:"center", justifyContent:"center", minHeight:0, width:"100%", padding:0}}>
+                    <BranchMark branch={b} size={280} circle fill style={{maxWidth:"100%"}}/>
+                  </div>
+                  <div>
+                    <div className="mono" style={{color:"rgba(255,255,255,.88)", textShadow:"none"}}>M4Y Branch</div>
+                    <h3 style={{fontSize:22, marginTop:6, color:"#fff", textShadow:"0 1px 3px rgba(0,0,0,.25)"}}>{b.name}</h3>
+                  </div>
+                </div>
+                <div style={{padding:28, display:"flex", flexDirection:"column", gap:12}}>
+                  <p style={{color:"var(--ink2)", fontSize:15}}>{b.tagline}</p>
+                  <div style={{marginTop:"auto", display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:12, borderTop:"1px solid var(--line)"}}>
+                    <span style={{fontSize:12, color:"var(--mute)"}}>{b.past.length} past · {b.future.length} upcoming</span>
+                    <I.arrow/>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
       <CTABand/>
@@ -251,67 +351,114 @@ function ProgramsPage() {
   );
 }
 
-function BranchesPage() {
+/* ============================================================
+   SRP PAGE
+   ============================================================ */
+function PaperBooklet() {
+  const [page, setPage] = useState(0);
+  const [turning, setTurning] = useState(false);
+
+  function goTo(next) {
+    if (next < 0 || next >= PAPERS.length || turning) return;
+    setTurning(true);
+    setTimeout(() => { setPage(next); setTurning(false); }, 560);
+  }
+
+  const p = PAPERS[page];
+
   return (
-    <>
-      <PageHero eyebrow="Specialty branches" title="Ten sub-organizations. One scalable brand." blurb="Each branch operates independently with its own mentorship threads, events, and research output, connected through shared infrastructure."/>
-      <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:20}}>
-          {BRANCHES.map((b, i) => {
-            return (
-              <Reveal key={b.slug} delay={i*50}>
-                <Link to={"/branches/"+b.slug} className="card" data-branch={b.slug} style={{display:"grid", gridTemplateColumns:"1fr 1.3fr", padding:0, overflow:"hidden", minHeight:260}}>
-                  <div style={{
-                    padding:"18px 16px 22px",
-                    background:b.panelBg || "var(--accent)",
-                    display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"stretch", textAlign:"center", gap:14,
-                    color:"#fff",
-                    textShadow:"0 1px 2px rgba(0,0,0,.22)",
-                  }}>
-                    <div style={{flex:"1 1 auto", display:"flex", alignItems:"center", justifyContent:"center", minHeight:0, width:"100%", padding:0}}>
-                      <BranchMark branch={b} size={280} circle fill style={{maxWidth: "100%"}} />
-                    </div>
-                    <div>
-                      <div className="mono" style={{color:"rgba(255,255,255,.88)", textShadow:"none"}}>M4Y Branch</div>
-                      <h3 style={{fontSize:22, marginTop:6, color:"#fff", textShadow:"0 1px 3px rgba(0,0,0,.25)"}}>{b.name}</h3>
-                    </div>
-                  </div>
-                  <div style={{padding:28, display:"flex", flexDirection:"column", gap:12}}>
-                    <p style={{color:"var(--ink2)", fontSize:15}}>{b.tagline}</p>
-                    <div style={{marginTop:"auto", display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:12, borderTop:"1px solid var(--line)"}}>
-                      <span style={{fontSize:12, color:"var(--mute)"}}>{b.past.length} past · {b.future.length} upcoming</span>
-                      <I.arrow/>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
+    <div className="booklet-shell">
+      <div className="booklet-wrapper">
+        {/* Left page — table of contents */}
+        <div className="booklet-left">
+          <div>
+            <span className="eyebrow" style={{fontSize:9.5}}>SRP Publication Archive</span>
+            <h3 style={{marginTop:10, fontSize:18}}>Past Papers</h3>
+            <p style={{color:"var(--ink2)", fontSize:13, marginTop:8, lineHeight:1.55}}>Student research outputs from Summer Research Program cohorts. Each paper went through M4Y's internal review pipeline.</p>
+          </div>
+          <div className="stack" style={{gap:8, marginTop:4}}>
+            {PAPERS.map((pa, i) => (
+              <button key={i} type="button" onClick={()=>goTo(i)}
+                style={{
+                  textAlign:"left", padding:"10px 14px", borderRadius:10,
+                  border:`1px solid ${i===page?"var(--g500)":"var(--line)"}`,
+                  background:i===page?"var(--g50)":"transparent",
+                  cursor:"pointer", transition:"all .2s",
+                }}>
+                <div style={{fontFamily:"var(--f-mono)", fontSize:9.5, color:"var(--mute)", letterSpacing:".06em", textTransform:"uppercase", marginBottom:4}}>
+                  #{String(i+1).padStart(3,"0")} · {pa.type}
+                </div>
+                <div style={{fontSize:12.5, fontWeight:700, color:"var(--g900)", lineHeight:1.35}}>{pa.t}</div>
+              </button>
+            ))}
+          </div>
         </div>
-      </section>
-      <CTABand/>
-    </>
+
+        {/* Right page — paper detail */}
+        <div className={"booklet-right"+(turning?" page-turn-anim":"")}>
+          <div>
+            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12}}>
+              <span className="pill sage">{p.type}</span>
+              <span className="mono" style={{color:"var(--mute)"}}>#{String(page+1).padStart(3,"0")}</span>
+            </div>
+            <h3 style={{fontSize:20, lineHeight:1.25, color:"var(--g900)", marginTop:12}}>{p.t}</h3>
+            <div style={{fontSize:13, color:"var(--mute)", marginTop:10, fontStyle:"italic"}}>{p.auth}</div>
+          </div>
+
+          <div style={{flex:1, display:"flex", flexDirection:"column", gap:14}}>
+            <div style={{padding:18, borderRadius:12, background:"var(--g50)", border:"1px solid var(--line)"}}>
+              <div className="mono" style={{color:"var(--g800)", marginBottom:8}}>Abstract</div>
+              <p style={{fontSize:13.5, color:"var(--ink2)", lineHeight:1.65}}>
+                This paper represents student-led research conducted under the M4Y Summer Research Program. Scholars worked with clinician and faculty mentors over 12 weeks to design, execute, and present their inquiry at the closing symposium.
+              </p>
+            </div>
+            <div style={{display:"flex", gap:8, flexWrap:"wrap"}}>
+              <span className="pill" style={{cursor:"pointer"}}><I.download style={{width:13}}/> PDF</span>
+              <span className="pill" style={{cursor:"pointer"}}><I.book style={{width:13}}/> Cite</span>
+              <span className="pill" style={{cursor:"pointer"}}><I.ext style={{width:13}}/> DOI</span>
+            </div>
+          </div>
+
+          <div className="booklet-nav">
+            <button type="button" className="btn btn-ghost btn-sm" onClick={()=>goTo(page-1)} disabled={page===0 || turning}>
+              ← Previous
+            </button>
+            <span style={{fontFamily:"var(--f-mono)", fontSize:11, color:"var(--mute)", flex:1, textAlign:"center"}}>
+              {page+1} of {PAPERS.length}
+            </span>
+            <button type="button" className="btn btn-primary btn-sm" onClick={()=>goTo(page+1)} disabled={page===PAPERS.length-1 || turning}>
+              Next →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 function SRPPage() {
   return (
     <>
-      <PageHero eyebrow="Summer Research Program" title="Research that goes somewhere."
-        blurb="The Summer Research Program (SRP) is our flagship mentored research stream: twelve weeks of structured work with real, portfolio-worthy output and a closing symposium."
-        rightSlot={<div style={{display:"grid", gridTemplateColumns:"1fr", gap:12}}>
-          <PH label="SRP scholar in the laboratory" src={SITE_PHOTOS.srpHeroWide} aspect="3/2" variant="dark"/>
-          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
-            <PH label="Hands-on student research" src={SITE_PHOTOS.srpHeroPoster} aspect="4/3" variant="sage"/>
-            <PH label="SRP team presenting outcomes" src={SITE_PHOTOS.srpSpotlight} aspect="4/3"/>
+      <PageHero
+        eyebrow="Summer Research Program"
+        title="Research that goes somewhere."
+        blurb="The Summer Research Program (SRP) is our flagship mentored research stream: twelve structured weeks with real, portfolio-worthy output and a closing symposium."
+        rightSlot={
+          <div style={{display:"grid", gridTemplateColumns:"1fr", gap:12}}>
+            <PH label="SRP scholar in the laboratory" src={SITE_PHOTOS.srpHeroWide} aspect="3/2" variant="dark"/>
+            <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
+              <PH label="Hands-on student research" src={SITE_PHOTOS.srpHeroPoster} aspect="4/3" variant="sage"/>
+              <PH label="SRP team presenting outcomes" src={SITE_PHOTOS.srpSpotlight} aspect="4/3"/>
+            </div>
           </div>
-        </div>}/>
+        }
+      />
 
       <section className="section">
         <div className="container">
           <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:1, background:"var(--line)", borderRadius:"var(--r-lg)", overflow:"hidden", border:"1px solid var(--line)"}}>
             {[
-              [62,"+", "Scholars across cohorts"],
+              [62,"+","Scholars across cohorts"],
               [40,"+","Final posters"],
               [12,"","Weeks · structured program"],
               [15,"+","Mentor labs"],
@@ -332,11 +479,11 @@ function SRPPage() {
           <SectionHead eyebrow="How it works" title="Twelve weeks, four milestones."/>
           <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:40}}>
             {[
-              ["Weeks 1–3", "Onboarding", "Matching, literature review, and methods foundations."],
-              ["Weeks 4–6", "Research core", "Guided data collection, analysis, and mentor checkpoints."],
-              ["Weeks 7–9", "Drafting", "Poster and manuscript drafts with structured feedback."],
-              ["Weeks 10–12", "Symposium", "Final showcase and peer-reviewed M4Y publication pipeline."],
-            ].map(([w,t,d], i) => (
+              ["Weeks 1–3","Onboarding","Matching, literature review, and methods foundations."],
+              ["Weeks 4–6","Research core","Guided data collection, analysis, and mentor checkpoints."],
+              ["Weeks 7–9","Drafting","Poster and manuscript drafts with structured feedback."],
+              ["Weeks 10–12","Symposium","Final showcase and the M4Y publication pipeline."],
+            ].map(([w,t,d],i) => (
               <Reveal key={i} delay={i*70} className="card" style={{padding:28}}>
                 <div className="mono" style={{color:"var(--g800)"}}>{w}</div>
                 <h3 style={{fontSize:20, marginTop:10}}>{t}</h3>
@@ -349,43 +496,34 @@ function SRPPage() {
 
       <section className="section">
         <div className="container">
-          <div style={{display:"flex", justifyContent:"space-between", alignItems:"end", gap:32, flexWrap:"wrap"}}>
-            <SectionHead eyebrow="Past papers" title="A sample of student research output."/>
+          <div style={{display:"flex", justifyContent:"space-between", alignItems:"end", gap:32, flexWrap:"wrap", marginBottom:36}}>
+            <SectionHead eyebrow="Research archive" title="Browse the paper library."/>
             <Link to="/programs" className="btn btn-ghost">Programs hub <I.arrow className="arr"/></Link>
           </div>
-          <div className="grid" style={{gridTemplateColumns:"repeat(3,1fr)", gap:16, marginTop:36}}>
-            {PAPERS.map((p, i) => (
-              <Reveal key={i} delay={i*50} className="card" style={{padding:28, display:"flex", flexDirection:"column", gap:12, minHeight:240}}>
-                <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <span className="pill sage">{p.type}</span>
-                  <span className="mono" style={{color:"var(--mute)"}}>#{String(i+1).padStart(3,"0")}</span>
-                </div>
-                <h3 style={{fontSize:18, marginTop:"auto"}}>{p.t}</h3>
-                <div style={{fontSize:13, color:"var(--mute)"}}>{p.auth}</div>
-                <div style={{display:"flex", gap:8, marginTop:8}}>
-                  <span className="pill"><I.ext/> PDF</span>
-                  <span className="pill">Cite</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <PaperBooklet/>
         </div>
       </section>
 
-      <CTABand title="Apply to SRP 2026" sub="Applications open seasonally; eligibility and timelines are on our intake forms." primary={["Start Application", "/join"]} secondary={["Read FAQ","/about"]}/>
+      <CTABand title="Apply to SRP 2026" sub="Applications open seasonally. Check eligibility and timelines on our intake forms." primary={["Start Application","/join"]} secondary={["Read FAQ","/about"]}/>
     </>
   );
 }
 
+/* ============================================================
+   SPONSORS PAGE
+   ============================================================ */
 function SponsorsPage() {
   return (
     <>
-      <PageHero eyebrow="Partners" title="A premium partner ecosystem."
-        blurb="Member discount codes from our chapter sponsorship agreements are listed on each card below. Partners without a code focus on workshops, training, fairs, or in-kind programming; details are in the card copy."/>
+      <PageHero
+        eyebrow="Partners"
+        title="A partner ecosystem built for students."
+        blurb="Member discount codes from our chapter sponsorship agreements are listed on each card. Partners without a code deliver workshops, clinical skills training, fairs, or in-kind programming."
+      />
       <section className="section">
         <div className="container">
           <div className="grid" style={{gridTemplateColumns:"repeat(2,1fr)", gap:16}}>
-            {SPONSORS.map((s, i) => (
+            {SPONSORS.map((s,i) => (
               <Reveal key={s.name} delay={i*40} className="card" style={{padding:28}}>
                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:20}}>
                   <div style={{flex:1}}>
@@ -395,21 +533,21 @@ function SponsorsPage() {
                   </div>
                   <div style={{width:112, minWidth:112, flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:14, border:"1px solid var(--line)", padding:"10px 12px", minHeight:88}}>
                     {s.logo ? (
-                      <img src={s.logo} alt={`${s.name} logo`} loading="lazy" decoding="async" style={{maxWidth:"100%", maxHeight:68, width:"auto", height:"auto", objectFit:"contain"}} />
+                      <img src={s.logo} alt={`${s.name} logo`} loading="lazy" decoding="async" style={{maxWidth:"100%", maxHeight:68, width:"auto", height:"auto", objectFit:"contain"}}/>
                     ) : (
-                      <PH label={`${s.name} logo`} aspect="1/1" style={{width:72, borderRadius:10}} />
+                      <PH label={`${s.name} logo`} aspect="1/1" style={{width:72, borderRadius:10}}/>
                     )}
                   </div>
                 </div>
-                {s.code ? (
+                {s.code && (
                   <div style={{marginTop:20, padding:"14px 18px", borderRadius:12, background:"var(--g50)", border:"1px dashed var(--g300)", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                     <div>
-                      <div style={{fontSize:11, color:"var(--mute)", letterSpacing:"0.08em", textTransform:"uppercase"}}>Member code</div>
+                      <div style={{fontSize:11, color:"var(--mute)", letterSpacing:".08em", textTransform:"uppercase"}}>Member code</div>
                       <div style={{fontFamily:"var(--f-mono)", fontWeight:700, fontSize:16, color:"var(--g900)", marginTop:2}}>{s.code}</div>
                     </div>
                     <button type="button" className="btn btn-sm btn-ghost" onClick={()=>navigator.clipboard?.writeText(s.code)}>Copy</button>
                   </div>
-                ) : null}
+                )}
               </Reveal>
             ))}
           </div>
@@ -421,15 +559,15 @@ function SponsorsPage() {
           <div>
             <span className="eyebrow" style={{color:"var(--g300)"}}>Become a partner</span>
             <h2 style={{color:"#fff", marginTop:12}}>Reach a national community of pre-health students.</h2>
-            <p style={{color:"#c3d2c7", fontSize:17, marginTop:14, maxWidth:520}}>We work with trusted partners across admissions, test prep, research, and community. If you'd like to sponsor or co-host, tell us more.</p>
-            <Link to="/contact" className="btn btn-cream" style={{marginTop:24}}>Partnership Inquiry <I.arrow className="arr"/></Link>
+            <p style={{color:"#c3d2c7", fontSize:17, marginTop:14, maxWidth:520}}>We work with trusted partners across admissions, test prep, research, and community programming. Category exclusivity, workshop co-hosting, and member benefits all available.</p>
+            <a href="https://forms.gle/medicine4youth-sponsorship" target="_blank" rel="noreferrer" className="btn btn-cream" style={{marginTop:24}}>Sponsorship Inquiry <I.arrow className="arr"/></a>
           </div>
           <div className="stack" style={{gap:12}}>
             {[
-              ["Category exclusivity", "Be the sole partner in your category within M4Y programs."],
-              ["Workshop co-hosting", "Run branded sessions inside SRP or chapter programming."],
-              ["Member benefits", "Offer codes and perks to our vetted member base."],
-            ].map(([a,b], i) => (
+              ["Category exclusivity","Be the sole partner in your category within M4Y programs."],
+              ["Workshop co-hosting","Run branded sessions inside SRP or chapter programming."],
+              ["Member benefits","Offer codes and perks to our vetted member base."],
+            ].map(([a,b],i) => (
               <div key={i} style={{padding:"18px 22px", borderRadius:14, border:"1px solid rgba(255,255,255,.15)", background:"rgba(255,255,255,.04)"}}>
                 <div style={{fontWeight:800, color:"#fff"}}>{a}</div>
                 <div style={{color:"#c3d2c7", fontSize:14, marginTop:4}}>{b}</div>
@@ -442,80 +580,177 @@ function SponsorsPage() {
   );
 }
 
+/* ============================================================
+   CHAPTERS PAGE — Interactive Map
+   ============================================================ */
+
+/*
+  Recalculated for viewBox "0 0 900 480"
+  lon range: -140 to -52 (88°), lat range: 41 to 58 (17°)
+  x = (140 - |lon|) / 88 * 900
+  y = (58 - lat)   / 17 * 480
+*/
+const CHAPTER_LOCATIONS = [
+  { name:"University of British Columbia, Vancouver",  lat:49.2606,  lng:-123.2460, prov:"BC" },
+  { name:"University of British Columbia Okanagan",    lat:49.9396,  lng:-119.3960, prov:"BC" },
+  { name:"Northwestern Polytechnic",                   lat:55.1694,  lng:-118.7972, prov:"AB" },
+  { name:"University of Alberta",                      lat:53.5232,  lng:-113.5263, prov:"AB" },
+  { name:"University of Calgary",                      lat:51.0797,  lng:-114.1304, prov:"AB" },
+  { name:"University of Manitoba",                     lat:49.8083,  lng:-97.1333,  prov:"MB" },
+  { name:"University of Winnipeg",                     lat:49.8951,  lng:-97.1384,  prov:"MB" },
+  { name:"University of Ottawa",                       lat:45.4215,  lng:-75.6919,  prov:"ON" },
+  { name:"Queen's University",                         lat:44.2253,  lng:-76.4951,  prov:"ON" },
+  { name:"McGill University",                          lat:45.5048,  lng:-73.5772,  prov:"QC" },
+  { name:"Dalhousie University",                       lat:44.6366,  lng:-63.5917,  prov:"NS" },
+  { name:"McMaster University",                        lat:43.2609,  lng:-79.9192,  prov:"ON" },
+  { name:"Western University",                         lat:43.0096,  lng:-81.2737,  prov:"ON" },
+  { name:"University of Windsor",                      lat:42.3065,  lng:-83.0710,  prov:"ON" },
+  { name:"University of Waterloo",                     lat:43.4723,  lng:-80.5449,  prov:"ON" },
+  { name:"University of Guelph",                       lat:43.5318,  lng:-80.2270,  prov:"ON" },
+  { name:"Brock University",                           lat:43.1184,  lng:-79.2484,  prov:"ON" },
+  { name:"York University",                            lat:43.7735,  lng:-79.5019,  prov:"ON" },
+  { name:"University of Toronto, Mississauga",         lat:43.5489,  lng:-79.6631,  prov:"ON" },
+  { name:"University of Toronto, St. George",          lat:43.6629,  lng:-79.3957,  prov:"ON" },
+  { name:"University of Toronto, Scarborough",         lat:43.7844,  lng:-79.1864,  prov:"ON" },
+  { name:"Toronto Metropolitan University (TMU)",      lat:43.6577,  lng:-79.3788,  prov:"ON" },
+  { name:"Ontario Tech University",                    lat:43.9455,  lng:-78.8970,  prov:"ON" },
+];
+
+function ChaptersMap() {
+  const [search, setSearch] = useState("");
+  const mapElRef = useRef(null);
+  const mapRef = useRef(null);
+  const markersRef = useRef([]);
+
+  const query = search.toLowerCase().trim();
+  const filtered = query
+    ? CHAPTER_LOCATIONS.filter(c => c.name.toLowerCase().includes(query) || c.prov.toLowerCase().includes(query))
+    : CHAPTER_LOCATIONS;
+
+  useEffect(() => {
+    if (!window.L || mapRef.current) return;
+
+    const map = window.L.map(mapElRef.current, {
+      center: [54, -96],
+      zoom: 4,
+      zoomControl: true,
+      scrollWheelZoom: false,
+    });
+
+    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }).addTo(map);
+
+    mapRef.current = map;
+
+    const makeIcon = (dim) => window.L.divIcon({
+      className: "",
+      html: `<div style="
+        width:${dim}px;height:${dim}px;border-radius:50%;
+        background:#e53935;border:2.5px solid #fff;
+        box-shadow:0 2px 8px rgba(0,0,0,.35);
+        transition:transform .15s;
+      "></div>`,
+      iconSize: [dim, dim],
+      iconAnchor: [dim/2, dim/2],
+      popupAnchor: [0, -dim/2 - 4],
+    });
+
+    CHAPTER_LOCATIONS.forEach(c => {
+      const marker = window.L.marker([c.lat, c.lng], { icon: makeIcon(14) })
+        .addTo(map)
+        .bindPopup(`
+          <div style="font-family:sans-serif;min-width:180px">
+            <div style="font-size:13px;font-weight:700;color:#1f3a30;line-height:1.3">${c.name}</div>
+            <div style="font-size:11px;color:#5f8a78;margin-top:4px;font-weight:600;letter-spacing:.05em">${c.prov}</div>
+          </div>
+        `, { maxWidth: 260 });
+      markersRef.current.push({ marker, chapter: c });
+    });
+
+    return () => { map.remove(); mapRef.current = null; markersRef.current = []; };
+  }, []);
+
+  useEffect(() => {
+    markersRef.current.forEach(({ marker, chapter }) => {
+      const match = !query || chapter.name.toLowerCase().includes(query) || chapter.prov.toLowerCase().includes(query);
+      marker.setOpacity(match ? 1 : 0.15);
+    });
+  }, [query]);
+
+  return (
+    <div className="map-outer" style={{overflow:"hidden"}}>
+      <div className="map-search-wrap" style={{position:"relative"}}>
+        <span style={{position:"absolute",left:18,top:"50%",transform:"translateY(-50%)",color:"var(--mute)",pointerEvents:"none"}}>
+          <I.search/>
+        </span>
+        <input
+          type="search"
+          placeholder="Search for your university or province…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          style={{paddingLeft:44,width:"100%"}}
+        />
+      </div>
+
+      <div ref={mapElRef} style={{height:480,width:"100%"}}/>
+
+      {query && (
+        <div style={{padding:"14px 24px 16px",borderTop:"1px solid var(--line)"}}>
+          <div style={{fontSize:13,color:"var(--mute)",marginBottom:filtered.length?10:0}}>
+            {filtered.length
+              ? <><strong style={{color:"var(--g900)"}}>{filtered.length}</strong> chapter{filtered.length!==1?"s":""} match <em>"{search}"</em></>
+              : <>No chapters found for <em>"{search}"</em></>}
+          </div>
+          {filtered.length > 0 && (
+            <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+              {filtered.map(c => (
+                <span key={c.name} className="pill sage" style={{fontSize:12}}>{c.name}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ChaptersPage() {
   return (
     <>
-      <PageHero eyebrow="Chapters" title="M4Y on campuses across Canada." blurb="Our university chapter network spans institutions from coast to coast, with room to grow as students bring M4Y to new schools."/>
+      <PageHero eyebrow="Chapters" title="M4Y on campuses across Canada." blurb="Our university chapter network spans institutions from coast to coast. Each chapter runs local mentorship, events, and programming under the M4Y umbrella."/>
+
       <section className="section" style={{paddingTop:48}}>
         <div className="container">
           <div style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"flex-end", gap:24, marginBottom:32}}>
             <div>
               <div className="mono" style={{color:"var(--g800)"}}>Active network</div>
-              <h2 style={{fontSize:"clamp(26px, 3vw, 34px)", marginTop:8, marginBottom:0}}>{CHAPTERS.length} chapters</h2>
+              <h2 style={{fontSize:"clamp(26px,3vw,34px)", marginTop:8, marginBottom:0}}>{CHAPTERS.length} chapters</h2>
               <p style={{fontSize:15, color:"var(--ink2)", marginTop:10, maxWidth:520, marginBottom:0}}>
                 Post-secondary chapters run local events, fundraisers, and workshops under the Medicine4Youth umbrella.
               </p>
             </div>
             <Link to="/join" className="btn btn-primary">Start a chapter <I.arrow className="arr"/></Link>
           </div>
-          <div
-            className="chapters-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
-              gap: 16,
-            }}
-          >
-            {CHAPTERS.map((c, i) => (
-              <Reveal key={c.city} delay={Math.min(i * 22, 280)} className="card" style={{
-                padding: "22px 24px",
-                display: "flex",
-                flexDirection: "column",
-                gap: 16,
-                minHeight: 130,
-                justifyContent: "space-between",
-              }}>
-                <div style={{display: "flex", gap: 14, alignItems: "flex-start"}}>
-                  <div style={{
-                    width: 42,
-                    height: 42,
-                    borderRadius: 12,
-                    background: "var(--g100)",
-                    border: "1px solid var(--line2)",
-                    display: "grid",
-                    placeItems: "center",
-                    color: "var(--g800)",
-                    flexShrink: 0,
-                  }}>
-                    <I.pin/>
-                  </div>
-                  <div style={{minWidth: 0}}>
-                    <div style={{fontWeight: 800, fontSize: 16, color: "var(--g900)", lineHeight: 1.3}}>{c.city}</div>
-                    <div style={{fontSize: 12, color: "var(--mute)", marginTop: 6}}>{c.type}</div>
-                  </div>
-                </div>
-                <span className={"pill " + (c.status === "Active" ? "sage" : "deep")} style={{alignSelf: "flex-start"}}>{c.status}</span>
-              </Reveal>
-            ))}
-          </div>
+
+          {/* Interactive map */}
+          <ChaptersMap/>
+
+          {/* CTA card */}
           <Reveal delay={100} className="card" style={{
-            marginTop: 36,
-            padding: "28px 32px",
-            background: "linear-gradient(135deg, var(--g50), #fff)",
-            border: "1px solid var(--line)",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 20,
+            marginTop:36, padding:"28px 32px",
+            background:"linear-gradient(135deg,var(--g50),#fff)",
+            border:"1px solid var(--line)",
+            display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"space-between", gap:20,
           }}>
-            <div style={{maxWidth: 520}}>
-              <h3 style={{margin: 0, fontSize: 20, color: "var(--g900)"}}>Branches &amp; national programs</h3>
-              <p style={{fontSize: 14, color: "var(--ink2)", marginTop: 10, marginBottom: 0, lineHeight: 1.55}}>
+            <div style={{maxWidth:520}}>
+              <h3 style={{margin:0, fontSize:20, color:"var(--g900)"}}>Branches &amp; national programs</h3>
+              <p style={{fontSize:14, color:"var(--ink2)", marginTop:10, marginBottom:0, lineHeight:1.55}}>
                 Chapters are campus-based; specialty branches (Neuro, Surgery, Charity4Youth, and more) run cross-Canada programming. Explore both to find your fit.
               </p>
             </div>
-            <div style={{display: "flex", gap: 10, flexWrap: "wrap"}}>
+            <div style={{display:"flex", gap:10, flexWrap:"wrap"}}>
               <Link to="/branches" className="btn btn-primary">Explore branches <I.arrow className="arr"/></Link>
               <Link to="/programs" className="btn btn-ghost">Programs</Link>
             </div>
@@ -525,13 +760,13 @@ function ChaptersPage() {
 
       <section className="section" style={{background:"var(--g100)"}}>
         <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1.3fr", gap:48, alignItems:"center"}}>
-          <SectionHead eyebrow="Start a chapter" title="We send the playbook. You send the students."/>
+          <SectionHead eyebrow="Start a chapter" title="We send the playbook. You bring the students."/>
           <div className="stack" style={{gap:14}}>
             {[
               ["01","Submit interest","Tell us about your school, team, and why now."],
               ["02","Intake call","30-min call with central team + brand kit + playbook."],
               ["03","Launch","Go live with your first event within 60 days."],
-            ].map(([n,t,d], i) => (
+            ].map(([n,t,d],i) => (
               <div key={i} className="card" style={{padding:22, display:"grid", gridTemplateColumns:"56px 1fr", gap:20, alignItems:"center"}}>
                 <div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:32, color:"var(--g500)"}}>{n}</div>
                 <div>
@@ -541,6 +776,136 @@ function ChaptersPage() {
               </div>
             ))}
             <Link to="/join" className="btn btn-primary" style={{marginTop:12, alignSelf:"flex-start"}}>Submit Chapter Interest <I.arrow className="arr"/></Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+function downloadCSV(data) {
+  const headers = ["First Name","Last Name","Email","School","Grade","Interests"];
+  const row = [data.first, data.last, data.email, data.school, data.grade, data.interests.join("; ")];
+  const csv = [headers, row].map(r => r.map(v => `"${String(v||"").replace(/"/g,'""')}"`).join(",")).join("\n");
+  const blob = new Blob([csv], {type:"text/csv"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `m4y-member-${Date.now()}.csv`; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function ContactPage() {
+  const [form, setForm] = useState({first:"",last:"",email:"",school:"",grade:"9-10",interests:[]});
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleInterest(x) {
+    setForm(f => ({
+      ...f,
+      interests: f.interests.includes(x) ? f.interests.filter(i=>i!==x) : [...f.interests, x]
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    downloadCSV(form);
+    setSubmitted(true);
+  }
+
+  return (
+    <>
+      <PageHero eyebrow="Join · Contact" title="Let's build something together." blurb="Become a general member, apply to the team, or get in touch. We move fast."/>
+      <section className="section">
+        <div className="container" style={{display:"grid", gridTemplateColumns:"1.2fr 1fr", gap:48, alignItems:"start"}}>
+          <div className="card" style={{padding:40}}>
+            {submitted ? (
+              <div style={{textAlign:"center", padding:"40px 0"}}>
+                <div style={{width:64, height:64, borderRadius:"50%", background:"var(--g100)", display:"grid", placeItems:"center", color:"var(--g800)", margin:"0 auto 20px"}}><I.check/></div>
+                <h2 style={{fontSize:28}}>You're in.</h2>
+                <p style={{color:"var(--ink2)", marginTop:12}}>Your details were downloaded as a CSV — our team will add you to the intake sheet shortly. Welcome to M4Y.</p>
+                <button type="button" className="btn btn-ghost" style={{marginTop:24}} onClick={()=>setSubmitted(false)}>Submit another</button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <span className="eyebrow">General Membership</span>
+                <h2 style={{marginTop:12, fontSize:32}}>Become a member.</h2>
+                <p style={{color:"var(--ink2)", marginTop:10}}>Fill out the form. We'll add you to our newsletter, send sponsor codes, and invite you to member events.</p>
+                <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:14, marginTop:28}}>
+                  <div className="field">
+                    <label>First name</label>
+                    <input required placeholder="First name" value={form.first} onChange={e=>setForm(f=>({...f,first:e.target.value}))}/>
+                  </div>
+                  <div className="field">
+                    <label>Last name</label>
+                    <input required placeholder="Last name" value={form.last} onChange={e=>setForm(f=>({...f,last:e.target.value}))}/>
+                  </div>
+                  <div className="field" style={{gridColumn:"span 2"}}>
+                    <label>Email</label>
+                    <input required type="email" placeholder="you@school.edu" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))}/>
+                  </div>
+                  <div className="field">
+                    <label>School / Institution</label>
+                    <input placeholder="McMaster University" value={form.school} onChange={e=>setForm(f=>({...f,school:e.target.value}))}/>
+                  </div>
+                  <div className="field">
+                    <label>Grade / Year</label>
+                    <select value={form.grade} onChange={e=>setForm(f=>({...f,grade:e.target.value}))}>
+                      <option>9-10</option><option>11-12</option><option>Undergraduate Year 1-2</option><option>Undergraduate Year 3-4</option><option>Graduate</option>
+                    </select>
+                  </div>
+                  <div className="field" style={{gridColumn:"span 2"}}>
+                    <label>Interests</label>
+                    <div style={{display:"flex", gap:8, flexWrap:"wrap", marginTop:4}}>
+                      {["Mentorship","SRP","Neuroscience","Psychology","Dentistry","Pharmacy","BioEng","Optometry","Charity","Endopath","Rehab","Surgery","Chapter Lead"].map(x => (
+                        <label key={x} style={{
+                          display:"inline-flex", gap:6, alignItems:"center",
+                          padding:"8px 12px", border:`1px solid ${form.interests.includes(x)?"var(--g500)":"var(--line)"}`,
+                          borderRadius:999, fontSize:13, cursor:"pointer",
+                          background:form.interests.includes(x)?"var(--g50)":"transparent",
+                          transition:"all .15s",
+                        }}>
+                          <input type="checkbox" checked={form.interests.includes(x)} onChange={()=>handleInterest(x)} style={{display:"none"}}/> {x}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary btn-lg" style={{marginTop:24}}>Submit & Download CSV <I.arrow className="arr"/></button>
+                <div style={{fontSize:12, color:"var(--mute)", marginTop:14}}>Submitting downloads your details as a CSV for our intake team. Data is not sent to any third party.</div>
+              </form>
+            )}
+          </div>
+
+          <div className="stack" style={{gap:16}}>
+            <div className="card" style={{padding:28}}>
+              <h3 style={{fontSize:20}}>Email</h3>
+              <a href="mailto:Presidents@medicine4youth.ca" className="link-underline" style={{color:"var(--g800)", display:"inline-flex", gap:8, alignItems:"center", marginTop:8}}>
+                <I.mail/> Presidents@medicine4youth.ca
+              </a>
+            </div>
+            <div className="card" style={{padding:28}}>
+              <h3 style={{fontSize:20}}>Socials</h3>
+              <div style={{display:"flex", gap:10, marginTop:12, flexWrap:"wrap"}}>
+                <a href="https://www.instagram.com/medicine4youth/" target="_blank" rel="noreferrer" className="pill"><I.inst/> @medicine4youth</a>
+                <a href="https://www.linkedin.com/company/medicine4youth/" target="_blank" rel="noreferrer" className="pill"><I.link/> LinkedIn</a>
+              </div>
+            </div>
+            <div className="card" style={{padding:28, background:"var(--g50)"}}>
+              <h3 style={{fontSize:20}}>Sponsorship Inquiry</h3>
+              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>Interested in sponsoring Medicine4Youth programs or events? Tell us more and we'll send our sponsorship package and next steps.</p>
+              <a href="https://forms.gle/medicine4youth-sponsorship" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm" style={{marginTop:14}}>
+                Open Sponsorship Form <I.arrow className="arr"/>
+              </a>
+            </div>
+            <div className="card" style={{padding:28}}>
+              <h3 style={{fontSize:20}}>Linktree</h3>
+              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>One link for all current opportunities, forms, and events.</p>
+              <a href="https://linktr.ee/medicine4youth" target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm" style={{marginTop:14}}>
+                <I.ext/> linktr.ee/medicine4youth
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -583,62 +948,4 @@ function ResourcesPage() {
   );
 }
 
-function ContactPage() {
-  return (
-    <>
-      <PageHero eyebrow="Join · Contact" title="Let's build something together." blurb="Become a general member, apply to the team, or get in touch. We reply fast."/>
-      <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1.2fr 1fr", gap:48, alignItems:"start"}}>
-          <div className="card" style={{padding:40}}>
-            <span className="eyebrow">General Membership · Google Form</span>
-            <h2 style={{marginTop:12, fontSize:36}}>Become a member.</h2>
-            <p style={{color:"var(--ink2)", marginTop:10}}>Fill out the short form. We will add you to our newsletter, invite you to member events, and send sponsor codes.</p>
-            <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:14, marginTop:28}}>
-              <div className="field"><label>First name</label><input placeholder="Anita"/></div>
-              <div className="field"><label>Last name</label><input placeholder="Lastname"/></div>
-              <div className="field" style={{gridColumn:"span 2"}}><label>Email</label><input placeholder="you@school.edu"/></div>
-              <div className="field"><label>School / Institution</label><input placeholder="University of Toronto"/></div>
-              <div className="field"><label>Grade / Year</label><select><option>9-10</option><option>11-12</option><option>Undergraduate Year 1-2</option><option>Undergraduate Year 3-4</option><option>Graduate</option></select></div>
-              <div className="field" style={{gridColumn:"span 2"}}><label>Interests</label>
-                <div style={{display:"flex", gap:8, flexWrap:"wrap"}}>
-                  {["Mentorship","SRP","Neuroscience","Psychology","Dentistry","Pharmacy","BioEng","Optometry","Charity","Endopath","Rehab","Surgery","Chapter Lead"].map(x => (
-                    <label key={x} style={{display:"inline-flex", gap:6, alignItems:"center", padding:"8px 12px", border:"1px solid var(--line)", borderRadius:999, fontSize:13, cursor:"pointer"}}>
-                      <input type="checkbox"/> {x}
-                    </label>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <button className="btn btn-primary btn-lg" style={{marginTop:24}}>Submit Form <I.arrow className="arr"/></button>
-            <div style={{fontSize:12, color:"var(--mute)", marginTop:14}}>This placeholder embeds a Google Form on launch, wired to the M4Y intake sheet.</div>
-          </div>
-          <div className="stack" style={{gap:16}}>
-            <div className="card" style={{padding:28}}>
-              <h3 style={{fontSize:20}}>Email</h3>
-              <a href="mailto:Presidents@medicine4youth.ca" className="link-underline" style={{color:"var(--g800)", display:"inline-flex", gap:8, alignItems:"center", marginTop:8}}><I.mail/> Presidents@medicine4youth.ca</a>
-            </div>
-            <div className="card" style={{padding:28}}>
-              <h3 style={{fontSize:20}}>Socials</h3>
-              <div style={{display:"flex", gap:10, marginTop:12, flexWrap:"wrap"}}>
-                <a href="https://www.instagram.com/medicine4youth/" target="_blank" rel="noreferrer" className="pill"><I.inst/> @medicine4youth</a>
-                <a href="https://www.linkedin.com/company/medicine4youth/" target="_blank" rel="noreferrer" className="pill"><I.link/> LinkedIn</a>
-              </div>
-            </div>
-            <div className="card" style={{padding:28, background:"var(--g50)"}}>
-              <h3 style={{fontSize:20}}>Sponsorship Inquiry</h3>
-              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>Interested in sponsoring Medicine4Youth programs or events? Reach out and we will send our sponsorship package and next steps.</p>
-              <a href="https://forms.gle/" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm" style={{marginTop:14}}>Open Sponsorship Form <I.arrow className="arr"/></a>
-            </div>
-            <div className="card" style={{padding:28}}>
-              <h3 style={{fontSize:20}}>Linktree</h3>
-              <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>One link for all our current opportunities, forms, and events.</p>
-              <a href="https://linktr.ee/medicine4youth" target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm" style={{marginTop:14}}><I.ext/> linktr.ee/medicine4youth</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-Object.assign(window, { AboutPage, ProgramsPage, BranchesPage, SRPPage, SponsorsPage, ChaptersPage, ResourcesPage, ContactPage });
+Object.assign(window, { AboutPage, ProgramsPage, BranchesPage, SRPPage, SponsorsPage, ChaptersPage, ResourcesPage, ContactPage, PhilippinesSection });

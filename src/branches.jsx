@@ -166,6 +166,92 @@ function BranchPage({ slug }) {
       </section>
       )}
 
+      {/* Optometry branch: newsletter download */}
+      {b.slug === "optom" && (
+        <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
+          <div className="container">
+            <SectionHead eyebrow="Publications" title="Branch newsletter & resources."/>
+            <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:16, marginTop:36}}>
+              <Reveal className="publication-download-card">
+                <div className="pub-icon-box">
+                  <I.book/>
+                </div>
+                <div style={{flex:1}}>
+                  <div className="mono" style={{color:"var(--g800)", marginBottom:6}}>Newsletter · Issue 01</div>
+                  <h3 style={{fontSize:20}}>Optometry4Youth Newsletter</h3>
+                  <p style={{color:"var(--ink2)", fontSize:14, marginTop:8, lineHeight:1.55}}>
+                    Our branch newsletter covers vision science highlights, pre-optometry guidance, OAT resources, and career spotlights from practicing optometrists.
+                  </p>
+                  <div style={{display:"flex", gap:10, marginTop:16, flexWrap:"wrap"}}>
+                    <a href="./assets/publications/optom-newsletter-01.pdf" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
+                      <I.download/> Download PDF
+                    </a>
+                    <a href="./assets/publications/optom-newsletter-01.pdf" target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                      <I.ext/> View Online
+                    </a>
+                  </div>
+                  <div style={{fontSize:11, color:"var(--mute)", marginTop:10, fontFamily:"var(--f-mono)", letterSpacing:".04em", textTransform:"uppercase"}}>
+                    Published by Optometry4Youth · 2025
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={60} className="card" style={{padding:28, background:"var(--g50)", display:"flex", flexDirection:"column", gap:12}}>
+                <div className="mono" style={{color:"var(--g800)"}}>Clinical Cases Library</div>
+                <h3 style={{fontSize:20}}>Ongoing Resource</h3>
+                <p style={{color:"var(--ink2)", fontSize:14, lineHeight:1.55}}>
+                  A curated library of optometry cases written for pre-optometry students. Each case includes a chief complaint, clinical findings, and teaching commentary.
+                </p>
+                <span className="pill deep" style={{width:"fit-content"}}>Ongoing · 2025</span>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Surgery branch: magazine placeholder */}
+      {b.slug === "surgery" && (
+        <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
+          <div className="container">
+            <SectionHead eyebrow="Publications" title="Surgery4Youth Magazine." blurb="The official publication of Surgery4Youth — case discussions, surgical op-eds, and interviews with practicing surgeons."/>
+            <div className="grid" style={{gridTemplateColumns:"1fr 1.4fr", gap:20, marginTop:36}}>
+              <Reveal>
+                <div className="magazine-placeholder-card" style={{aspectRatio:"3/4", display:"flex", flexDirection:"column", justifyContent:"flex-end", padding:28, position:"relative", overflow:"hidden"}}>
+                  <div style={{position:"absolute", top:0, right:0, width:"60%", height:"60%", background:"linear-gradient(135deg,rgba(150,80,220,.25),transparent)", borderRadius:"0 0 0 100%"}}/>
+                  <div style={{position:"absolute", bottom:-20, left:-20, width:120, height:120, borderRadius:"50%", background:"rgba(150,80,220,.15)"}}/>
+                  <div style={{position:"relative"}}>
+                    <div style={{fontFamily:"var(--f-mono)", fontSize:9.5, letterSpacing:".12em", textTransform:"uppercase", color:"rgba(150,80,220,.8)", marginBottom:10}}>Surgery4Youth</div>
+                    <h3 style={{color:"#fff", fontSize:22, lineHeight:1.2}}>The Surgical Magazine</h3>
+                    <div style={{marginTop:12, fontSize:13, color:"rgba(255,255,255,.5)"}}>Issue · Coming 2026</div>
+                    <div style={{marginTop:20, padding:"8px 14px", borderRadius:999, background:"rgba(150,80,220,.25)", border:"1px solid rgba(150,80,220,.4)", display:"inline-flex", alignItems:"center", gap:8, fontSize:12, color:"rgba(255,255,255,.8)", fontWeight:600}}>
+                      <I.book style={{width:14}}/> Preview coming soon
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+              <div className="stack" style={{gap:16}}>
+                <Reveal className="card" style={{padding:28}}>
+                  <span className="pill deep">Past Issue</span>
+                  <h3 style={{fontSize:19, marginTop:12}}>Surgical Magazine / Journal — Vol. 1</h3>
+                  <p style={{color:"var(--ink2)", fontSize:14, marginTop:8, lineHeight:1.55}}>
+                    Our inaugural youth-led publication featured case discussions, candid interviews with surgeons across specialties, and editorial perspectives on training and identity in the OR.
+                  </p>
+                  <div style={{display:"flex", gap:10, marginTop:16, flexWrap:"wrap"}}>
+                    <span className="pill" style={{cursor:"pointer"}}><I.download style={{width:13}}/> PDF (Coming soon)</span>
+                    <span className="pill" style={{cursor:"pointer"}}><I.ext style={{width:13}}/> View issue</span>
+                  </div>
+                </Reveal>
+                <Reveal delay={60} className="card" style={{padding:28, background:"var(--g50)"}}>
+                  <div className="mono" style={{color:"var(--g800)", marginBottom:8}}>Vol. 2 · 2026</div>
+                  <h3 style={{fontSize:18}}>Next Edition — Submissions Open</h3>
+                  <p style={{color:"var(--ink2)", fontSize:14, marginTop:8}}>We're accepting case write-ups, perspective pieces, and Q&A submissions for the next issue. Open to all M4Y members.</p>
+                  <Link to="/join" className="btn btn-primary btn-sm" style={{marginTop:14, alignSelf:"flex-start"}}>Submit a piece <I.arrow className="arr"/></Link>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="container">
           <div className="card" style={{
