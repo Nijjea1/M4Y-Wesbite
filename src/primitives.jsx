@@ -80,7 +80,8 @@ function Counter({ to = 100, suffix = "", duration = 1400 }) {
 /* ---------- Placeholder or real photo ---------- */
 function PH({ label = "image", src, alt, aspect = "4 / 3", variant = "", style, className = "" }) {
   const seed = encodeURIComponent(String(label).toLowerCase().replace(/\s+/g, "-"));
-  const imageUrl = src || `https://picsum.photos/seed/${seed}/1200/900`;
+  const fallback = `https://picsum.photos/seed/${seed}/1200/900`;
+  const imageUrl = src || fallback;
   const isPlaceholder = !src;
   return (
     <div className={`ph ${variant} ${className}`} style={{ position: "relative", overflow: "hidden", aspectRatio: aspect, ...style }}>
@@ -89,6 +90,7 @@ function PH({ label = "image", src, alt, aspect = "4 / 3", variant = "", style, 
         alt={alt != null ? alt : label}
         loading="lazy"
         decoding="async"
+        onError={e => { if (e.target.src !== fallback) e.target.src = fallback; }}
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
       {isPlaceholder && (
@@ -146,6 +148,7 @@ const I = {
   book: (p) => <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>,
   search: (p) => <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>,
   heart2: (p) => <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" {...p}><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21z"/></svg>,
+  stethoscope: (p) => <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>,
 };
 
 /* Branch logo (PNG) or themed icon fallback. Use fill=true inside a tight layout so the mark scales edge-to-edge (cover in a circle). */
@@ -231,16 +234,16 @@ function FAQ({ items }) {
       {items.map((it, i) => (
         <div key={i} className="card" style={{ padding: 0, overflow: "hidden" }}>
           <button onClick={() => setOpen(open === i ? -1 : i)}
-            style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 22px", textAlign: "left" }}>
-            <span style={{ fontWeight: 700, fontFamily: "var(--f-display)", fontSize: 17, color: "var(--g900)" }}>{it.q}</span>
-            {open === i ? <I.minus /> : <I.plus />}
+            style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", textAlign: "left", gap: 16 }}>
+            <span style={{ fontWeight: 700, fontFamily: "var(--f-display)", fontSize: 17, color: "var(--g900)", lineHeight: 1.3 }}>{it.q}</span>
+            <span style={{ flexShrink: 0, color: "var(--g600)" }}>{open === i ? <I.minus /> : <I.plus />}</span>
           </button>
           <div style={{
-            maxHeight: open === i ? 400 : 0,
+            maxHeight: open === i ? 500 : 0,
             overflow: "hidden",
-            transition: "max-height .35s ease",
+            transition: "max-height .38s cubic-bezier(.4,0,.2,1)",
           }}>
-            <div style={{ padding: "0 22px 22px", color: "var(--ink2)", fontSize: 15 }}>{it.a}</div>
+            <div style={{ padding: "0 24px 24px", color: "var(--ink2)", fontSize: 15.5, lineHeight: 1.65 }}>{it.a}</div>
           </div>
         </div>
       ))}
@@ -251,10 +254,10 @@ function FAQ({ items }) {
 /* ---------- Section title ---------- */
 function SectionHead({ eyebrow, title, blurb, align = "left" }) {
   return (
-    <div className="stack" style={{ alignItems: align === "center" ? "center" : "flex-start", textAlign: align, gap: 14, maxWidth: 780, margin: align === "center" ? "0 auto" : undefined }}>
+    <div className="stack" style={{ alignItems: align === "center" ? "center" : "flex-start", textAlign: align, gap: 16, maxWidth: 780, margin: align === "center" ? "0 auto" : undefined }}>
       <span className="eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
-      {blurb && <p style={{ fontSize: 17, color: "var(--ink2)", maxWidth: 680 }}>{blurb}</p>}
+      <h2 style={{ marginTop: 2 }}>{title}</h2>
+      {blurb && <p style={{ fontSize: 17, color: "var(--ink2)", maxWidth: 680, lineHeight: 1.65 }}>{blurb}</p>}
     </div>
   );
 }
@@ -275,7 +278,7 @@ function CTABand({ title = "Ready to start something meaningful?", sub = "Join M
             position: "absolute", inset: 0, opacity: 0.15,
             backgroundImage: "radial-gradient(circle at 80% 20%, rgba(221,247,205,.9), transparent 50%), radial-gradient(circle at 20% 80%, rgba(135,183,131,.7), transparent 50%)"
           }} />
-          <div style={{ position: "relative", display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, alignItems: "end" }}>
+          <div className="cta-band-content">
             <div className="stack" style={{ gap: 18 }}>
               <span className="eyebrow" style={{ color: "#BCDBA5" }}>Get involved</span>
               <h2 style={{ color: "#fff" }}>{title}</h2>

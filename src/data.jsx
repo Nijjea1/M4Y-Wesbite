@@ -1,57 +1,71 @@
-/* Organization data */
+﻿/* Organization data */
 
 const BRANCHES = [
   {
-    slug: "neuro",
-    name: "Neuroscience4Youth",
-    short: "Neuro",
-    tagline: "From neural circuits to behaviour: neuroscience made accessible.",
-    about:
-      "Neuroscience4Youth explores the structure and function of the brain, from neural circuits to behaviour and cognition. It aims to make complex neuroscience concepts accessible while highlighting current research and careers in the field.",
-    mission:
-      "Demystify the brain and connect youth with how neuroscience is studied and applied today.",
-    past: [
-      { t: "Research Poster Competition", d: "Open call for student-led neuroscience research, judged by a faculty panel across 4 categories." },
-      { t: "Behind the Brain: Behavioural Neuroscience Panel", d: "Live panel with behavioural neuroscientists on addiction, memory, and decision-making." },
-      { t: "Instagram Takeovers", d: "Rotating weekly takeovers by graduate researchers sharing lab life and projects." },
-    ],
-    future: [{ t: "Neuroscience4Youth Research Workshop", d: "Hands-on workshop covering literature review, methods, and poster development.", when: "Fall 2026" }],
-    icon: "brain",
-    motif: "neural-net",
-    logo: "./assets/branch-logos/neuro.png",
-    panelBg: "#f898b0",
-  },
-  {
-    slug: "psych",
-    name: "Psychology4Youth",
-    short: "Psych",
-    tagline: "Behavioural science, mental health, and the mind, made approachable.",
-    about:
-      "Psychology4Youth focuses on understanding human behavior, cognition, and mental health. The branch promotes awareness, critical thinking, and practical applications of psychology in everyday life.",
-    mission:
-      "Make psychology approachable while improving mental health literacy among youth.",
-    past: [
-      { t: "Psychology4Youth Career Panel", d: "Clinical, research, and industrial/organizational psychologists share their paths." },
-      { t: "Disorders Research Infographic Competition", d: "Student-designed infographics breaking down DSM-classified disorders for general audiences." },
-      { t: "Instagram Takeovers", d: "Grad students host takeovers on research, clinical training, and mental health in academia." },
-    ],
-    future: [{ t: "Mentorship Program", d: "1-to-1 pairings between undergraduate psychology students and high school mentees.", when: "Spring 2026" }],
-    icon: "mind",
-    motif: "orbit",
-    logo: "./assets/branch-logos/psych.png",
-    panelBg: "#d0c0f0",
-  },
-  {
     slug: "dentistry",
     name: "Dentistry4Youth",
-    short: "Dentistry",
-    tagline: "Oral health, clinical dentistry, and careers that start with a smile.",
+    short: "D4Y",
+    tagline: "Bridging the gap between academic interest and dental school reality - for every aspiring dentist.",
     about:
-      "Dentistry4Youth provides insight into oral health, dental practices, and careers in dentistry. It emphasizes prevention, patient care, and the importance of oral health in overall well-being.",
+      "Dentistry4Youth is a student-led initiative dedicated to making the field of dentistry accessible, transparent, and engaging for aspiring dental professionals. As a branch of Medicine4Youth, we empower the next generation of dental students through early exposure, educational resources, and community mentorship.",
     mission:
-      "Help youth see dentistry as a vital, rewarding healthcare path grounded in prevention and care.",
-    past: [],
-    future: [],
+      "Bridge the gap between academic interest and professional reality. We provide youth with the tools to navigate the dental school application process, understand the diverse pathways to becoming a dentist, and explore the clinical complexities of oral healthcare.",
+    past: [
+      {
+        t: "Beyond Barriers D4Y",
+        d: "An international seminar for pre-dental students from high school to university - including Canadian and American applicants. In partnership with OzTREKK and a Canadian student studying in Ireland, we provided firsthand insights into international dental education, career realities, and the experience of studying dentistry abroad.",
+        icon: "globe",
+        stat: "International Reach",
+        tag: "Seminar",
+      },
+      {
+        t: "Virtual Shadowing Event",
+        d: "An interactive virtual clinical session featuring a specialized dentist who shared real-world case studies and patient scenarios. With 200+ attendees, students gained a behind-the-scenes look at the variety of cases dentists handle daily - including mid-session MCQs to test diagnostic thinking.",
+        icon: "eye",
+        stat: "200+ Attendees",
+        tag: "Virtual Event",
+      },
+      {
+        t: "Instagram Takeovers",
+        d: "Ongoing takeovers on our social media platforms by dental students and professionals, featuring day-in-the-life content and live Q&As. Our community gets a real-time look at dental school life and the diverse specialties within the profession.",
+        icon: "inst",
+        stat: "Ongoing",
+        tag: "Social Media",
+      },
+    ],
+    future: [
+      {
+        t: "Specialist Virtual Shadowing",
+        d: "A specialized panel featuring 2–3 dental specialists who will share why they chose their field, the rigorous academic requirements for residency, and unique clinical insights. Designed to help students understand the diverse career trajectories available beyond general dentistry.",
+        when: "May 2026",
+      },
+    ],
+    initiatives: [
+      {
+        t: "International Dental Education",
+        d: "Connecting pre-dental students with pathways to study dentistry internationally - including Ireland, Australia, and other destinations - through partnerships with programs like OzTREKK.",
+        tag: "Global",
+        icon: "globe",
+      },
+      {
+        t: "Virtual Shadowing Program",
+        d: "Live virtual clinical sessions where practicing dentists and specialists walk students through real cases, MCQ challenges, and career Q&As - accessible from anywhere.",
+        tag: "Virtual · Ongoing",
+        icon: "eye",
+      },
+      {
+        t: "Application & Pathway Advising",
+        d: "Resources and mentorship to help students navigate the dental school application process - DAT prep, personal statements, interview prep, and understanding both Canadian and American pathways.",
+        tag: "Mentorship",
+        icon: "book",
+      },
+      {
+        t: "Specialist Spotlight Series",
+        d: "Deep-dive panels with dental specialists across orthodontics, oral surgery, periodontics, and more - exploring what residency really looks like and what makes each specialty unique.",
+        tag: "Coming 2026",
+        icon: "tooth",
+      },
+    ],
     icon: "tooth",
     motif: "arc",
     logo: "./assets/branch-logos/dentistry.png",
@@ -60,18 +74,269 @@ const BRANCHES = [
   {
     slug: "pharmacy",
     name: "Pharmacy4Youth",
-    short: "Pharmacy",
-    tagline: "Pharmacology, patient safety, and the science behind therapeutics.",
+    short: "P4Y",
+    tagline: "Pharmacy is not just retail - explore clinical practice, oncology, pharma industry, and beyond.",
     about:
-      "Pharmacy4Youth introduces students to pharmacology, drug development, and the role of pharmacists in healthcare. It highlights medication safety, patient education, and the science behind therapeutics.",
+      "Pharmacy4Youth bridges the gap between the classroom and the diverse realities of pharmacy practice. From hospital clinical pharmacists to oncology specialists, northern community pharmacists, and roles within pharmaceutical companies, we expose students to the full spectrum of what a pharmacy career can look like - and show them it extends far beyond the retail counter.",
     mission:
-      "Show how pharmacists protect patients and advance therapeutic science.",
-    past: [],
-    future: [],
+      "Break the misconception that pharmacy equals retail. Inspire students to explore the breadth of pharmacy careers - clinical, industrial, research, and community - through real connections with practicing professionals.",
+    past: [
+      {
+        t: "Meet the Pharmacist",
+        d: "A Q&A and networking panel featuring pharmacists from clinical pharmacy, pharma companies, oncology, and northern community practice. Students joined live to gain insights into diverse pharmacy careers and network directly with professionals - emphasizing that pharmacy is far more than retail.",
+        img: "./assets/pharmacy/meet-pharmacist-cover.png",
+        date: "May 28, 2026 · 5–7 PM",
+      },
+    ],
+    future: [
+      {
+        t: "Case Study Competition",
+        d: "Teams are given a real-world healthcare issue and must develop a drug solution - addressing synthesis, FDA/Health Canada approval (NDAs), labelling, clinical trials, marketing, pricing, and commercial strategy. Proposals are judged by professionals from legal, pharma, and research backgrounds.",
+        when: "Coming 2026–2027",
+      },
+    ],
+    initiatives: [
+      {
+        t: "Meet the Pharmacist Series",
+        d: "Recurring panels connecting students with pharmacists working in underrepresented and specialized fields - from oncology and clinical hospital settings to northern community practice and global pharma companies.",
+        tag: "Recurring · Speaker Series",
+        icon: "capsules",
+      },
+      {
+        t: "Case Study Competition",
+        d: "An annual innovation challenge where students develop a full drug proposal - from synthesis and clinical trials to regulatory submissions and commercial launch strategy - judged by legal, pharma, and research professionals.",
+        tag: "Annual · Coming 2026",
+        icon: "flask",
+      },
+      {
+        t: "Pharmacy Career Spotlights",
+        d: "Educational content highlighting rarely-discussed pharmacy career paths - oncology pharmacists, pharmaceutical scientists, health policy advisors, and pharmacists serving Indigenous and remote communities.",
+        tag: "Ongoing",
+        icon: "book",
+      },
+      {
+        t: "Networking & Mentorship",
+        d: "Direct access to pharmacist mentors across specialties. Students can ask questions, explore career options, and build professional connections before they graduate.",
+        tag: "Ongoing",
+        icon: "heart2",
+      },
+    ],
+    posts: [
+      {
+        title: "Meet the Pharmacist - Event Post",
+        desc: "Official event promotion for the Meet the Pharmacist Q&A panel on May 28th, 2026.",
+        pdf: "./assets/pharmacy/meet-the-pharmacist.pdf",
+        img: "./assets/pharmacy/meet-pharmacist-cover.png",
+      },
+    ],
+    speakers: [
+      { role: "Clinical Pharmacist", icon: "capsules" },
+      { role: "Pharma Company Professional", icon: "flask" },
+      { role: "Oncology Pharmacist", icon: "heart2" },
+      { role: "Northern Community Pharmacist", icon: "book" },
+    ],
     icon: "capsules",
     motif: "strata",
     logo: "./assets/branch-logos/pharmacy.png",
     panelBg: "#780000",
+  },
+  {
+    slug: "optom",
+    name: "Optometry4Youth",
+    short: "O4Y",
+    tagline: "Empowering the next generation of optometry professionals - from curiosity to clinic.",
+    about:
+      "Optometry4Youth (O4Y) is a student-led branch of Medicine4Youth based in North America. We are dedicated to empowering youth interested in optometry and vision science by providing accessible education and experiences that spark curiosity and support career exploration. We envision a future where every student with an interest in optometry can confidently pursue their passion, regardless of background or access to resources. Through community, education, and mentorship, we strive to make the path to optometry school more visible, equitable, and empowering for youth at every stage of their journey.",
+    mission:
+      "Equip and inspire the next generation of optometry professionals by providing accessible resources, personalized support, and meaningful opportunities. We have reached hundreds of students through interactive events, engaging educational content, and community outreach focused on vision health and the path to optometry school.",
+    past: [
+      {
+        t: "Waterloo Optometry Info Panel",
+        d: "Moderated Q&A with current University of Waterloo Optometry students who shared their journeys, challenges, and advice for future applicants - giving students real, unfiltered insight into what it takes to get in.",
+        img: "./assets/optom/berkeley-admissions.png",
+      },
+      {
+        t: "Virtual Shadowing Event with Dr. Vasudha Rao",
+        d: "Students virtually shadowed practicing optometrist Dr. Vasudha Rao, who walked the audience through her daily workflow, career trajectory, and real patient case examples. Participants received a 1-hour shadowing certificate signed by Dr. Rao and the O4Y team.",
+        img: "./assets/optom/virtual-shadowing.webp",
+      },
+    ],
+    future: [
+      {
+        t: "OAT Prep Event",
+        d: "Current optometry students walk through each section of the OAT - scoring, competitive benchmarks, study resources, common mistakes, and a sample reading comprehension walkthrough.",
+        when: "Coming 2026",
+      },
+      {
+        t: "School Admissions Panel",
+        d: "Breakout-style event where representatives from North American optometry schools share program insights, admissions criteria, and campus life. Students rotate through small groups to ask questions about both Canadian and U.S. schools.",
+        when: "Coming 2026",
+      },
+    ],
+    initiatives: [
+      {
+        t: "Glasses Donation Drive",
+        d: "In collaboration with 20/20 Mission and M4Y chapters, O4Y places eyeglass donation boxes across Canadian university campuses. Collected glasses are sorted, cleaned, and redistributed to individuals in low-income communities locally and internationally.",
+        tag: "Active · Ongoing",
+        icon: "heart2",
+      },
+      {
+        t: "Focus Forward Newsletter",
+        d: "O4Y's monthly newsletter highlighting recent discoveries in optometry, eye health education, OAT prep tips, ocular disease spotlights, and career features from practicing optometrists.",
+        tag: "Monthly",
+        icon: "book",
+        href: "https://drive.google.com/drive/folders/1HvsfKJZmo66vvsRiTf5Pk8WxOCp5i44Q?usp=sharing",
+      },
+      {
+        t: "Instagram Takeovers",
+        d: "Ongoing takeovers by current optometry students and practicing optometrists who walk our audience through a day in their life while answering live questions from followers.",
+        tag: "Ongoing",
+        icon: "inst",
+      },
+      {
+        t: "Fun Fact Friday Stories",
+        d: "Biweekly interactive Instagram stories covering optometry facts, ocular diseases of the week, and vision science highlights - designed to educate and grow our community.",
+        tag: "Biweekly",
+        icon: "eye",
+      },
+    ],
+    igPosts: [
+      { img: "./assets/optom/focus-forward.webp",       caption: "Focus Forward - Issue 01" },
+      { img: "./assets/optom/berkeley-admissions.png",  caption: "Berkeley School of Optometry" },
+      { img: "./assets/optom/cataracts-fact.png",       caption: "Ocular Disease of the Week: Cataracts" },
+      { img: "./assets/optom/geriatric-optometry.png",  caption: "Geriatric Optometry" },
+      { img: "./assets/optom/eye-anatomy-basics.png",   caption: "Eye Anatomy Basics Pt. 2" },
+    ],
+    icon: "eye",
+    motif: "concentric",
+    logo: "./assets/branch-logos/optom.png",
+    panelBg: "#509090",
+  },
+  {
+    slug: "neuro",
+    name: "NeuroPsych4Youth",
+    short: "NP4Y",
+    tagline: "Bridging neuroscience and psychology for the next generation of curious minds - from neural circuits to human behaviour.",
+    about:
+      "NeuroPsych4Youth is a student-led initiative dedicated to making neuroscience and psychology more accessible, engaging, and relevant for youth. As a branch of Medicine4Youth, we empower the next generation through education, research, innovation, and community support. We bring together the biological, technological, and behavioural sciences behind the brain and mind - exploring mental health, emotional development, human behaviour, neural engineering, brain-computer interfaces, computational neuroscience, and emerging neuroscience technologies.",
+    mission:
+      "Our mission is to help youth better understand the brain, mind, and human behaviour through accessible education, research opportunities, mentorship, and youth-focused initiatives. We bridge the gap between scientific research and everyday life by promoting psychological literacy, reducing mental health stigma, and exposing students to real-world applications in neuroscience and psychology. Through workshops, competitions, panels, and collaborative events, we equip students with the knowledge and confidence to explore careers in neuroscience, psychology, mental health, research, and health innovation.",
+    past: [
+      { t: "Research Poster Competition", d: "Students collaborated in teams of 3–4 to create research posters on non-invasive brain stimulation therapies for MDD in low-resource communities. The top three teams had their posters published in the Journal of Young Investigators (JYI).", icon: "book", stat: "Published in JYI", tag: "Competition" },
+      { t: "Behind the Brain: Behavioural Neuroscience Panel", d: "A moderated panel featuring professionals in behavioural neuroscience who shared their educational pathways, research experiences, and career insights, including Q&A sessions and discussion on navigating academia and finding research opportunities.", icon: "brain", stat: "Expert Panel", tag: "Seminar" },
+      { t: "Psychology Career Panel", d: "A moderated panel featuring professionals from diverse psychology backgrounds discussing academic pathways, career realities, job outlook, financial considerations, and advice for students pursuing psychology-related careers.", icon: "mind", stat: "Multi-Pathway", tag: "Panel" },
+      { t: "Disorders Research Infographic Competition", d: "Participants created educational infographics on psychological disorders covering definitions, symptoms, risk factors, and treatment options - building research, communication, and design skills while increasing mental health awareness.", icon: "eye", stat: "Awareness Initiative", tag: "Competition" },
+      { t: "Instagram Takeovers", d: "Ongoing takeovers by professionals, researchers, and graduate students in neuroscience, psychology, and mental health. Featuring day-in-the-life content, Q&As, career advice, and insights into academic and professional pathways.", icon: "inst", stat: "Ongoing", tag: "Social Media" },
+    ],
+    future: [
+      { t: "NeuroPsych Research Workshop", d: "An interactive workshop introducing students to key concepts and skills in neuroscience and psychology research - covering finding opportunities, cold-emailing professors, creating research posters, wet and dry lab techniques, and advancements in emerging technologies.", when: "Fall 2026" },
+      { t: "NeuroPsych Mentorship Program", d: "A drop-in mentorship opportunity where students connect with mentors for guidance on career planning, academic pathways, and research involvement. Includes a self-assessment activity followed by mentorship circles in breakout rooms.", when: "TBD 2026" },
+    ],
+    focuses: [
+      "Mental health awareness & stigma reduction",
+      "Behavioural neuroscience & psychology",
+      "Brain-based therapies & neurological disorders",
+      "Emotional development & human behaviour",
+      "Neuroscience research & laboratory skills",
+      "Computational neuroscience & coding",
+      "Brain-computer interfaces & neural engineering",
+      "Career exploration in psychology & neuroscience",
+    ],
+    icon: "brain",
+    motif: "neural-net",
+    logo: "./assets/branch-logos/neuro.png",
+    panelBg: "#8b5cf6",
+  },
+  {
+    slug: "charity",
+    name: "Charity4Youth",
+    short: "C4Y",
+    tagline: "Healthcare meets heart - fundraising, advocacy, and humanitarian awareness for the next generation.",
+    about:
+      "Charity4Youth is the humanitarian arm of Medicine4Youth, mobilizing students across campuses to fundraise, volunteer, and advocate for global and local health causes. From campus bake sales to hospital volunteering, C4Y turns student energy into real-world impact.",
+    mission:
+      "Empower youth to take action - through fundraising, volunteering, and awareness - and show that compassion is a core competency in medicine.",
+    past: [
+      {
+        t: "C4Y x M4Y UofT Bake Sale",
+        d: "Multi-day fundraising bake sale on the UofT campus featuring pie-in-the-face, duct-tape-the-teacher, and baked goods. Raised funds for local health charities.",
+        img: "./assets/charity/bake-sale-banner.jpg",
+        date: "November 2025",
+        campus: "University of Toronto",
+      },
+      {
+        t: "C4Y x D4Y UofT Bake Sale",
+        d: "Collaboration with Dentistry4Youth for a joint bake sale fundraiser at the University of Toronto, combining dental and medical charity advocacy.",
+        img: "./assets/charity/bake-sale-night.jpg",
+        date: "November 2025",
+        campus: "University of Toronto",
+      },
+      {
+        t: "Charitable Advising for High Schoolers",
+        d: "Mentorship and advising sessions helping high school students understand how to get involved in health-related charitable work and volunteering early in their careers.",
+        img: null,
+        date: "Ongoing",
+        campus: "Multi-campus",
+      },
+      {
+        t: "WHO Humanitarian Series",
+        d: "Weekly educational post series covering humanitarian crises acknowledged by the World Health Organization - making global health accessible and relevant to students.",
+        img: null,
+        date: "Ongoing",
+        campus: "All campuses",
+      },
+    ],
+    future: [
+      {
+        t: "Hospital Volunteering",
+        d: "Organized volunteer placements at hospitals and healthcare facilities, giving students hands-on exposure to patient care environments while giving back to the community.",
+        when: "Coming 2026–2027",
+      },
+      {
+        t: "D4Y Collaboration",
+        d: "A joint initiative with Dentistry4Youth combining oral health awareness with charitable fundraising - reaching underserved communities across multiple campuses.",
+        when: "Coming 2026–2027",
+      },
+    ],
+    initiatives: [
+      {
+        t: "WHO Humanitarian Series",
+        d: "A weekly post series educating students on WHO-recognized humanitarian crises worldwide - connecting future healthcare professionals to global health realities.",
+        tag: "Weekly · Ongoing",
+        icon: "globe",
+      },
+      {
+        t: "Campus Bake Sale Program",
+        d: "Multi-campus fundraising events at UofT, McGill, UBC, and UWindsor featuring baked goods, fun activities, and community building - all proceeds go to health charities.",
+        tag: "Multi-campus",
+        icon: "heart2",
+      },
+      {
+        t: "Charitable Advising",
+        d: "Direct advising for high school students on how to engage in meaningful charitable work related to healthcare - from volunteering pathways to grant writing basics.",
+        tag: "Youth-Focused",
+        icon: "book",
+      },
+      {
+        t: "Hospital Volunteering",
+        d: "Coordinated volunteer placements in hospitals and clinics, providing students with meaningful community service hours and exposure to real healthcare environments.",
+        tag: "Coming 2026",
+        icon: "stethoscope",
+      },
+    ],
+    gallery: [
+      { src: "./assets/charity/bake-sale-toronto.jpg", caption: "UofT Bake Sale - Toronto skyline" },
+      { src: "./assets/charity/bake-sale-banner.jpg", caption: "M4Y UofT Chapter bake sale table" },
+      { src: "./assets/charity/bake-sale-night.jpg", caption: "Night bake sale - UofT campus" },
+      { src: "./assets/charity/duct-tape-wall.jpg", caption: "Duct-tape fundraiser activity" },
+      { src: "./assets/charity/pie-in-face.jpg", caption: "Pie-in-the-face fundraiser" },
+      { src: "./assets/charity/baked-goods.jpg", caption: "Baked goods for the sale" },
+    ],
+    campuses: ["University of Toronto", "McGill University", "UBC", "University of Windsor"],
+    icon: "heart2",
+    motif: "wave",
+    logo: "./assets/branch-logos/charity.png",
+    panelBg: "#e04545",
   },
   {
     slug: "bioeng",
@@ -88,56 +353,67 @@ const BRANCHES = [
     motif: "editorial",
     logo: "./assets/branch-logos/bioeng.png",
     panelBg: "#105068",
-  },
-  {
-    slug: "optom",
-    name: "Optometry4Youth",
-    short: "Optometry",
-    tagline: "Vision science, eye health, and clinical optometry, up close.",
-    about:
-      "Optometry4Youth explores vision science, eye health, and the role of optometrists. Students learn about common visual disorders, diagnostics, and the importance of eye care.",
-    mission:
-      "Make optometry visible and accessible for students exploring healthcare careers.",
-    past: [
-      { t: "Virtual Shadowing Series", d: "Recorded shadow sessions with practicing optometrists and residents." },
-      { t: "Pre-Optometry Q&A", d: "Panel on OAT prep, school choice, and application strategy." },
-    ],
-    future: [{ t: "Clinical Cases Library", d: "Curated, youth-readable optometry case library with teaching commentary.", when: "Ongoing" }],
-    icon: "eye",
-    motif: "concentric",
-    logo: "./assets/branch-logos/optom.png",
-    panelBg: "#509090",
-  },
-  {
-    slug: "charity",
-    name: "Charity4Youth",
-    short: "Charity",
-    tagline: "Community engagement, advocacy, and impact beyond the clinic.",
-    about:
-      "Charity4Youth focuses on community engagement, advocacy, and social impact initiatives. It empowers youth to give back through volunteering, fundraising, and supporting underserved populations.",
-    mission:
-      "Mobilize young people to lead with compassion and serve their communities.",
-    past: [],
-    future: [],
-    icon: "hands",
-    motif: "hearts",
-    logo: "./assets/branch-logos/charity.png",
-    panelBg: "#f8d8c8",
+    externalUrl: "https://www.bioeng4youth.ca/",
   },
   {
     slug: "endo",
-    name: "Endopath4Youth",
-    short: "Endopath",
-    tagline: "Hormones, reproductive health, and the systems beneath the surface.",
+    name: "EndoPath4Youth",
+    short: "EndoPath",
+    tagline: "Where endocrinology meets pathology - bridging hormones, disease, and human health.",
     about:
-      "Endopath4Youth explores the science of hormones, reproductive health, and disease processes affecting the endocrine and reproductive systems. It promotes awareness and education around often under-discussed health topics.",
+      "EndoPath4Youth sits at the intersection of endocrinology and pathology. We explore how hormonal systems break down, how disease processes unfold at the cellular and molecular level, and what that means for diagnosis and treatment. From the mechanisms of bladder cancer to the science of the endocrine system, we make complex biomedical topics accessible, relevant, and inspiring for the next generation of healthcare professionals.",
     mission:
-      "Normalize dialogue and deepen understanding of endocrine and reproductive health.",
+      "To bridge the gap between foundational science and clinical medicine - empowering youth to understand, discuss, and pursue careers in endocrinology, pathology, microbiology, and immunology.",
     past: [
-      { t: "Pathology Case Series", d: "Weekly case-based deep-dives with pathology residents." },
-      { t: "Hormones 101 Workshop", d: "Foundations of the endocrine system for high school students." },
+      {
+        t: "Pathology in Practice",
+        d: "A speaker bio event featuring Julia Kochanowski - a researcher with a background in forensic science, biology, and clinical & translational science. Julia shared her work on the pathogenesis of human disease, with a focus on the role of Metallothionein-3 (MT-3) in bladder cancer and acute kidney injury (AKI). Attendees gained insight into how molecular biomarkers are shaping our understanding of disease progression.",
+        img: "./assets/endo/event-post-1-cover.png",
+      },
     ],
-    future: [{ t: "Diagnostic Sciences Panel", d: "A survey panel across clinical chemistry, histopathology, and molecular diagnostics.", when: "Summer 2026" }],
+    future: [
+      {
+        t: "Guest Speaker & Career Shadowing Panel",
+        d: "An interdisciplinary panel broadening into endocrinology, microbiology, and immunology. Current professionals share their career paths, clinical experiences, and advice for students navigating these specialties.",
+        when: "Summer 2026",
+      },
+      {
+        t: "Community Events & Feminine Hygiene Product Drive",
+        d: "A campus-based community initiative combining health education with tangible impact - collecting and distributing feminine hygiene products to underserved communities while raising awareness about menstrual health equity.",
+        when: "2026–2027 School Year",
+      },
+    ],
+    initiatives: [
+      {
+        t: "Pathology in Practice Series",
+        d: "Monthly speaker events connecting students with researchers and clinicians working in pathology, clinical laboratory science, and translational medicine. Each session dives into a real disease process or diagnostic challenge.",
+        tag: "Monthly · Ongoing",
+        icon: "flask",
+      },
+      {
+        t: "EndoPath Story Series",
+        d: "An ongoing Instagram story series covering topics across endocrinology, pathology, microbiology, and immunology - presented in an engaging, accessible format for students at all levels.",
+        tag: "Ongoing",
+        icon: "inst",
+      },
+      {
+        t: "Feminine Hygiene Product Drive",
+        d: "A community health equity initiative collecting and distributing feminine hygiene products to underserved individuals on and around Canadian university campuses.",
+        tag: "Annual",
+        icon: "heart2",
+      },
+      {
+        t: "EndoPath Educational Content",
+        d: "Regular posts breaking down complex topics in endocrinology and pathology - from how thyroid hormones regulate metabolism to how cancer cells evade immune detection.",
+        tag: "Biweekly",
+        icon: "book",
+      },
+    ],
+    posts: [
+      { title: "The Pathology of Alzheimer's Disease", desc: "A breakdown of the neurodegeneration behind the most common form of dementia - amyloid plaques, tau tangles, and what they mean for diagnosis.", pdf: "./assets/endo/website-post-2.pdf", img: "./assets/endo/post-cover-1.png" },
+      { title: "Pathogen Weekly", desc: "A weekly breakdown of infectious disease, microbiology, and immunology - making complex pathogens accessible for students.", pdf: "./assets/endo/website-post-3.pdf", img: "./assets/endo/post-cover-2.png" },
+      { title: "Guest Speaker: Julia Kochanowski", desc: "Researcher Julia Kochanowski presents her work on Metallothionein-3 in bladder cancer and acute kidney injury.", pdf: "./assets/endo/event-post-1.pdf", img: "./assets/endo/event-cover-1.png" },
+    ],
     icon: "flask",
     motif: "strata",
     logo: "./assets/branch-logos/endo.png",
@@ -184,15 +460,31 @@ const BRANCHES = [
   },
 ];
 
-/* code: string | null when no member discount. Test-prep rows match Medicine4Youth Sponsorship Information (Chapters). */
+/* code: string | null when no member discount. Ordered by sponsorship priority. */
 const SPONSORS = [
   {
-    name: "Wizeprep",
-    logo: "/assets/event-sponsors/wizeprep.png",
-    code: "Medicine4Youth",
+    name: "Global University Systems (GUS)",
+    logo: "/assets/event-sponsors/global-university-systems.png",
+    code: null,
     benefit:
-      "Online learning and test prep (high school through MCAT, LSAT, and more). 15% off Wizeprep’s MCAT course for all M4Y members and event participants. 50% off for executive members; current executive list must be shared with Wizeprep for confirmation. Applies to MCAT Elite 515 (performance-based pricing, 144 class hours) and MCAT Self-Paced (1100+ videos, strategies, practice).",
-    category: "Test prep",
+      "Coordinates networks across campus chapters to deliver standardized training (e.g. suturing workshops) and structured admissions support for students pursuing medical school abroad.",
+    category: "Training & admissions",
+  },
+  {
+    name: "International Medical School Fair (IMSF)",
+    logo: "/assets/event-sponsors/imsf.png",
+    code: null,
+    benefit:
+      "Showcases international medical schools and offers hands-on clinical skills training including phlebotomy and intramuscular injection workshops to prepare students for applications and practical experience.",
+    category: "Fairs & clinical skills",
+  },
+  {
+    name: "OzTREKK",
+    logo: "/assets/event-sponsors/oztrekk.png",
+    code: null,
+    benefit:
+      "Connects students with medical and dental schools in Australia with guidance through the application process; supports local chapter events and resources.",
+    category: "Study abroad",
   },
   {
     name: "Astroff",
@@ -201,6 +493,14 @@ const SPONSORS = [
     benefit:
       "Canadian admissions consulting and test prep for CASPer, MMIs, Kira Talent, and professional-school interviews: mock tests, coaching, and application support. 15% off self-paced Astroff courses for all M4Y members.",
     category: "Admissions & interviews",
+  },
+  {
+    name: "Wizeprep",
+    logo: "/assets/event-sponsors/wizeprep.png",
+    code: "Medicine4Youth",
+    benefit:
+      "Online learning and test prep (high school through MCAT, LSAT, and more). 15% off Wizeprep's MCAT course for all M4Y members and event participants. 50% off for executive members; current executive list must be shared with Wizeprep for confirmation. Applies to MCAT Elite 515 (performance-based pricing, 144 class hours) and MCAT Self-Paced (1100+ videos, strategies, practice).",
+    category: "Test prep",
   },
   {
     name: "Booster Prep",
@@ -225,38 +525,6 @@ const SPONSORS = [
     benefit:
       "University undergrad exam prep and comprehensive MCAT coaching. $500 off the Prep101 MCAT course with member code.",
     category: "MCAT prep",
-  },
-  {
-    name: "Global University Systems (GUS)",
-    logo: "/assets/event-sponsors/global-university-systems.png",
-    code: null,
-    benefit:
-      "Coordinates networks across campus chapters to deliver standardized training (e.g. suturing workshops) and structured admissions support for students pursuing medical school abroad.",
-    category: "Training & admissions",
-  },
-  {
-    name: "International Medical School Fair (IMSF)",
-    logo: "/assets/event-sponsors/imsf.png",
-    code: null,
-    benefit:
-      "Showcases international medical schools and offers hands-on clinical skills training including phlebotomy and intramuscular injection workshops to prepare students for applications and practical experience.",
-    category: "Fairs & clinical skills",
-  },
-  {
-    name: "Medschool Bros",
-    logo: "/assets/event-sponsors/medschool-bro.png",
-    code: null,
-    benefit:
-      "Structured admissions support for medical school abroad; Medicine4Youth collaborates with Medschool Bros for the International Medical Graduate (IMG) Conference.",
-    category: "Admissions",
-  },
-  {
-    name: "OzTREKK",
-    logo: "/assets/event-sponsors/oztrekk.png",
-    code: null,
-    benefit:
-      "Connects students with medical and dental schools in Australia with guidance through the application process; supports local chapter events and resources.",
-    category: "Study abroad",
   },
   {
     name: "Coast2Coast First Aid & Aquatics",
@@ -317,16 +585,15 @@ const EVENTS = [
 /* Partner logos on the Programs page (Healthcare Horizons and flagship programming). Files in assets/event-sponsors/. */
 /* Root-relative paths so logos load on every route when using static hosting. */
 const HEALTHCARE_HORIZONS_SPONSOR_LOGOS = [
-  { src: "/assets/event-sponsors/astroff.png", alt: "Astroff" },
-  { src: "/assets/event-sponsors/booster-prep.png", alt: "Booster Prep" },
-  { src: "/assets/event-sponsors/blueprint-mcat.png", alt: "Blueprint MCAT preparation" },
-  { src: "/assets/event-sponsors/coast2coast.png", alt: "Coast2Coast First Aid and Aquatics" },
   { src: "/assets/event-sponsors/global-university-systems.png", alt: "Global University Systems" },
   { src: "/assets/event-sponsors/imsf.png", alt: "International Medical School Fair" },
-  { src: "/assets/event-sponsors/medschool-bro.png", alt: "Medschool Bros" },
   { src: "/assets/event-sponsors/oztrekk.png", alt: "OzTREKK" },
-  { src: "/assets/event-sponsors/prep101.png", alt: "Prep101" },
+  { src: "/assets/event-sponsors/astroff.png", alt: "Astroff" },
   { src: "/assets/event-sponsors/wizeprep.png", alt: "Wizeprep" },
+  { src: "/assets/event-sponsors/booster-prep.png", alt: "Booster Prep" },
+  { src: "/assets/event-sponsors/blueprint-mcat.png", alt: "Blueprint MCAT preparation" },
+  { src: "/assets/event-sponsors/prep101.png", alt: "Prep101" },
+  { src: "/assets/event-sponsors/coast2coast.png", alt: "Coast2Coast First Aid and Aquatics" },
 ];
 
 const PAPERS = [

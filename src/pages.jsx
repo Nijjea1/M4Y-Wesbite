@@ -1,4 +1,4 @@
-/* Main pages */
+﻿/* Main pages */
 
 /* ============================================================
    ABOUT PAGE
@@ -9,7 +9,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About Medicine4Youth"
         title="Student-led. Clinician-mentored. Built to last."
-        blurb="We are a registered not-for-profit organization with the Canada Revenue Agency (CRA). Medicine4Youth is not a U.S. 501(c) organization — we operate as a Canadian not-for-profit serving students here and abroad."
+        blurb="We are a registered not-for-profit organization with the Canada Revenue Agency (CRA). Medicine4Youth is not a U.S. 501(c) organization - we operate as a Canadian not-for-profit serving students here and abroad."
         rightSlot={
           <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
             <PH label="Medicine4Youth leadership" src={SITE_PHOTOS.aboutTeam} aspect="3/4" variant="sage"/>
@@ -19,14 +19,14 @@ function AboutPage() {
       />
 
       <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:60}}>
+        <div className="about-story-grid container">
           <SectionHead eyebrow="Our story" title="Why Medicine4Youth exists."/>
           <div className="stack" style={{gap:20, fontSize:17, color:"var(--ink2)"}}>
             <p>
               Medicine4Youth started from a simple observation: the path into medicine is opaque, and that opacity isn't evenly distributed. Students at under-resourced schools, in smaller cities, or without family connections to healthcare often have no map. We built one.
             </p>
             <p>
-              We are a CRA-registered Canadian not-for-profit. Our work happens through student-led research projects, mentorship with clinicians and residents, workshops at high school and university chapters, and international partnerships that extend our reach beyond Canada. The goal is consistent: give every student who wants to pursue healthcare a real foothold — not just inspiration, but structure.
+              We are a CRA-registered Canadian not-for-profit. Our work happens through student-led research projects, mentorship with clinicians and residents, workshops at high school and university chapters, and international partnerships that extend our reach beyond Canada. The goal is consistent: give every student who wants to pursue healthcare a real foothold - not just inspiration, but structure.
             </p>
             <p>
               Medicine4Youth also supports ten specialty branches, each focused on a distinct healthcare field. Alongside the chapter network and our flagship programs, we run the Philippines tutoring project through a partnership with Solander PH, supporting children in local care organizations with academic mentorship.
@@ -38,7 +38,7 @@ function AboutPage() {
       <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
         <div className="container">
           <SectionHead eyebrow="Meet the presidents" title="The people behind the program."/>
-          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:24, marginTop:40}}>
+          <div className="presidents-grid" style={{marginTop:40}}>
             {[
               {
                 n:"Anita Alizadeh",
@@ -50,20 +50,21 @@ function AboutPage() {
                 n:"Ibrahim Khan",
                 r:"President",
                 photo:"./assets/headshots/ibrahim.png",
-                b:"Ibrahim is an Honours Health Sciences student at the University of Ottawa. His research interests span disability, assistive technology, and rehabilitation sciences, with a focus on mental health. As President, Ibrahim leads initiatives that close gaps in health education — making opportunities accessible and community-grounded.",
+                b:"Ibrahim is an Honours Health Sciences student at the University of Ottawa. His research interests span disability, assistive technology, and rehabilitation sciences, with a focus on mental health. As President, Ibrahim leads initiatives that close gaps in health education - making opportunities accessible and community-grounded.",
                 li:"https://www.linkedin.com/in/ibrahim-khan-05ik4308/"
               },
             ].map((p,i) => (
-              <Reveal key={i} delay={i*80} className="card" style={{padding:0, display:"grid", gridTemplateColumns:"200px 1fr", overflow:"hidden"}}>
-                <div style={{position:"relative", minHeight:280, background:"var(--g100)"}}>
+              <Reveal key={i} delay={i*80} className="card president-card-inner" style={{padding:0}}>
+                <div style={{position:"relative", minHeight:300, background:"var(--g100)"}}>
                   <img src={p.photo} alt={`Portrait of ${p.n}`} loading="lazy" decoding="async" style={{position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top"}} />
+                  <div style={{position:"absolute", inset:0, background:"linear-gradient(to top, rgba(31,58,48,.18), transparent 50%)"}}/>
                 </div>
-                <div style={{padding:28, display:"flex", flexDirection:"column", gap:10}}>
-                  <span className="mono" style={{color:"var(--g800)"}}>{p.r}</span>
-                  <h3 style={{fontSize:26}}>{p.n}</h3>
-                  <p style={{color:"var(--ink2)", fontSize:14}}>{p.b}</p>
+                <div style={{padding:"28px 32px", display:"flex", flexDirection:"column", gap:12}}>
+                  <span className="pill sage" style={{alignSelf:"flex-start", fontSize:11}}>{p.r}</span>
+                  <h3 style={{fontSize:24, lineHeight:1.15}}>{p.n}</h3>
+                  <p style={{color:"var(--ink2)", fontSize:14.5, lineHeight:1.72}}>{p.b}</p>
                   {p.li && (
-                    <div style={{display:"flex", gap:8, marginTop:"auto"}}>
+                    <div style={{display:"flex", gap:8, marginTop:4}}>
                       <a href={p.li} target="_blank" rel="noreferrer" className="pill link-underline" style={{display:"inline-flex", gap:8, alignItems:"center"}}><I.link/> LinkedIn</a>
                     </div>
                   )}
@@ -77,17 +78,17 @@ function AboutPage() {
       <section className="section">
         <div className="container">
           <SectionHead eyebrow="Values" title="What we optimize for." align="center"/>
-          <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:40}}>
+          <div className="two-col-grid" style={{marginTop:48, gap:24, alignItems:"start"}}>
             {[
-              ["Credibility","Programs with real outputs — not filler."],
+              ["Credibility","Programs with real outputs - not filler."],
               ["Access","Opportunities that find students, not the other way around."],
               ["Mentorship","Every member gets a human, not a portal."],
               ["Scalability","A system that grows without breaking."],
             ].map(([a,b], i) => (
-              <Reveal key={i} delay={i*60} className="card" style={{padding:28}}>
-                <div className="mono" style={{color:"var(--g800)"}}>0{i+1}</div>
-                <h3 style={{fontSize:20, marginTop:10}}>{a}</h3>
-                <p style={{fontSize:14, color:"var(--ink2)", marginTop:8}}>{b}</p>
+              <Reveal key={i} delay={i*60} className="card" style={{padding:"36px 40px", display:"flex", flexDirection:"column", gap:14, borderLeft:"4px solid var(--g500)"}}>
+                <div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:48, color:"var(--g300)", lineHeight:1}}>0{i+1}</div>
+                <h3 style={{fontSize:21, marginTop:4}}>{a}</h3>
+                <p style={{fontSize:15.5, color:"var(--ink2)", lineHeight:1.7}}>{b}</p>
               </Reveal>
             ))}
           </div>
@@ -102,7 +103,7 @@ function AboutPage() {
               {q:"Is Medicine4Youth a registered organization?", a:"Yes. We are registered as a Canadian not-for-profit with the Canada Revenue Agency (CRA). We are not a charity in the traditional sense and not a U.S. 501(c) nonprofit."},
               {q:"Who can join?", a:"Any high school or post-secondary student interested in medicine, healthcare, or allied health sciences."},
               {q:"Is there a cost to join?", a:"General membership is free. Some paid programs may carry a small fee; sponsor codes typically reduce external costs when available."},
-              {q:"Can I start a chapter?", a:"Yes. Visit the Chapters page to submit interest — we'll send a playbook and schedule an intake call."},
+              {q:"Can I start a chapter?", a:"Yes. Visit the Chapters page to submit interest - we'll send a playbook and schedule an intake call."},
               {q:"How do I apply to SRP?", a:"Applications open seasonally. See the Summer Research Program page for eligibility, timelines, and previous scholar outputs."},
             ]}/>
           </div>
@@ -122,11 +123,11 @@ function ProgramsPage() {
   const shown = filter === "All" ? EVENTS : EVENTS.filter((e) => e.tag === filter);
 
   const programs = [
-    { t:"Summer Research Program (SRP)", d:"Secondary and post-secondary students join mentored research aligned with their interests — critical thinking, scientific inquiry, and real deliverables. The program culminates in a closing symposium and publication pipeline.", tag:"Flagship", to:"/srp" },
+    { t:"Summer Research Program (SRP)", d:"Secondary and post-secondary students join mentored research aligned with their interests - critical thinking, scientific inquiry, and real deliverables. The program culminates in a closing symposium and publication pipeline.", tag:"Flagship", to:"/srp" },
     { t:"Mentorship Program", d:"1:1 mentorship pairings with clinicians, graduate students, and senior mentees, matched to your field and goals.", tag:"Community" },
     { t:"Healthcare Bowl", d:"M4Y's annual case-based competition across student teams. Fast-paced healthcare scenarios, collaborative problem-solving, and near-peer mentorship.", tag:"Programs" },
-    { t:"Healthcare Horizons", d:"An interdisciplinary panel spanning medicine, dentistry, pharmacy, and optometry — education pathways, workforce themes, and candid insight. Past sessions have drawn close to 100 attendees.", tag:"Events" },
-    { t:"Chapter Program", d:"University chapters with shared brand, playbook, and programming support — your local entry point into the M4Y network.", tag:"Leadership", to:"/chapters" },
+    { t:"Healthcare Horizons", d:"An interdisciplinary panel spanning medicine, dentistry, pharmacy, and optometry - education pathways, workforce themes, and candid insight. Past sessions have drawn close to 100 attendees.", tag:"Events" },
+    { t:"Chapter Program", d:"University chapters with shared brand, playbook, and programming support - your local entry point into the M4Y network.", tag:"Leadership", to:"/chapters" },
   ];
 
   return (
@@ -134,27 +135,34 @@ function ProgramsPage() {
       <PageHero
         eyebrow="Programs & Events"
         title="Every M4Y program, on one page."
-        blurb="From mentored research and case competitions to interdisciplinary panels and international outreach — this is the full picture of what Medicine4Youth runs, hosts, and builds."
+        blurb="From mentored research and case competitions to interdisciplinary panels and international outreach - this is the full picture of what Medicine4Youth runs, hosts, and builds."
       />
 
       {/* Program cards */}
       <section className="section">
         <div className="container">
           <SectionHead eyebrow="Core programs" title="What we run year-round."/>
-          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:16, marginTop:32}}>
+          <div className="two-col-grid" style={{marginTop:48, gap:28}}>
             {programs.map((p,i) => (
-              <Reveal key={p.t} delay={i*60} className="card" style={{padding:32, display:"flex", flexDirection:"column", gap:12}}>
-                <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <span className={"pill "+(p.tag==="Flagship"?"deep":"sage")}>{p.tag}</span>
-                  <span className="mono" style={{color:"var(--mute)"}}>Program {String(i+1).padStart(2,"0")}</span>
+              <Reveal key={p.t} delay={i*60} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", height:"100%"}}>
+                {/* Accent bar */}
+                <div style={{height:4, flexShrink:0, background: p.tag==="Flagship" ? "linear-gradient(90deg,var(--g900),var(--g600))" : "linear-gradient(90deg,var(--g500),var(--g300))"}}/>
+                <div style={{padding:"36px 40px", display:"flex", flexDirection:"column", flex:1, position:"relative"}}>
+                  {/* Watermark number */}
+                  <div style={{position:"absolute", right:28, top:20, fontFamily:"var(--f-display)", fontWeight:900, fontSize:80, color:"var(--g50)", lineHeight:1, userSelect:"none", pointerEvents:"none"}}>{String(i+1).padStart(2,"0")}</div>
+                  {/* Tag */}
+                  <span className={"pill "+(p.tag==="Flagship"?"deep":"sage")} style={{alignSelf:"flex-start"}}>{p.tag}</span>
+                  {/* Title */}
+                  <h3 style={{fontSize:22, marginTop:22, lineHeight:1.2}}>{p.t}</h3>
+                  {/* Description - flex:1 fills remaining height so short cards match tall ones */}
+                  <p style={{color:"var(--ink2)", fontSize:15.5, lineHeight:1.75, marginTop:14, flex:1}}>{p.d}</p>
+                  {/* Link */}
+                  {p.to && (
+                    <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:28, display:"inline-flex", gap:6, alignItems:"center", fontWeight:700, fontSize:14}}>
+                      Learn more <I.arrow/>
+                    </Link>
+                  )}
                 </div>
-                <h3 style={{fontSize:22, marginTop:8}}>{p.t}</h3>
-                <p style={{color:"var(--ink2)", fontSize:15}}>{p.d}</p>
-                {p.to && (
-                  <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:8, display:"inline-flex", gap:6, alignItems:"center"}}>
-                    Learn more <I.arrow/>
-                  </Link>
-                )}
               </Reveal>
             ))}
           </div>
@@ -165,34 +173,49 @@ function ProgramsPage() {
       <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
         <div className="container">
           <SectionHead eyebrow="Flagship events" title="Healthcare Bowl and Healthcare Horizons."/>
-          <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:20, marginTop:36}}>
+          <div className="two-col-grid" style={{marginTop:36}}>
             <Reveal className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"linear-gradient(135deg,var(--g50),var(--cream))"}}>
-              <PH label="Student teams collaborating at a Healthcare Bowl event" src={SITE_PHOTOS.eventsFeaturedBowl} aspect="16/9" style={{borderRadius:0}}/>
-              <div style={{padding:32}}>
+              <div style={{flexShrink:0}}>
+                <PH label="Student teams collaborating at a Healthcare Bowl event" src={SITE_PHOTOS.eventsFeaturedBowl} aspect="16/9" style={{borderRadius:0}}/>
+              </div>
+              <div style={{padding:36, flex:1, display:"flex", flexDirection:"column", justifyContent:"center"}}>
                 <span className="pill deep">Programs</span>
-                <h2 style={{marginTop:18}}>Healthcare Bowl</h2>
-                <p style={{color:"var(--ink2)", fontSize:16, marginTop:12, maxWidth:420}}>
-                  M4Y's annual case-based competition. Student teams tackle real-world healthcare scenarios under time pressure — collaborative, mentored, and genuinely competitive.
+                <h2 style={{marginTop:20}}>Healthcare Bowl</h2>
+                <p style={{color:"var(--ink2)", fontSize:16, marginTop:14, maxWidth:420, lineHeight:1.65}}>
+                  M4Y's annual case-based competition. Student teams tackle real-world healthcare scenarios under time pressure - collaborative, mentored, and genuinely competitive.
                 </p>
-                <div style={{display:"flex", gap:18, marginTop:24, flexWrap:"wrap"}}>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>40+</div><div style={{fontSize:12, color:"var(--mute)"}}>Teams</div></div>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>{"Mar '26"}</div><div style={{fontSize:12, color:"var(--mute)"}}>Next edition</div></div>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"var(--g900)"}}>UofT</div><div style={{fontSize:12, color:"var(--mute)"}}>Host</div></div>
+                <div style={{display:"flex", gap:24, marginTop:28, flexWrap:"wrap"}}>
+                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:28, color:"var(--g900)", lineHeight:1}}>40+</div><div style={{fontSize:12.5, color:"var(--mute)", marginTop:5}}>Teams</div></div>
+                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:28, color:"var(--g900)", lineHeight:1}}>{"Mar '26"}</div><div style={{fontSize:12.5, color:"var(--mute)", marginTop:5}}>Next edition</div></div>
+                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:28, color:"var(--g900)", lineHeight:1}}>UofT</div><div style={{fontSize:12.5, color:"var(--mute)", marginTop:5}}>Host</div></div>
                 </div>
               </div>
             </Reveal>
-            <Reveal className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", background:"var(--g900)", color:"#fff", position:"relative"}}>
-              <PH label="Healthcare Horizons interdisciplinary panel" src={SITE_PHOTOS.eventsFeaturedHorizons} aspect="16/9" variant="dark" style={{borderRadius:0, opacity:.92}}/>
-              <div style={{padding:32, position:"relative"}}>
-                <div style={{position:"absolute", right:-40, top:-80, width:200, height:200, borderRadius:"50%", background:"var(--g500)", opacity:.2}}/>
-                <span className="pill sage" style={{background:"rgba(255,255,255,.92)", color:"var(--g900)", borderColor:"transparent"}}>Events</span>
-                <h2 style={{marginTop:18, color:"#fff"}}>Healthcare Horizons</h2>
-                <p style={{color:"#c3d2c7", fontSize:16, marginTop:12, maxWidth:420}}>
-                  An interdisciplinary panel on medicine, dentistry, pharmacy, and optometry — education pathways, workforce themes, and candid experience from practitioners across fields.
-                </p>
-                <div style={{display:"flex", gap:18, marginTop:24, flexWrap:"wrap"}}>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"#fff"}}>Nov 23</div><div style={{fontSize:12, color:"#a8b8ae"}}>Last session</div></div>
-                  <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:26, color:"#fff"}}>~100</div><div style={{fontSize:12, color:"#a8b8ae"}}>Attendees</div></div>
+            <Reveal>
+              <div style={{
+                borderRadius:"var(--r-lg)", overflow:"hidden",
+                boxShadow:"0 2px 8px rgba(0,0,0,.08)",
+                display:"flex", flexDirection:"column", height:"100%",
+                backgroundColor:"#1f3a30",
+                border:"1px solid rgba(255,255,255,.08)",
+                transition:"transform .3s ease, box-shadow .3s ease",
+              }}
+                onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 12px 40px rgba(0,0,0,.22)"}}
+                onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="0 2px 8px rgba(0,0,0,.08)"}}
+              >
+                <div style={{flexShrink:0}}>
+                  <PH label="Healthcare Horizons interdisciplinary panel" src={SITE_PHOTOS.eventsFeaturedHorizons} aspect="16/9" variant="dark" style={{borderRadius:0, opacity:.9}}/>
+                </div>
+                <div style={{padding:36, flex:1, display:"flex", flexDirection:"column", justifyContent:"center", gap:0}}>
+                  <span style={{display:"inline-block", alignSelf:"flex-start", padding:"5px 14px", borderRadius:999, fontSize:12, fontWeight:700, letterSpacing:".04em", backgroundColor:"rgba(255,255,255,.15)", color:"#ffffff", border:"1px solid rgba(255,255,255,.2)"}}>Events</span>
+                  <div style={{marginTop:18, fontFamily:"var(--f-display)", fontWeight:900, fontSize:"clamp(28px,3vw,42px)", lineHeight:1.05, color:"#ffffff", letterSpacing:"-0.02em"}}>Healthcare Horizons</div>
+                  <div style={{color:"#aed4bc", fontSize:16, marginTop:14, lineHeight:1.7}}>
+                    An interdisciplinary panel on medicine, dentistry, pharmacy, and optometry - education pathways, workforce themes, and candid experience from practitioners across fields.
+                  </div>
+                  <div style={{display:"flex", gap:24, marginTop:24, flexWrap:"wrap"}}>
+                    <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:28, color:"#ffffff", lineHeight:1}}>Nov 23</div><div style={{fontSize:12.5, color:"#6a9a80", marginTop:5}}>Last session</div></div>
+                    <div><div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:28, color:"#ffffff", lineHeight:1}}>~100</div><div style={{fontSize:12.5, color:"#6a9a80", marginTop:5}}>Attendees</div></div>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -216,11 +239,11 @@ function ProgramsPage() {
             {shown.map((e,i) => (
               <Reveal key={e.t+e.date} delay={i*50} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", maxWidth:340, width:"100%"}}>
                 <PH label={e.t} src={e.photo} aspect="4/3" variant={i%3===0?"dark":i%3===1?"sage":""}/>
-                <div style={{padding:18, display:"flex", flexDirection:"column", gap:8, flex:1}}>
+                <div style={{padding:"20px 22px", display:"flex", flexDirection:"column", gap:10, flex:1}}>
                   <span className={"pill "+(e.tag==="Coming Soon"||e.date==="Coming Soon"?"deep":"sage")}>{e.tag}</span>
-                  <h3 style={{fontSize:17, lineHeight:1.2}}>{e.t}</h3>
-                  <p style={{fontSize:13, color:"var(--ink2)", lineHeight:1.5}}>{e.blurb}</p>
-                  <div style={{marginTop:"auto", display:"flex", gap:14, fontSize:12, color:"var(--mute)", paddingTop:14, borderTop:"1px solid var(--line)", flexWrap:"wrap"}}>
+                  <h3 style={{fontSize:18, lineHeight:1.25, marginTop:2}}>{e.t}</h3>
+                  <p style={{fontSize:13.5, color:"var(--ink2)", lineHeight:1.6}}>{e.blurb}</p>
+                  <div style={{marginTop:"auto", display:"flex", gap:14, fontSize:12.5, color:"var(--mute)", paddingTop:14, borderTop:"1px solid var(--line)", flexWrap:"wrap"}}>
                     <span style={{display:"flex", gap:6, alignItems:"center"}}><I.cal/>{e.date}</span>
                     <span style={{display:"flex", gap:6, alignItems:"center"}}><I.pin/>{e.loc}</span>
                   </div>
@@ -231,7 +254,7 @@ function ProgramsPage() {
         </div>
       </section>
 
-      {/* Philippines Tutoring — dedicated section */}
+      {/* Philippines Tutoring - dedicated section */}
       <PhilippinesSection/>
 
       {/* Partners */}
@@ -253,7 +276,7 @@ function ProgramsPage() {
       )}
 
       {/* Summary CTA */}
-      <CTABand title="Find your program." sub="Whether you're joining SRP, starting a chapter, or attending Healthcare Bowl — your path starts here."/>
+      <CTABand title="Find your program." sub="Whether you're joining SRP, starting a chapter, or attending Healthcare Bowl - your path starts here."/>
     </>
   );
 }
@@ -262,7 +285,7 @@ function PhilippinesSection() {
   return (
     <section className="section philippines-section">
       <div className="container" style={{position:"relative", zIndex:1}}>
-        <div style={{display:"grid", gridTemplateColumns:"1fr 1.2fr", gap:64, alignItems:"center"}}>
+        <div className="chapters-start-grid" style={{gap:56}}>
           <div className="stack" style={{gap:22}}>
             <div style={{display:"inline-flex", alignItems:"center", gap:10, padding:"8px 14px", borderRadius:999, background:"rgba(135,183,131,.18)", border:"1px solid rgba(135,183,131,.3)", width:"fit-content"}}>
               <I.globe style={{color:"#a8dba0"}}/>
@@ -273,7 +296,7 @@ function PhilippinesSection() {
               In partnership with <strong style={{color:"rgba(255,255,255,.92)"}}>Solander PH</strong>, a local non-profit, Medicine4Youth volunteers provide academic support and mentorship to children in care organizations and orphanages across the Philippines.
             </p>
             <p style={{fontSize:16, color:"rgba(255,255,255,.58)", lineHeight:1.6}}>
-              Sessions span core subjects and study skills — delivered by trained M4Y volunteers who connect with students remotely. The program reflects our belief that mentorship isn't bound by borders.
+              Sessions span core subjects and study skills - delivered by trained M4Y volunteers who connect with students remotely. The program reflects our belief that mentorship isn't bound by borders.
             </p>
             <div style={{display:"flex", gap:12, flexWrap:"wrap", marginTop:8}}>
               <Link to="/join" className="btn btn-primary" style={{background:"rgba(255,255,255,.12)", borderColor:"rgba(255,255,255,.25)", color:"#fff"}}>Get Involved <I.arrow className="arr"/></Link>
@@ -281,9 +304,9 @@ function PhilippinesSection() {
             </div>
           </div>
           <div className="stack" style={{gap:16}}>
-            <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:14}}>
+            <div className="grid two-col-grid-sm" style={{gap:14}}>
               {[
-                ["Partner","Solander PH — a Philippines-based not-for-profit"],
+                ["Partner","Solander PH - a Philippines-based not-for-profit"],
                 ["Scope","Children in care organizations and orphanages"],
                 ["Format","Remote tutoring and mentorship sessions"],
                 ["Focus","Academic support, study skills, and encouragement"],
@@ -297,9 +320,9 @@ function PhilippinesSection() {
             <div style={{padding:"22px 24px", borderRadius:"var(--r-lg)", background:"rgba(255,255,255,.05)", border:"1px solid rgba(255,255,255,.1)"}}>
               <div style={{fontFamily:"var(--f-display)", fontSize:56, lineHeight:.65, color:"rgba(135,183,131,.4)", marginBottom:16}}>"</div>
               <p style={{fontSize:15, color:"rgba(255,255,255,.7)", lineHeight:1.55, fontStyle:"italic"}}>
-                Mentorship should reach the students who need it most — not just those who already have access.
+                Mentorship should reach the students who need it most - not just those who already have access.
               </p>
-              <div style={{marginTop:14, fontSize:12, color:"rgba(255,255,255,.38)", fontFamily:"var(--f-mono)", letterSpacing:".06em", textTransform:"uppercase"}}>Medicine4Youth — Program Mandate</div>
+              <div style={{marginTop:14, fontSize:12, color:"rgba(255,255,255,.38)", fontFamily:"var(--f-mono)", letterSpacing:".06em", textTransform:"uppercase"}}>Medicine4Youth - Program Mandate</div>
             </div>
           </div>
         </div>
@@ -314,34 +337,42 @@ function PhilippinesSection() {
 function BranchesPage() {
   return (
     <>
-      <PageHero eyebrow="Specialty branches" title="Ten sub-organizations. One scalable brand." blurb="Each branch operates independently with its own mentorship threads, events, and research output — connected through shared infrastructure and a common mission."/>
+      <PageHero eyebrow="Specialty branches" title="Nine sub-organizations. One scalable brand." blurb="Each branch operates independently with its own mentorship threads, events, and research output - connected through shared infrastructure and a common mission."/>
       <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:20}}>
+        <div className="three-col-grid container">
           {BRANCHES.map((b, i) => (
             <Reveal key={b.slug} delay={i*50}>
-              <Link to={"/branches/"+b.slug} className="card" data-branch={b.slug} style={{display:"grid", gridTemplateColumns:"1fr 1.3fr", padding:0, overflow:"hidden", minHeight:260}}>
-                <div style={{
-                  padding:"18px 16px 22px",
-                  background:b.panelBg||"var(--accent)",
-                  display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"stretch", textAlign:"center", gap:14,
-                  color:"#fff", textShadow:"0 1px 2px rgba(0,0,0,.22)",
-                }}>
-                  <div style={{flex:"1 1 auto", display:"flex", alignItems:"center", justifyContent:"center", minHeight:0, width:"100%", padding:0}}>
-                    <BranchMark branch={b} size={280} circle fill style={{maxWidth:"100%"}}/>
-                  </div>
-                  <div>
-                    <div className="mono" style={{color:"rgba(255,255,255,.88)", textShadow:"none"}}>M4Y Branch</div>
-                    <h3 style={{fontSize:22, marginTop:6, color:"#fff", textShadow:"0 1px 3px rgba(0,0,0,.25)"}}>{b.name}</h3>
-                  </div>
-                </div>
-                <div style={{padding:28, display:"flex", flexDirection:"column", gap:12}}>
-                  <p style={{color:"var(--ink2)", fontSize:15}}>{b.tagline}</p>
-                  <div style={{marginTop:"auto", display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:12, borderTop:"1px solid var(--line)"}}>
-                    <span style={{fontSize:12, color:"var(--mute)"}}>{b.past.length} past · {b.future.length} upcoming</span>
-                    <I.arrow/>
-                  </div>
-                </div>
-              </Link>
+              {(() => {
+                const inner = (
+                  <>
+                    <div style={{
+                      padding:"32px 28px 26px",
+                      background:b.panelBg||"var(--g800)",
+                      position:"relative", overflow:"hidden",
+                    }}>
+                      <div style={{position:"absolute",right:-20,top:-20,width:120,height:120,borderRadius:"50%",background:"rgba(255,255,255,.07)",pointerEvents:"none"}}/>
+                      <div style={{position:"absolute",right:10,bottom:-38,width:90,height:90,borderRadius:"50%",background:"rgba(255,255,255,.05)",pointerEvents:"none"}}/>
+                      <div style={{position:"relative"}}>
+                        <BranchMark branch={b} size={52} circle style={{boxShadow:"0 4px 16px rgba(0,0,0,.28)"}}/>
+                        <div className="mono" style={{color:"rgba(255,255,255,.55)",marginTop:18,fontSize:9.5,letterSpacing:".12em"}}>M4Y Branch</div>
+                        <h3 style={{fontSize:21,marginTop:6,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.25)",lineHeight:1.15}}>{b.name}</h3>
+                      </div>
+                    </div>
+                    <div style={{padding:"22px 28px",flex:1,display:"flex",flexDirection:"column",gap:12}}>
+                      <p style={{color:"var(--ink2)",fontSize:14,lineHeight:1.68}}>{b.tagline}</p>
+                      <div style={{marginTop:"auto",display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:14,borderTop:"1px solid var(--line)"}}>
+                        <span style={{fontSize:11.5,color:"var(--mute)"}}>{b.past.length} past · {b.future.length} upcoming</span>
+                        <div style={{display:"flex",alignItems:"center",gap:4,fontSize:13,fontWeight:700,color:"var(--g800)"}}>Explore <I.arrow style={{width:15,height:15}}/></div>
+                      </div>
+                    </div>
+                  </>
+                );
+                const cls = "card";
+                const sty = {display:"flex", flexDirection:"column", padding:0, overflow:"hidden"};
+                return b.externalUrl
+                  ? <a key={b.slug} href={b.externalUrl} target="_blank" rel="noreferrer" className={cls} data-branch={b.slug} style={sty}>{inner}</a>
+                  : <Link key={b.slug} to={"/branches/"+b.slug} className={cls} data-branch={b.slug} style={sty}>{inner}</Link>;
+              })()}
             </Reveal>
           ))}
         </div>
@@ -369,7 +400,7 @@ function PaperBooklet() {
   return (
     <div className="booklet-shell">
       <div className="booklet-wrapper">
-        {/* Left page — table of contents */}
+        {/* Left page - table of contents */}
         <div className="booklet-left">
           <div>
             <span className="eyebrow" style={{fontSize:9.5}}>SRP Publication Archive</span>
@@ -394,7 +425,7 @@ function PaperBooklet() {
           </div>
         </div>
 
-        {/* Right page — paper detail */}
+        {/* Right page - paper detail */}
         <div className={"booklet-right"+(turning?" page-turn-anim":"")}>
           <div>
             <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12}}>
@@ -454,22 +485,40 @@ function SRPPage() {
         }
       />
 
-      <section className="section">
+      <section style={{background:"var(--g900)", paddingBlock:"clamp(48px,6vw,72px)"}}>
         <div className="container">
-          <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:1, background:"var(--line)", borderRadius:"var(--r-lg)", overflow:"hidden", border:"1px solid var(--line)"}}>
+          <div style={{display:"grid", gridTemplateColumns:"repeat(4,1fr)"}}>
             {[
-              [62,"+","Scholars across cohorts"],
-              [40,"+","Final posters"],
-              [12,"","Weeks · structured program"],
-              [15,"+","Mentor labs"],
-            ].map(([n,s,l],i) => (
-              <Reveal key={i} delay={i*60} className="stack" style={{padding:"36px 28px", background:"var(--paper)", gap:6}}>
-                <div style={{fontFamily:"var(--f-display)", fontSize:"clamp(36px,4.5vw,56px)", fontWeight:900, color:"var(--g900)", lineHeight:1}}>
-                  <Counter to={n}/>{s}
-                </div>
-                <div style={{color:"var(--mute)", fontSize:13}}>{l}</div>
-              </Reveal>
-            ))}
+              {n:62, s:"+", l:"Scholars",      sub:"Across cohorts",        icon:"flask"},
+              {n:40, s:"+", l:"Final posters", sub:"Submitted per cohort",  icon:"book"},
+              {n:12, s:"",  l:"Weeks",          sub:"Structured program",    icon:"cal"},
+              {n:15, s:"+", l:"Mentor labs",   sub:"Partner institutions",  icon:"pin"},
+            ].map(({n,s,l,sub,icon},i) => {
+              const Ic = I[icon];
+              return (
+                <Reveal key={i} delay={i*60}>
+                  <div style={{
+                    padding:"clamp(28px,3.5vw,44px) clamp(20px,2.5vw,32px)",
+                    borderRight: i<3 ? "1px solid rgba(255,255,255,.1)" : "none",
+                    display:"flex", flexDirection:"column", gap:18,
+                  }}>
+                    <div style={{
+                      width:44, height:44, borderRadius:12, flexShrink:0,
+                      background:"rgba(255,255,255,.08)", border:"1px solid rgba(255,255,255,.14)",
+                      display:"flex", alignItems:"center", justifyContent:"center",
+                      color:"var(--g300)",
+                    }}><Ic/></div>
+                    <div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:"clamp(38px,4.5vw,58px)", color:"#ffffff", lineHeight:1, letterSpacing:"-.02em"}}>
+                      <Counter to={n}/>{s}
+                    </div>
+                    <div>
+                      <div style={{fontWeight:700, fontSize:15, color:"rgba(255,255,255,.92)", lineHeight:1.2}}>{l}</div>
+                      <div style={{fontSize:13, color:"#c3d2c7", marginTop:5, lineHeight:1.5}}>{sub}</div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -477,17 +526,53 @@ function SRPPage() {
       <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
         <div className="container">
           <SectionHead eyebrow="How it works" title="Twelve weeks, four milestones."/>
-          <div className="grid" style={{gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:40}}>
+
+          <div className="four-col-grid" style={{marginTop:48, alignItems:"stretch"}}>
             {[
-              ["Weeks 1–3","Onboarding","Matching, literature review, and methods foundations."],
-              ["Weeks 4–6","Research core","Guided data collection, analysis, and mentor checkpoints."],
-              ["Weeks 7–9","Drafting","Poster and manuscript drafts with structured feedback."],
-              ["Weeks 10–12","Symposium","Final showcase and the M4Y publication pipeline."],
-            ].map(([w,t,d],i) => (
-              <Reveal key={i} delay={i*70} className="card" style={{padding:28}}>
-                <div className="mono" style={{color:"var(--g800)"}}>{w}</div>
-                <h3 style={{fontSize:20, marginTop:10}}>{t}</h3>
-                <p style={{fontSize:14, color:"var(--ink2)", marginTop:8}}>{d}</p>
+              {w:"Weeks 1–3",  t:"Onboarding",    d:"Matching, literature review, and methods foundations.",                    accent:"var(--g900)", badge:"var(--g900)"},
+              {w:"Weeks 4–6",  t:"Research core",  d:"Guided data collection, analysis, and mentor checkpoints.",               accent:"var(--g600)", badge:"var(--g600)"},
+              {w:"Weeks 7–9",  t:"Drafting",       d:"Poster and manuscript drafts with structured feedback.",                   accent:"var(--g500)", badge:"var(--g500)"},
+              {w:"Weeks 10–12",t:"Symposium",      d:"Final showcase and the M4Y publication pipeline.",                        accent:"var(--g300)", badge:"var(--g300)"},
+            ].map(({w,t,d,accent,badge},i) => (
+              <Reveal key={i} delay={i*70}>
+                <div style={{
+                  height:"100%", display:"flex", flexDirection:"column",
+                  borderRadius:"var(--r-lg)", overflow:"hidden",
+                  border:"1px solid var(--line)",
+                  boxShadow:"var(--sh-1)",
+                  background:"#fff",
+                  transition:"transform .25s, box-shadow .25s",
+                }}
+                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="var(--sh-2)"}}
+                  onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="var(--sh-1)"}}
+                >
+                  {/* Accent top bar */}
+                  <div style={{height:4, background:accent, flexShrink:0}}/>
+
+                  <div style={{padding:"28px 26px", display:"flex", flexDirection:"column", flex:1}}>
+                    {/* Week label + step badge row */}
+                    <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:20}}>
+                      <span style={{
+                        fontFamily:"var(--f-mono)", fontSize:11, fontWeight:700,
+                        letterSpacing:".08em", textTransform:"uppercase",
+                        padding:"4px 10px", borderRadius:999,
+                        background:"var(--g50)", border:"1px solid var(--line)",
+                        color:"var(--g600)",
+                      }}>{w}</span>
+                      <div style={{
+                        width:40, height:40, borderRadius:"50%",
+                        background:badge,
+                        display:"flex", alignItems:"center", justifyContent:"center",
+                        flexShrink:0,
+                      }}>
+                        <span style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:16, color:"#fff", lineHeight:1}}>0{i+1}</span>
+                      </div>
+                    </div>
+
+                    <h3 style={{fontSize:20, lineHeight:1.2, color:"var(--g900)"}}>{t}</h3>
+                    <p style={{fontSize:14.5, color:"var(--ink2)", marginTop:10, lineHeight:1.68, flex:1}}>{d}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -504,7 +589,6 @@ function SRPPage() {
         </div>
       </section>
 
-      <CTABand title="Apply to SRP 2026" sub="Applications open seasonally. Check eligibility and timelines on our intake forms." primary={["Start Application","/join"]} secondary={["Read FAQ","/about"]}/>
     </>
   );
 }
@@ -522,32 +606,61 @@ function SponsorsPage() {
       />
       <section className="section">
         <div className="container">
-          <div className="grid" style={{gridTemplateColumns:"repeat(2,1fr)", gap:16}}>
+          <div className="two-col-grid" style={{alignItems:"start", gap:24}}>
             {SPONSORS.map((s,i) => (
-              <Reveal key={s.name} delay={i*40} className="card" style={{padding:28}}>
-                <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:20}}>
-                  <div style={{flex:1}}>
-                    <div className="mono" style={{color:"var(--g800)"}}>{s.category}</div>
-                    <h3 style={{fontSize:24, marginTop:8}}>{s.name}</h3>
-                    <p style={{color:"var(--ink2)", fontSize:15, marginTop:10}}>{s.benefit}</p>
+              <Reveal key={s.name} delay={i*40}>
+                <div style={{
+                  borderRadius:"var(--r-lg)", overflow:"hidden",
+                  border:"1px solid var(--line)", background:"#fff",
+                  boxShadow:"var(--sh-1)",
+                  display:"flex", flexDirection:"column",
+                  transition:"transform .25s, box-shadow .25s",
+                }}
+                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="var(--sh-2)"}}
+                  onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="var(--sh-1)"}}
+                >
+                  {/* Accent top bar */}
+                  <div style={{height:4, background:"linear-gradient(90deg,var(--g900),var(--g500))"}}/>
+
+                  {/* Card header: logo + category */}
+                  <div style={{padding:"22px 28px", borderBottom:"1px solid var(--line)", display:"flex", justifyContent:"space-between", alignItems:"center", gap:16}}>
+                    <div style={{
+                      height:52, minWidth:96, maxWidth:120, flexShrink:0,
+                      background:"var(--g50)", borderRadius:10, border:"1px solid var(--line)",
+                      display:"flex", alignItems:"center", justifyContent:"center",
+                      padding:"8px 14px",
+                    }}>
+                      {s.logo ? (
+                        <img src={s.logo} alt={`${s.name} logo`} loading="lazy" decoding="async" style={{maxWidth:88, maxHeight:36, width:"auto", height:"auto", objectFit:"contain"}}/>
+                      ) : (
+                        <span style={{fontWeight:800, fontSize:18, color:"var(--g600)"}}>{s.name.charAt(0)}</span>
+                      )}
+                    </div>
+                    <span className="pill sage" style={{fontSize:11}}>{s.category}</span>
                   </div>
-                  <div style={{width:112, minWidth:112, flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:14, border:"1px solid var(--line)", padding:"10px 12px", minHeight:88}}>
-                    {s.logo ? (
-                      <img src={s.logo} alt={`${s.name} logo`} loading="lazy" decoding="async" style={{maxWidth:"100%", maxHeight:68, width:"auto", height:"auto", objectFit:"contain"}}/>
+
+                  {/* Body */}
+                  <div style={{padding:"24px 28px", display:"flex", flexDirection:"column", flex:1, gap:14}}>
+                    <h3 style={{fontSize:20, color:"var(--g900)", lineHeight:1.2, margin:0}}>{s.name}</h3>
+                    <p style={{color:"var(--ink2)", fontSize:14.5, lineHeight:1.72, flex:1, margin:0}}>{s.benefit}</p>
+
+                    {/* Member code or partner badge */}
+                    {s.code ? (
+                      <div style={{marginTop:6, padding:"15px 20px", borderRadius:12, background:"var(--g50)", border:"1px dashed var(--g300)", display:"flex", justifyContent:"space-between", alignItems:"center", gap:12}}>
+                        <div>
+                          <div style={{fontSize:11, color:"var(--mute)", letterSpacing:".08em", textTransform:"uppercase", fontWeight:700}}>Member code</div>
+                          <div style={{fontFamily:"var(--f-mono)", fontWeight:700, fontSize:16, color:"var(--g900)", marginTop:4}}>{s.code}</div>
+                        </div>
+                        <button type="button" className="btn btn-sm btn-ghost" onClick={()=>navigator.clipboard?.writeText(s.code)}>Copy</button>
+                      </div>
                     ) : (
-                      <PH label={`${s.name} logo`} aspect="1/1" style={{width:72, borderRadius:10}}/>
+                      <div style={{marginTop:6, padding:"13px 18px", borderRadius:12, background:"rgba(31,58,48,.04)", border:"1px solid var(--line)", display:"flex", alignItems:"center", gap:10}}>
+                        <I.check style={{width:15, height:15, color:"var(--g600)", flexShrink:0}}/>
+                        <span style={{fontSize:13, color:"var(--ink2)", fontWeight:500}}>No code required - benefit is automatic</span>
+                      </div>
                     )}
                   </div>
                 </div>
-                {s.code && (
-                  <div style={{marginTop:20, padding:"14px 18px", borderRadius:12, background:"var(--g50)", border:"1px dashed var(--g300)", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                    <div>
-                      <div style={{fontSize:11, color:"var(--mute)", letterSpacing:".08em", textTransform:"uppercase"}}>Member code</div>
-                      <div style={{fontFamily:"var(--f-mono)", fontWeight:700, fontSize:16, color:"var(--g900)", marginTop:2}}>{s.code}</div>
-                    </div>
-                    <button type="button" className="btn btn-sm btn-ghost" onClick={()=>navigator.clipboard?.writeText(s.code)}>Copy</button>
-                  </div>
-                )}
               </Reveal>
             ))}
           </div>
@@ -555,7 +668,7 @@ function SponsorsPage() {
       </section>
 
       <section className="section" style={{background:"var(--g900)", color:"#fff"}}>
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1.3fr 1fr", gap:48, alignItems:"center"}}>
+        <div className="chapters-start-grid container">
           <div>
             <span className="eyebrow" style={{color:"var(--g300)"}}>Become a partner</span>
             <h2 style={{color:"#fff", marginTop:12}}>Reach a national community of pre-health students.</h2>
@@ -581,7 +694,7 @@ function SponsorsPage() {
 }
 
 /* ============================================================
-   CHAPTERS PAGE — Interactive Map
+   CHAPTERS PAGE - Interactive Map
    ============================================================ */
 
 /*
@@ -721,61 +834,117 @@ function ChaptersPage() {
     <>
       <PageHero eyebrow="Chapters" title="M4Y on campuses across Canada." blurb="Our university chapter network spans institutions from coast to coast. Each chapter runs local mentorship, events, and programming under the M4Y umbrella."/>
 
-      <section className="section" style={{paddingTop:48}}>
+      <section className="section">
         <div className="container">
-          <div style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"flex-end", gap:24, marginBottom:32}}>
+          {/* Header row */}
+          <div style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"flex-end", gap:32, marginBottom:48}}>
             <div>
-              <div className="mono" style={{color:"var(--g800)"}}>Active network</div>
-              <h2 style={{fontSize:"clamp(26px,3vw,34px)", marginTop:8, marginBottom:0}}>{CHAPTERS.length} chapters</h2>
-              <p style={{fontSize:15, color:"var(--ink2)", marginTop:10, maxWidth:520, marginBottom:0}}>
-                Post-secondary chapters run local events, fundraisers, and workshops under the Medicine4Youth umbrella.
+              <span className="eyebrow">Active network</span>
+              <h2 style={{fontSize:"clamp(28px,3.5vw,42px)", marginTop:12, marginBottom:0}}>{CHAPTERS.length} chapters across Canada</h2>
+              <p style={{fontSize:16, color:"var(--ink2)", marginTop:14, maxWidth:560, marginBottom:0, lineHeight:1.7}}>
+                Post-secondary chapters run local mentorship, events, and workshops under the Medicine4Youth umbrella - find yours on the map below.
               </p>
             </div>
-            <Link to="/join" className="btn btn-primary">Start a chapter <I.arrow className="arr"/></Link>
+            <Link to="/join" className="btn btn-primary btn-lg">Start a chapter <I.arrow className="arr"/></Link>
           </div>
 
           {/* Interactive map */}
           <ChaptersMap/>
 
           {/* CTA card */}
-          <Reveal delay={100} className="card" style={{
-            marginTop:36, padding:"28px 32px",
-            background:"linear-gradient(135deg,var(--g50),#fff)",
-            border:"1px solid var(--line)",
-            display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"space-between", gap:20,
-          }}>
-            <div style={{maxWidth:520}}>
-              <h3 style={{margin:0, fontSize:20, color:"var(--g900)"}}>Branches &amp; national programs</h3>
-              <p style={{fontSize:14, color:"var(--ink2)", marginTop:10, marginBottom:0, lineHeight:1.55}}>
-                Chapters are campus-based; specialty branches (Neuro, Surgery, Charity4Youth, and more) run cross-Canada programming. Explore both to find your fit.
-              </p>
-            </div>
-            <div style={{display:"flex", gap:10, flexWrap:"wrap"}}>
-              <Link to="/branches" className="btn btn-primary">Explore branches <I.arrow className="arr"/></Link>
-              <Link to="/programs" className="btn btn-ghost">Programs</Link>
+          <Reveal delay={100} style={{marginTop:48}}>
+            <div style={{
+              borderRadius:"var(--r-lg)", overflow:"hidden",
+              background:"var(--g900)",
+              boxShadow:"0 4px 28px rgba(0,0,0,.18)",
+            }}>
+              <div style={{height:4, background:"linear-gradient(90deg,var(--g500),var(--g300))"}}/>
+              <div style={{
+                padding:"clamp(28px,4vw,48px)",
+                display:"flex", flexWrap:"wrap", alignItems:"flex-start",
+                justifyContent:"space-between", gap:36,
+                position:"relative", overflow:"hidden",
+              }}>
+                <svg style={{position:"absolute",right:-20,top:-80,opacity:.06,pointerEvents:"none"}} width="340" height="340" viewBox="0 0 340 340">
+                  {[50,100,155,210].map(r => <circle key={r} cx="340" cy="0" r={r} fill="none" stroke="#fff" strokeWidth="1.5"/>)}
+                </svg>
+                <div style={{flex:1, minWidth:260, position:"relative", zIndex:1}}>
+                  <span style={{display:"inline-block", fontSize:11, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:"var(--g300)", marginBottom:12}}>National ecosystem</span>
+                  <h3 style={{fontSize:"clamp(20px,2.5vw,26px)", fontWeight:800, color:"#ffffff", lineHeight:1.15, margin:"0 0 14px"}}>Branches &amp; national programs</h3>
+                  <p style={{fontSize:15.5, color:"#c3d2c7", lineHeight:1.72, maxWidth:520, margin:"0 0 22px"}}>
+                    Chapters are campus-based. Specialty branches run cross-Canada programming independent of any single university. Explore both to find your fit.
+                  </p>
+                  <div style={{display:"flex", gap:8, flexWrap:"wrap"}}>
+                    {["Neuro","Surgery","Charity4Youth","Pharmacy4Youth","Dentistry4Youth"].map(name => (
+                      <span key={name} style={{fontSize:12, fontWeight:600, padding:"5px 14px", borderRadius:999, background:"rgba(255,255,255,.1)", border:"1px solid rgba(255,255,255,.2)", color:"#e8f3ee"}}>
+                        {name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div style={{display:"flex", flexDirection:"column", gap:12, position:"relative", zIndex:1, flexShrink:0, minWidth:180}}>
+                  <Link to="/branches" className="btn btn-primary" style={{justifyContent:"center"}}>Explore branches <I.arrow className="arr"/></Link>
+                  <Link to="/programs" className="btn btn-ghost" style={{color:"#e8f3ee", borderColor:"rgba(255,255,255,.25)", justifyContent:"center"}}>Programs</Link>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section" style={{background:"var(--g100)"}}>
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1fr 1.3fr", gap:48, alignItems:"center"}}>
-          <SectionHead eyebrow="Start a chapter" title="We send the playbook. You bring the students."/>
-          <div className="stack" style={{gap:14}}>
+      <section className="section" style={{background:"var(--g50)", borderTop:"1px solid var(--line)"}}>
+        <div className="chapters-start-grid container">
+          <Reveal>
+            <SectionHead eyebrow="Start a chapter" title="We send the playbook. You bring the students."/>
+          </Reveal>
+          <div className="stack" style={{gap:0}}>
             {[
-              ["01","Submit interest","Tell us about your school, team, and why now."],
-              ["02","Intake call","30-min call with central team + brand kit + playbook."],
-              ["03","Launch","Go live with your first event within 60 days."],
-            ].map(([n,t,d],i) => (
-              <div key={i} className="card" style={{padding:22, display:"grid", gridTemplateColumns:"56px 1fr", gap:20, alignItems:"center"}}>
-                <div style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:32, color:"var(--g500)"}}>{n}</div>
-                <div>
-                  <div style={{fontWeight:800, color:"var(--g900)"}}>{t}</div>
-                  <div style={{fontSize:14, color:"var(--ink2)"}}>{d}</div>
-                </div>
-              </div>
-            ))}
-            <Link to="/join" className="btn btn-primary" style={{marginTop:12, alignSelf:"flex-start"}}>Submit Chapter Interest <I.arrow className="arr"/></Link>
+              {n:"01", t:"Submit interest",  d:"Tell us about your school, team, and why now.", icon:"spark"},
+              {n:"02", t:"Intake call",       d:"30-min call with the central team. We hand over the brand kit and playbook.", icon:"cal"},
+              {n:"03", t:"Launch",            d:"Go live with your first event within 60 days of intake.", icon:"pin"},
+            ].map(({n,t,d,icon}, i, arr) => {
+              const Ic = I[icon];
+              const isLast = i === arr.length - 1;
+              const circleBg = i===0 ? "var(--g900)" : i===1 ? "var(--g600)" : "var(--g500)";
+              return (
+                <Reveal key={i} delay={i*80}>
+                  <div style={{position:"relative", paddingBottom: isLast ? 0 : 20}}>
+                    {!isLast && (
+                      <div style={{
+                        position:"absolute", left:27, top:58, width:2, bottom:0,
+                        background:"linear-gradient(to bottom,var(--g500),var(--line))",
+                        zIndex:0,
+                      }}/>
+                    )}
+                    <div style={{display:"flex", gap:20, alignItems:"flex-start", position:"relative", zIndex:1}}>
+                      <div style={{
+                        width:56, height:56, borderRadius:"50%", flexShrink:0,
+                        background:circleBg,
+                        display:"flex", alignItems:"center", justifyContent:"center",
+                        boxShadow:"0 2px 10px rgba(0,0,0,.12)",
+                        border:"3px solid var(--g50)",
+                      }}>
+                        <span style={{fontFamily:"var(--f-display)", fontWeight:900, fontSize:16, color:"#ffffff", lineHeight:1}}>{n}</span>
+                      </div>
+                      <div style={{
+                        flex:1, padding:"20px 26px", borderRadius:"var(--r-lg)",
+                        background:"#ffffff", border:"1px solid var(--line)",
+                        boxShadow:"0 1px 6px rgba(0,0,0,.05)",
+                      }}>
+                        <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:12}}>
+                          <div style={{fontWeight:800, color:"var(--g900)", fontSize:17, lineHeight:1.2}}>{t}</div>
+                          <div style={{width:36, height:36, borderRadius:10, background:"var(--g50)", display:"flex", alignItems:"center", justifyContent:"center", color:"var(--g600)", flexShrink:0, border:"1px solid var(--line)"}}>
+                            <Ic style={{width:16, height:16}}/>
+                          </div>
+                        </div>
+                        <div style={{fontSize:15, color:"var(--ink2)", marginTop:8, lineHeight:1.65}}>{d}</div>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+            <Link to="/join" className="btn btn-primary" style={{marginTop:28, alignSelf:"flex-start"}}>Submit Chapter Interest <I.arrow className="arr"/></Link>
           </div>
         </div>
       </section>
@@ -818,13 +987,13 @@ function ContactPage() {
     <>
       <PageHero eyebrow="Join · Contact" title="Let's build something together." blurb="Become a general member, apply to the team, or get in touch. We move fast."/>
       <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"1.2fr 1fr", gap:48, alignItems:"start"}}>
+        <div className="contact-layout container">
           <div className="card" style={{padding:40}}>
             {submitted ? (
               <div style={{textAlign:"center", padding:"40px 0"}}>
                 <div style={{width:64, height:64, borderRadius:"50%", background:"var(--g100)", display:"grid", placeItems:"center", color:"var(--g800)", margin:"0 auto 20px"}}><I.check/></div>
                 <h2 style={{fontSize:28}}>You're in.</h2>
-                <p style={{color:"var(--ink2)", marginTop:12}}>Your details were downloaded as a CSV — our team will add you to the intake sheet shortly. Welcome to M4Y.</p>
+                <p style={{color:"var(--ink2)", marginTop:12}}>Your details were downloaded as a CSV - our team will add you to the intake sheet shortly. Welcome to M4Y.</p>
                 <button type="button" className="btn btn-ghost" style={{marginTop:24}} onClick={()=>setSubmitted(false)}>Submit another</button>
               </div>
             ) : (
@@ -832,7 +1001,7 @@ function ContactPage() {
                 <span className="eyebrow">General Membership</span>
                 <h2 style={{marginTop:12, fontSize:32}}>Become a member.</h2>
                 <p style={{color:"var(--ink2)", marginTop:10}}>Fill out the form. We'll add you to our newsletter, send sponsor codes, and invite you to member events.</p>
-                <div className="grid" style={{gridTemplateColumns:"1fr 1fr", gap:14, marginTop:28}}>
+                <div className="two-col-grid-sm" style={{marginTop:28}}>
                   <div className="field">
                     <label>First name</label>
                     <input required placeholder="First name" value={form.first} onChange={e=>setForm(f=>({...f,first:e.target.value}))}/>
@@ -918,7 +1087,7 @@ function ResourcesPage() {
     <>
       <PageHero eyebrow="Resources" title="Everything students need, in one hub." blurb="Guides, past papers, slide decks, and toolkits curated by the M4Y team and chapter leads."/>
       <section className="section">
-        <div className="container" style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16}}>
+        <div className="container three-col-grid" style={{gap:16}}>
           {[
             { t:"Pre-Med Application Guide", tag:"Guide" },
             { t:"Research Methods Primer", tag:"Guide" },
@@ -926,7 +1095,7 @@ function ResourcesPage() {
             { t:"Interview Prep: MMI", tag:"Guide" },
             { t:"Branch Brand Kit", tag:"Chapter Kit" },
             { t:"Event Planning Playbook", tag:"Chapter Kit" },
-            { t:"Neuroscience4Youth Reading List", tag:"Reading List" },
+            { t:"NeuroPsych4Youth Reading List", tag:"Reading List" },
             { t:"Chapter Social Media Toolkit", tag:"Chapter Kit" },
             { t:"Sponsor Perks One-Pager", tag:"Member" },
           ].map((r,i) => (

@@ -16,7 +16,13 @@ function App() {
   else if (route === "/branches") page = <BranchesPage/>;
   else if (route.startsWith("/branches/")) {
     const slug = route.split("/")[2];
-    page = <BranchPage slug={slug}/>;
+    const branch = BRANCHES.find(b => b.slug === slug);
+    if (branch && branch.externalUrl) {
+      window.location.replace(branch.externalUrl);
+      page = null;
+    } else {
+      page = <BranchPage slug={slug}/>;
+    }
   }
   else if (route === "/events") page = <ProgramsPage/>;
   else if (route === "/srp" || route === "/ssrp") page = <SRPPage/>;
