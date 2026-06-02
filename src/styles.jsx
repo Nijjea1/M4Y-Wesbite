@@ -525,6 +525,212 @@ function GlobalStyles() {
       }
 
       /* ============================================================
+         MOBILE RESPONSIVE — COMPREHENSIVE FIXES
+         All responsive overrides live here (not index.html)
+         ============================================================ */
+
+      /* ── Nav: always-opaque on mobile so it's never invisible ── */
+      @media (max-width: 1200px) {
+        .nav-glass {
+          background: rgba(251,249,244,.99) !important;
+          box-shadow: 0 1px 0 rgba(0,0,0,.07), 0 2px 8px rgba(0,0,0,.04);
+        }
+        [data-theme="dark"] .nav-glass {
+          background: rgba(10,20,16,1) !important;
+          box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 2px 12px rgba(0,0,0,.4);
+        }
+        /* Hide Join Us from desktop nav-cta on mobile — it's in the drawer */
+        .nav-cta > a { display: none; }
+        .nav-cta .mobile-menu-btn { display: inline-flex !important; }
+      }
+
+      /* ── Hero: single-column ≤940px, collage hidden ── */
+      @media (max-width: 940px) {
+        section.hero {
+          min-height: auto !important;
+          padding: clamp(72px, 12vw, 100px) 0 clamp(40px, 8vw, 64px) !important;
+          align-items: flex-start !important;
+        }
+        .hero-layout {
+          grid-template-columns: 1fr !important;
+          gap: 0 !important;
+        }
+        .hero-collage {
+          display: none !important;
+        }
+        .hero-text-col {
+          width: 100% !important;
+          max-width: 680px;
+        }
+        .hero h1 { font-size: clamp(36px, 7vw, 56px) !important; }
+        .hero p { max-width: 600px !important; }
+        .hero-marquee { margin-top: 32px; }
+        .ecg-monitor { display: none; }
+        /* Contain hero within viewport width without clipping text */
+        .hero-in { max-width: 100%; }
+      }
+      /* Extra tight on small phones */
+      @media (max-width: 480px) {
+        .hero h1 { font-size: clamp(32px, 9.5vw, 42px) !important; }
+        .hero p { font-size: 16px !important; max-width: 100% !important; }
+        .hero .est-badge { font-size: 9.5px; padding: 5px 11px; }
+        .hero-marquee-item { font-size: 14px; }
+        .scroll-cue { display: none; }
+      }
+
+      /* ── PageHero: collapse rightSlot to single column ≤860px ── */
+      @media (max-width: 860px) {
+        .page-hero-grid {
+          grid-template-columns: 1fr !important;
+          gap: 28px !important;
+        }
+        .page-hero { padding: clamp(64px,10vw,96px) 0 clamp(36px,6vw,56px); }
+        .page-hero h1 { font-size: clamp(32px,7vw,52px) !important; }
+        .page-hero p { font-size: 16px !important; max-width: 100% !important; }
+      }
+      @media (max-width: 560px) {
+        /* Hide rightSlot images on small phones — too cramped below hero text */
+        .page-hero-grid > *:last-child { display: none; }
+      }
+
+      /* ── Container padding on small screens ── */
+      @media (max-width: 480px) {
+        .container { padding: 0 16px; }
+        .section { padding: 48px 0; }
+      }
+
+      /* ── WhatWeDo grid: 2-col on tablet, 1-col on mobile ── */
+      @media (max-width: 760px) {
+        .whatwedo-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      }
+      @media (max-width: 1024px) and (min-width: 761px) {
+        .whatwedo-grid { grid-template-columns: 1fr 1fr !important; }
+      }
+
+      /* ── Featured cards: full width on mobile ── */
+      @media (max-width: 760px) {
+        .featured-grid { grid-template-columns: 1fr !important; }
+      }
+
+      /* ── Stats grid: 2-col on mobile ── */
+      @media (max-width: 760px) {
+        .stats-grid { grid-template-columns: 1fr 1fr !important; }
+      }
+      @media (max-width: 360px) {
+        .stats-grid { grid-template-columns: 1fr !important; }
+      }
+
+      /* ── SRP / programs grid: single column on mobile ── */
+      @media (max-width: 760px) {
+        .srp-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+      }
+
+      /* ── Events grid: 1-col on mobile ── */
+      @media (max-width: 560px) {
+        .events-grid { grid-template-columns: 1fr !important; }
+      }
+
+      /* ── Testimonials: 1-col on mobile ── */
+      @media (max-width: 760px) {
+        .testimonials-grid { grid-template-columns: 1fr !important; }
+      }
+
+      /* ── President card inner: stack on mobile ── */
+      @media (max-width: 600px) {
+        .president-card-inner {
+          grid-template-columns: 1fr !important;
+        }
+        .president-card-inner > div:first-child { min-height: 220px; }
+      }
+
+      /* ── Contact layout: single column on mobile ── */
+      @media (max-width: 760px) {
+        .contact-layout { grid-template-columns: 1fr !important; gap: 24px !important; }
+      }
+
+      /* ── Chapters start grid: single column on mobile ── */
+      @media (max-width: 760px) {
+        .chapters-start-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+      }
+
+      /* ── Branches grid: single column on mobile ── */
+      @media (max-width: 600px) {
+        .branches-grid-2col { grid-template-columns: 1fr !important; }
+      }
+
+      /* ── Four-col grid: 2-col on mobile ── */
+      @media (max-width: 560px) {
+        .four-col-grid { grid-template-columns: 1fr 1fr !important; }
+      }
+
+      /* ── About story grid: single column on mobile ── */
+      @media (max-width: 760px) {
+        .about-story-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+      }
+
+      /* ── CTA band: stack on mobile ── */
+      @media (max-width: 600px) {
+        .cta-band-content {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+        }
+        .cta-band-content > div:last-child {
+          justify-content: flex-start !important;
+          flex-direction: column !important;
+          align-items: stretch !important;
+        }
+        .cta-band-content .btn { text-align: center; justify-content: center; }
+      }
+
+      /* ── Footer: 2-col at tablet, 1-col at mobile ── */
+      @media (max-width: 760px) {
+        footer { padding: 48px 0 28px; margin-top: 40px; }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      }
+      @media (max-width: 480px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+        .footer-bottom { flex-direction: column; gap: 4px; font-size: 11px; }
+      }
+
+      /* ── Branch hero split: single column on mobile ── */
+      @media (max-width: 760px) {
+        .branch-hero-split {
+          grid-template-columns: 1fr !important;
+          min-height: auto !important;
+        }
+        .b-grid-hero { grid-template-columns: 1fr !important; gap: 24px !important; }
+        .b-two-col-wide { grid-template-columns: 1fr !important; gap: 24px !important; }
+        .b-grid-wide { grid-template-columns: 1fr !important; gap: 24px !important; }
+        .branch-cta-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      }
+
+      /* ── Buttons: full width on very small screens where appropriate ── */
+      @media (max-width: 400px) {
+        .hero .btn-lg {
+          padding: 14px 20px !important;
+          font-size: 15px !important;
+        }
+      }
+
+      /* ── Prevent global horizontal scroll ── */
+      @media (max-width: 760px) {
+        body, #root { overflow-x: hidden; max-width: 100vw; }
+        .hero-marquee { overflow: hidden; }
+      }
+
+      /* ── Ticker: lighter padding on mobile ── */
+      @media (max-width: 480px) {
+        .ticker-track { gap: 32px; padding: 14px 0; }
+      }
+
+      /* ── SRP booklet: stack on mobile ── */
+      @media (max-width: 560px) {
+        .booklet-wrapper { grid-template-columns: 1fr !important; }
+        .booklet-left { border-right: none !important; border-bottom: 1px solid var(--line); }
+        .booklet-left, .booklet-right { padding: 24px; }
+      }
+
+      /* ============================================================
          MISC POLISH
          ============================================================ */
       /* Error/success states */

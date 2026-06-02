@@ -210,7 +210,7 @@ function Hero() {
         <div className="hero-layout" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 56, alignItems: "center" }}>
 
           {/* Left - copy */}
-          <M style={motion ? { y: textY } : undefined}>
+          <M className="hero-text-col" style={motion ? { y: textY } : undefined}>
             <div className="stack" style={{ gap: 20 }}>
               <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
                 <img className="hero-brand-logo" src={ORG_LOGO} alt="Medicine4Youth official logo" width={56} height={56} decoding="async" />
