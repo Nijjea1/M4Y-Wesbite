@@ -313,7 +313,7 @@ function FeaturedProjects() {
       desc: "Our flagship bioengineering hackathon brings students together to design and prototype solutions to real-world health challenges - hardware, software, and everything in between. Teams pitch to a panel of clinicians and engineers for prizes and mentorship.",
       cta: "Visit Biohacks", href: "https://bio-eng4-youth-ijat.vercel.app/", external: true,
       stat1: ["48h", "Hackathon"], stat2: ["Teams", "Multi-discipline"], color: "rgba(16,80,104,.85)", accent: "#3ec8f0" },
-    { tag: "Branch", tagAccent: false, title: "Charity for Youth", subtitle: "Charity4Youth",
+    { tag: "Branch", tagAccent: false, title: "Charity4Youth", subtitle: "Charity4Youth",
       desc: "Community engagement, advocacy, and tangible social impact. Charity4Youth mobilizes our members to lead fundraisers, volunteer initiatives, and outreach programs that serve underserved populations across Canada.",
       cta: "Explore the branch", href: "/branches/charity", external: false,
       stat1: ["Local", "Chapters"], stat2: ["Fundraisers", "& Drives"], color: "rgba(120,30,30,.8)", accent: "#f4a0a0" },

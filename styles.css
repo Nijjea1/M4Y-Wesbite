@@ -263,6 +263,17 @@ footer a:hover{color:#fff}
 /* Scrollbar flourish */
 ::selection{background:var(--g300); color:var(--g900)}
 
+/* Branch cards — arrow slides on card hover */
+.card:hover .branch-cta-arrow{transform:translateX(4px)}
+.branch-cta-arrow{transition:transform .25s ease}
+
+/* Pharmacy logo has dark letters — give it a white backdrop in dark mode */
+[data-theme="dark"] [data-branch="pharmacy"] img {
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+}
+
 /* Responsive */
 @media (max-width: 1200px){
   .nav-links{display:none}
@@ -271,4 +282,7 @@ footer a:hover{color:#fff}
 }
 @media (max-width: 900px){
   .hero h1{font-size:clamp(36px, 9vw, 54px)}
+}
+@media (max-width: 700px){
+  .branches-grid-2col{grid-template-columns:1fr !important}
 }

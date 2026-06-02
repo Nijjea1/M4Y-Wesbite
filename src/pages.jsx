@@ -1,5 +1,47 @@
 ﻿/* Main pages */
 
+const { motion: _fm, useScroll: _useScroll, useTransform: _useTransform } = (window.Motion || {});
+
+/* ============================================================
+   PROGRAMS PAGE – animated floating path layers
+   ============================================================ */
+function ProgramsPathLayer({ position }) {
+  if (!_fm) return null;
+  const paths = React.useMemo(() => Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    width: 0.5 + i * 0.03,
+    dur: 20 + Math.random() * 10,
+  })), [position]);
+
+  return (
+    <div style={{position:"absolute", inset:0, pointerEvents:"none"}}>
+      <svg style={{width:"100%", height:"100%"}} viewBox="0 0 696 316" fill="none" preserveAspectRatio="xMidYMid slice">
+        {paths.map((path) => (
+          <_fm.path
+            key={path.id}
+            d={path.d}
+            stroke="var(--g800)"
+            strokeWidth={path.width}
+            strokeOpacity={0.07 + path.id * 0.022}
+            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            animate={{
+              pathLength: 1,
+              opacity: [0.3, 0.6, 0.3],
+              pathOffset: [0, 1, 0],
+            }}
+            transition={{
+              duration: path.dur,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 /* ============================================================
    ABOUT PAGE
    ============================================================ */
@@ -44,7 +86,7 @@ function AboutPage() {
                 n:"Anita Alizadeh",
                 r:"Founder & President",
                 photo:"./assets/headshots/anita.png",
-                b:"Anita is an Honours Psychology, Neuroscience & Behaviour student at McMaster University. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leads outreach efforts, and builds the community connections that keep M4Y moving."
+                b:"Anita is a McMaster University graduate. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leads outreach efforts, and builds the community connections that keep M4Y moving."
               },
               {
                 n:"Ibrahim Khan",
@@ -132,42 +174,53 @@ function ProgramsPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Programs & Events"
-        title="Every M4Y program, on one page."
-        blurb="From mentored research and case competitions to interdisciplinary panels and international outreach - this is the full picture of what Medicine4Youth runs, hosts, and builds."
-      />
-
-      {/* Program cards */}
-      <section className="section">
-        <div className="container">
-          <SectionHead eyebrow="Core programs" title="What we run year-round."/>
-          <div className="two-col-grid" style={{marginTop:48, gap:28}}>
-            {programs.map((p,i) => (
-              <Reveal key={p.t} delay={i*60} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", height:"100%"}}>
-                {/* Accent bar */}
-                <div style={{height:4, flexShrink:0, background: p.tag==="Flagship" ? "linear-gradient(90deg,var(--g900),var(--g600))" : "linear-gradient(90deg,var(--g500),var(--g300))"}}/>
-                <div style={{padding:"36px 40px", display:"flex", flexDirection:"column", flex:1, position:"relative"}}>
-                  {/* Watermark number */}
-                  <div style={{position:"absolute", right:28, top:20, fontFamily:"var(--f-display)", fontWeight:900, fontSize:80, color:"var(--g50)", lineHeight:1, userSelect:"none", pointerEvents:"none"}}>{String(i+1).padStart(2,"0")}</div>
-                  {/* Tag */}
-                  <span className={"pill "+(p.tag==="Flagship"?"deep":"sage")} style={{alignSelf:"flex-start"}}>{p.tag}</span>
-                  {/* Title */}
-                  <h3 style={{fontSize:22, marginTop:22, lineHeight:1.2}}>{p.t}</h3>
-                  {/* Description - flex:1 fills remaining height so short cards match tall ones */}
-                  <p style={{color:"var(--ink2)", fontSize:15.5, lineHeight:1.75, marginTop:14, flex:1}}>{p.d}</p>
-                  {/* Link */}
-                  {p.to && (
-                    <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:28, display:"inline-flex", gap:6, alignItems:"center", fontWeight:700, fontSize:14}}>
-                      Learn more <I.arrow/>
-                    </Link>
-                  )}
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      {/* ── Sections 1 & 2: hero + program cards with path background ── */}
+      <div style={{position:"relative", overflow:"hidden"}}>
+        {/* Animated paths — absolute, strictly behind both sections */}
+        <div aria-hidden="true" style={{position:"absolute", inset:0, zIndex:0, pointerEvents:"none"}}>
+          <ProgramsPathLayer position={1}/>
+          <ProgramsPathLayer position={-1}/>
         </div>
-      </section>
+
+        {/* Section 1 — Hero */}
+        <section className="page-hero" style={{position:"relative", zIndex:1, overflow:"visible"}}>
+          <div className="hero-bg" style={{opacity:.68}}/>
+          <div className="hero-grid"/>
+          <div style={{position:"absolute",right:"-6%",top:"-10%",width:"38vw",height:"38vw",borderRadius:"50%",background:"radial-gradient(circle,rgba(188,219,165,.20) 0%,transparent 70%)",pointerEvents:"none"}}/>
+          <div className="container" style={{position:"relative", zIndex:1}}>
+            <div className="stack" style={{gap:20}}>
+              <span className="eyebrow">Programs & Events</span>
+              <h1 style={{fontSize:"clamp(38px,5vw,64px)"}}>Every M4Y program, on one page.</h1>
+              <p style={{fontSize:18, color:"var(--ink2)", maxWidth:640, lineHeight:1.65}}>From mentored research and case competitions to interdisciplinary panels and international outreach - this is the full picture of what Medicine4Youth runs, hosts, and builds.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2 — Program cards */}
+        <section className="section" style={{position:"relative", zIndex:1}}>
+          <div className="container">
+            <SectionHead eyebrow="Core programs" title="What we run year-round."/>
+            <div className="two-col-grid" style={{marginTop:48, gap:28}}>
+              {programs.map((p,i) => (
+                <Reveal key={p.t} delay={i*60} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", height:"100%"}}>
+                  <div style={{height:4, flexShrink:0, background: p.tag==="Flagship" ? "linear-gradient(90deg,var(--g900),var(--g600))" : "linear-gradient(90deg,var(--g500),var(--g300))"}}/>
+                  <div style={{padding:"36px 40px", display:"flex", flexDirection:"column", flex:1, position:"relative"}}>
+                    <div style={{position:"absolute", right:28, top:20, fontFamily:"var(--f-display)", fontWeight:900, fontSize:80, color:"var(--g50)", lineHeight:1, userSelect:"none", pointerEvents:"none"}}>{String(i+1).padStart(2,"0")}</div>
+                    <span className={"pill "+(p.tag==="Flagship"?"deep":"sage")} style={{alignSelf:"flex-start"}}>{p.tag}</span>
+                    <h3 style={{fontSize:22, marginTop:22, lineHeight:1.2}}>{p.t}</h3>
+                    <p style={{color:"var(--ink2)", fontSize:15.5, lineHeight:1.75, marginTop:14, flex:1}}>{p.d}</p>
+                    {p.to && (
+                      <Link to={p.to} className="link-underline" style={{color:"var(--g800)", marginTop:28, display:"inline-flex", gap:6, alignItems:"center", fontWeight:700, fontSize:14}}>
+                        Learn more <I.arrow/>
+                      </Link>
+                    )}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Featured events spotlight */}
       <section className="section" style={{background:"var(--paper)", borderBlock:"1px solid var(--line)"}}>
@@ -259,12 +312,12 @@ function ProgramsPage() {
 
       {/* Partners */}
       {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.length > 0 && (
-        <section className="section" style={{paddingTop:0}}>
+        <section className="section" style={{paddingTop:0, paddingBottom:20}}>
           <div className="container">
-            <div className="divider" style={{marginBottom:28}}/>
+            <div className="divider" style={{marginBottom:20}}/>
             <span className="eyebrow">Partners</span>
-            <p style={{color:"var(--ink2)", fontSize:15, marginTop:12, maxWidth:720}}>Organizations that support Healthcare Horizons and other flagship Medicine4Youth events.</p>
-            <div className="grid" style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,132px),168px))", justifyContent:"start", gap:14, marginTop:24}}>
+            <p style={{color:"var(--ink2)", fontSize:15, marginTop:10, maxWidth:720}}>Organizations that support Healthcare Horizons and other flagship Medicine4Youth events.</p>
+            <div className="grid" style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,132px),168px))", justifyContent:"start", gap:14, marginTop:20}}>
               {HEALTHCARE_HORIZONS_SPONSOR_LOGOS.map((logo)=>(
                 <div key={logo.src} className="card" style={{padding:"14px 16px", display:"flex", alignItems:"center", justifyContent:"center", minHeight:76, background:"var(--paper)"}}>
                   <img src={logo.src} alt={logo.alt} loading="lazy" decoding="async" style={{maxHeight:44, maxWidth:"100%", width:"auto", objectFit:"contain"}}/>
@@ -275,8 +328,10 @@ function ProgramsPage() {
         </section>
       )}
 
-      {/* Summary CTA */}
-      <CTABand title="Find your program." sub="Whether you're joining SRP, starting a chapter, or attending Healthcare Bowl - your path starts here."/>
+      {/* Summary CTA — negative margin cancels the section's own top padding */}
+      <div style={{marginTop:-48}}>
+        <CTABand title="Find your program." sub="Whether you're joining SRP, starting a chapter, or attending Healthcare Bowl - your path starts here."/>
+      </div>
     </>
   );
 }
@@ -332,24 +387,65 @@ function PhilippinesSection() {
 }
 
 /* ============================================================
-   BRANCHES PAGE
+   BRANCH SCROLL SECTION — compact ContainerScroll per pair
    ============================================================ */
-function BranchesPage() {
+function BranchScrollSection({ branches, sectionIndex }) {
+  const containerRef = useRef(null);
+
+  /* Animation completes as the card enters and reaches ~25% down the viewport.
+     This keeps the effect snappy without needing giant container heights. */
+  const { scrollYProgress } = _useScroll({
+    target: containerRef,
+    offset: ["start end", "start 0.25"],
+  });
+
+  const rotate  = _useTransform(scrollYProgress, [0, 1], [14, 0]);
+  const scale   = _useTransform(scrollYProgress, [0, 1], [1.04, 1]);
+  const opacity = _useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+
+  const start = sectionIndex * 2 + 1;
+  const end   = Math.min(sectionIndex * 2 + branches.length, 9);
+
   return (
-    <>
-      <PageHero eyebrow="Specialty branches" title="Nine sub-organizations. One scalable brand." blurb="Each branch operates independently with its own mentorship threads, events, and research output - connected through shared infrastructure and a common mission."/>
-      <section className="section">
-        <div className="three-col-grid container">
-          {BRANCHES.map((b, i) => (
-            <Reveal key={b.slug} delay={i*50}>
-              {(() => {
+    /* No fixed height — container is sized by content + padding only */
+    <div ref={containerRef} style={{ padding:"28px 20px", maxWidth:"72rem", margin:"0 auto" }}>
+
+      {/* Eyebrow label */}
+      <div style={{ textAlign:"center", marginBottom:16 }}>
+        <span className="eyebrow" style={{justifyContent:"center", color:"var(--mute)"}}>
+          {branches.length > 1 ? `Branches ${start}–${end}` : `Branch ${start}`} of 9
+        </span>
+      </div>
+
+      {/* 3-D tilting card wrapper */}
+      <div style={{ perspective:"1200px" }}>
+        <_fm.div style={{
+          rotateX: rotate,
+          scale,
+          opacity,
+          transformOrigin: "center top",
+          border: "2px solid var(--g600)",
+          borderRadius: 22,
+          background: "var(--g900)",
+          padding: 10,
+          boxShadow:
+            "0 2px 4px #0000001a, 0 8px 16px #00000018, 0 24px 40px #00000014, 0 48px 64px #0000000d",
+        }}>
+          <div style={{
+            borderRadius: 14,
+            background: "var(--cream)",
+            padding: 12,
+          }}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: branches.length === 1 ? "minmax(0,480px)" : "1fr 1fr",
+              justifyContent: branches.length === 1 ? "center" : undefined,
+              gap: 12,
+            }}>
+              {branches.map((b) => {
                 const inner = (
                   <>
-                    <div style={{
-                      padding:"32px 28px 26px",
-                      background:b.panelBg||"var(--g800)",
-                      position:"relative", overflow:"hidden",
-                    }}>
+                    <div style={{padding:"32px 28px 26px", background:b.panelBg||"var(--g800)", position:"relative", overflow:"hidden"}}>
                       <div style={{position:"absolute",right:-20,top:-20,width:120,height:120,borderRadius:"50%",background:"rgba(255,255,255,.07)",pointerEvents:"none"}}/>
                       <div style={{position:"absolute",right:10,bottom:-38,width:90,height:90,borderRadius:"50%",background:"rgba(255,255,255,.05)",pointerEvents:"none"}}/>
                       <div style={{position:"relative"}}>
@@ -367,16 +463,47 @@ function BranchesPage() {
                     </div>
                   </>
                 );
-                const cls = "card";
-                const sty = {display:"flex", flexDirection:"column", padding:0, overflow:"hidden"};
+                const s = {display:"flex",flexDirection:"column",padding:0,overflow:"hidden",borderRadius:"var(--r-lg)",border:"1px solid var(--line2)",background:"var(--paper)"};
                 return b.externalUrl
-                  ? <a key={b.slug} href={b.externalUrl} target="_blank" rel="noreferrer" className={cls} data-branch={b.slug} style={sty}>{inner}</a>
-                  : <Link key={b.slug} to={"/branches/"+b.slug} className={cls} data-branch={b.slug} style={sty}>{inner}</Link>;
-              })()}
-            </Reveal>
+                  ? <a key={b.slug} href={b.externalUrl} target="_blank" rel="noreferrer" style={s} data-branch={b.slug}>{inner}</a>
+                  : <Link key={b.slug} to={"/branches/"+b.slug} style={s} data-branch={b.slug}>{inner}</Link>;
+              })}
+            </div>
+          </div>
+        </_fm.div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   BRANCHES PAGE
+   ============================================================ */
+function BranchesPage() {
+  const pairs = [];
+  for (let i = 0; i < BRANCHES.length; i += 2) {
+    pairs.push(BRANCHES.slice(i, i + 2));
+  }
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Specialty branches"
+        title="Nine sub-organizations. One scalable brand."
+        blurb="Each branch operates independently with its own mentorship threads, events, and research output — connected through shared infrastructure and a common mission."
+      />
+
+      <section className="section" style={{paddingTop:"clamp(32px,4vw,56px)"}}>
+        <div style={{textAlign:"center", marginBottom:8}}>
+          <span className="mono" style={{color:"var(--mute)", fontSize:10.5}}>— scroll to explore all 9 branches —</span>
+        </div>
+        <div style={{display:"flex", flexDirection:"column", gap:0}}>
+          {pairs.map((pair, i) => (
+            <BranchScrollSection key={i} branches={pair} sectionIndex={i}/>
           ))}
         </div>
       </section>
+
       <CTABand/>
     </>
   );
