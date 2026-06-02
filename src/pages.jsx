@@ -280,15 +280,40 @@ function ProgramsPage() {
       <section id="flagship-events" className="section" style={{scrollMarginTop:88}}>
         <div className="container">
           <SectionHead eyebrow="Flagship calendar" title="SRP symposium, Healthcare Bowl, Healthcare Horizons." blurb="Filter by category. Specialty branches host additional programming on their own pages."/>
-          <div className="tabs" style={{marginBottom:32, marginTop:24}}>
+          <div
+            role="tablist"
+            aria-label="Event categories"
+            className="tabs"
+            style={{marginBottom:32, marginTop:24}}
+            onKeyDown={(ev) => {
+              const idx = tags.indexOf(filter);
+              if (ev.key === "ArrowRight") setFilter(tags[(idx+1) % tags.length]);
+              if (ev.key === "ArrowLeft")  setFilter(tags[(idx-1+tags.length) % tags.length]);
+            }}
+          >
             {tags.map((t) => (
-              <div key={t} className={"tab "+(filter===t?"active":"")} onClick={()=>setFilter(t)} role="button" tabIndex={0}
-                onKeyDown={(ev)=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();setFilter(t);}}}>
+              <div
+                key={t}
+                role="tab"
+                aria-selected={filter===t}
+                id={"tab-"+t}
+                aria-controls={"panel-"+t}
+                tabIndex={filter===t ? 0 : -1}
+                className={"tab "+(filter===t?"active":"")}
+                onClick={()=>setFilter(t)}
+                onKeyDown={(ev)=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();setFilter(t);}}}
+              >
                 {t}
               </div>
             ))}
           </div>
-          <div className="grid" style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,260px),340px))", justifyContent:"start", gap:16}}>
+          <div
+            role="tabpanel"
+            id={"panel-"+filter}
+            aria-labelledby={"tab-"+filter}
+            className="grid"
+            style={{gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,260px),340px))", justifyContent:"start", gap:16}}
+          >
             {shown.map((e,i) => (
               <Reveal key={e.t+e.date} delay={i*50} className="card" style={{padding:0, overflow:"hidden", display:"flex", flexDirection:"column", maxWidth:340, width:"100%"}}>
                 <PH label={e.t} src={e.photo} aspect="4/3" variant={i%3===0?"dark":i%3===1?"sage":""}/>
@@ -394,13 +419,15 @@ function BranchScrollSection({ branches, sectionIndex }) {
 
   /* Animation completes as the card enters and reaches ~25% down the viewport.
      This keeps the effect snappy without needing giant container heights. */
+  const isMobileAnim = React.useMemo(() => typeof window !== "undefined" && window.innerWidth <= 600, []);
+
   const { scrollYProgress } = _useScroll({
     target: containerRef,
     offset: ["start end", "start 0.25"],
   });
 
-  const rotate  = _useTransform(scrollYProgress, [0, 1], [14, 0]);
-  const scale   = _useTransform(scrollYProgress, [0, 1], [1.04, 1]);
+  const rotate  = _useTransform(scrollYProgress, [0, 1], isMobileAnim ? [4, 0] : [14, 0]);
+  const scale   = _useTransform(scrollYProgress, [0, 1], isMobileAnim ? [1.01, 1] : [1.04, 1]);
   const opacity = _useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   const start = sectionIndex * 2 + 1;
@@ -614,7 +641,7 @@ function SRPPage() {
 
       <section style={{background:"var(--g900)", paddingBlock:"clamp(48px,6vw,72px)"}}>
         <div className="container">
-          <div style={{display:"grid", gridTemplateColumns:"repeat(4,1fr)"}}>
+          <div className="srp-stats-grid" style={{display:"grid", gridTemplateColumns:"repeat(4,1fr)"}}>
             {[
               {n:62, s:"+", l:"Scholars",      sub:"Across cohorts",        icon:"flask"},
               {n:40, s:"+", l:"Final posters", sub:"Submitted per cohort",  icon:"book"},
@@ -667,7 +694,7 @@ function SRPPage() {
                   borderRadius:"var(--r-lg)", overflow:"hidden",
                   border:"1px solid var(--line)",
                   boxShadow:"var(--sh-1)",
-                  background:"#fff",
+                  background:"var(--paper)",
                   transition:"transform .25s, box-shadow .25s",
                 }}
                   onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="var(--sh-2)"}}
@@ -738,7 +765,7 @@ function SponsorsPage() {
               <Reveal key={s.name} delay={i*40}>
                 <div style={{
                   borderRadius:"var(--r-lg)", overflow:"hidden",
-                  border:"1px solid var(--line)", background:"#fff",
+                  border:"1px solid var(--line)", background:"var(--paper)",
                   boxShadow:"var(--sh-1)",
                   display:"flex", flexDirection:"column",
                   transition:"transform .25s, box-shadow .25s",
@@ -980,7 +1007,7 @@ function ChaptersPage() {
 
           {/* CTA card */}
           <Reveal delay={100} style={{marginTop:48}}>
-            <div style={{
+            <div className="chapters-eco-card" style={{
               borderRadius:"var(--r-lg)", overflow:"hidden",
               background:"var(--g900)",
               boxShadow:"0 4px 28px rgba(0,0,0,.18)",
@@ -996,7 +1023,7 @@ function ChaptersPage() {
                   {[50,100,155,210].map(r => <circle key={r} cx="340" cy="0" r={r} fill="none" stroke="#fff" strokeWidth="1.5"/>)}
                 </svg>
                 <div style={{flex:1, minWidth:260, position:"relative", zIndex:1}}>
-                  <span style={{display:"inline-block", fontSize:11, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:"var(--g300)", marginBottom:12}}>National ecosystem</span>
+                  <span className="chapters-eco-label" style={{display:"inline-block", fontSize:11, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:"var(--g300)", marginBottom:12}}>National ecosystem</span>
                   <h3 style={{fontSize:"clamp(20px,2.5vw,26px)", fontWeight:800, color:"#ffffff", lineHeight:1.15, margin:"0 0 14px"}}>Branches &amp; national programs</h3>
                   <p style={{fontSize:15.5, color:"#c3d2c7", lineHeight:1.72, maxWidth:520, margin:"0 0 22px"}}>
                     Chapters are campus-based. Specialty branches run cross-Canada programming independent of any single university. Explore both to find your fit.
@@ -1044,7 +1071,7 @@ function ChaptersPage() {
                       }}/>
                     )}
                     <div style={{display:"flex", gap:20, alignItems:"flex-start", position:"relative", zIndex:1}}>
-                      <div style={{
+                      <div className={i===0 ? "chapters-step-primary" : ""} style={{
                         width:56, height:56, borderRadius:"50%", flexShrink:0,
                         background:circleBg,
                         display:"flex", alignItems:"center", justifyContent:"center",
@@ -1055,7 +1082,7 @@ function ChaptersPage() {
                       </div>
                       <div style={{
                         flex:1, padding:"20px 26px", borderRadius:"var(--r-lg)",
-                        background:"#ffffff", border:"1px solid var(--line)",
+                        background:"var(--paper)", border:"1px solid var(--line)",
                         boxShadow:"0 1px 6px rgba(0,0,0,.05)",
                       }}>
                         <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:12}}>
@@ -1096,6 +1123,9 @@ function downloadCSV(data) {
 function ContactPage() {
   const [form, setForm] = useState({first:"",last:"",email:"",school:"",grade:"9-10",interests:[]});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState(null);
 
   function handleInterest(x) {
     setForm(f => ({
@@ -1104,10 +1134,44 @@ function ContactPage() {
     }));
   }
 
-  function handleSubmit(e) {
+  function validate() {
+    const e = {};
+    if (!form.first.trim() || form.first.trim().length < 2) e.first = "First name must be at least 2 characters.";
+    if (!form.last.trim()  || form.last.trim().length  < 2) e.last  = "Last name must be at least 2 characters.";
+    if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))    e.email = "Please enter a valid email address.";
+    return e;
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    downloadCSV(form);
-    setSubmitted(true);
+    const errs = validate();
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+    setErrors({});
+    setSubmitting(true);
+    setServerError(null);
+    try {
+      const res = await fetch("https://formspree.io/f/REPLACE_WITH_REAL_ID", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          first: form.first.trim(),
+          last:  form.last.trim(),
+          email: form.email.trim(),
+          school: form.school.trim(),
+          grade: form.grade,
+          interests: form.interests.join(", "),
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setServerError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -1118,36 +1182,39 @@ function ContactPage() {
           <div className="card" style={{padding:40}}>
             {submitted ? (
               <div style={{textAlign:"center", padding:"40px 0"}}>
-                <div style={{width:64, height:64, borderRadius:"50%", background:"var(--g100)", display:"grid", placeItems:"center", color:"var(--g800)", margin:"0 auto 20px"}}><I.check/></div>
+                <div style={{width:64, height:64, borderRadius:"50%", background:"var(--g100)", display:"grid", placeItems:"center", color:"var(--g800)", margin:"0 auto 20px"}}><I.check aria-hidden="true"/></div>
                 <h2 style={{fontSize:28}}>You're in.</h2>
-                <p style={{color:"var(--ink2)", marginTop:12}}>Your details were downloaded as a CSV - our team will add you to the intake sheet shortly. Welcome to M4Y.</p>
+                <p style={{color:"var(--ink2)", marginTop:12}}>Your membership application was sent. Welcome to M4Y — we'll be in touch shortly.</p>
                 <button type="button" className="btn btn-ghost" style={{marginTop:24}} onClick={()=>setSubmitted(false)}>Submit another</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
                 <span className="eyebrow">General Membership</span>
                 <h2 style={{marginTop:12, fontSize:32}}>Become a member.</h2>
                 <p style={{color:"var(--ink2)", marginTop:10}}>Fill out the form. We'll add you to our newsletter, send sponsor codes, and invite you to member events.</p>
                 <div className="two-col-grid-sm" style={{marginTop:28}}>
                   <div className="field">
-                    <label>First name</label>
-                    <input required placeholder="First name" value={form.first} onChange={e=>setForm(f=>({...f,first:e.target.value}))}/>
+                    <label htmlFor="cf-first">First name</label>
+                    <input id="cf-first" placeholder="First name" value={form.first} onChange={e=>setForm(f=>({...f,first:e.target.value}))} aria-describedby={errors.first?"cf-first-err":undefined}/>
+                    {errors.first && <p id="cf-first-err" role="alert" className="field-error">{errors.first}</p>}
                   </div>
                   <div className="field">
-                    <label>Last name</label>
-                    <input required placeholder="Last name" value={form.last} onChange={e=>setForm(f=>({...f,last:e.target.value}))}/>
+                    <label htmlFor="cf-last">Last name</label>
+                    <input id="cf-last" placeholder="Last name" value={form.last} onChange={e=>setForm(f=>({...f,last:e.target.value}))} aria-describedby={errors.last?"cf-last-err":undefined}/>
+                    {errors.last && <p id="cf-last-err" role="alert" className="field-error">{errors.last}</p>}
                   </div>
                   <div className="field" style={{gridColumn:"span 2"}}>
-                    <label>Email</label>
-                    <input required type="email" placeholder="you@school.edu" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))}/>
+                    <label htmlFor="cf-email">Email</label>
+                    <input id="cf-email" type="email" placeholder="you@school.edu" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} aria-describedby={errors.email?"cf-email-err":undefined}/>
+                    {errors.email && <p id="cf-email-err" role="alert" className="field-error">{errors.email}</p>}
                   </div>
                   <div className="field">
-                    <label>School / Institution</label>
-                    <input placeholder="McMaster University" value={form.school} onChange={e=>setForm(f=>({...f,school:e.target.value}))}/>
+                    <label htmlFor="cf-school">School / Institution</label>
+                    <input id="cf-school" placeholder="McMaster University" value={form.school} onChange={e=>setForm(f=>({...f,school:e.target.value}))}/>
                   </div>
                   <div className="field">
-                    <label>Grade / Year</label>
-                    <select value={form.grade} onChange={e=>setForm(f=>({...f,grade:e.target.value}))}>
+                    <label htmlFor="cf-grade">Grade / Year</label>
+                    <select id="cf-grade" value={form.grade} onChange={e=>setForm(f=>({...f,grade:e.target.value}))}>
                       <option>9-10</option><option>11-12</option><option>Undergraduate Year 1-2</option><option>Undergraduate Year 3-4</option><option>Graduate</option>
                     </select>
                   </div>
@@ -1168,8 +1235,11 @@ function ContactPage() {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary btn-lg" style={{marginTop:24}}>Submit & Download CSV <I.arrow className="arr"/></button>
-                <div style={{fontSize:12, color:"var(--mute)", marginTop:14}}>Submitting downloads your details as a CSV for our intake team. Data is not sent to any third party.</div>
+                <button type="submit" className="btn btn-primary btn-lg" style={{marginTop:24}} disabled={submitting}>
+                  {submitting ? "Sending…" : <>Join Medicine4Youth <I.arrow className="arr" aria-hidden="true"/></>}
+                </button>
+                {serverError && <p role="alert" className="field-error" style={{marginTop:12, fontSize:14}}>{serverError}</p>}
+                <div style={{fontSize:12, color:"var(--mute)", marginTop:14}}>Your details are submitted securely. We'll be in touch shortly.</div>
               </form>
             )}
           </div>

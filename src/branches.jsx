@@ -185,7 +185,7 @@ function OptomPage({ b }) {
       </section>
 
       {/* ── Stats strip ── */}
-      <section style={{background:"#fff", borderBottom:"1px solid var(--line)"}}>
+      <section style={{background:"var(--paper)", borderBottom:"1px solid var(--line)"}}>
         <div className="container">
           <div className="b-stats-4">
             {stats.map((s, i) => (
@@ -604,7 +604,7 @@ function EndoPathPage({ b }) {
       </section>
 
       {/* ── Stats ── */}
-      <section style={{background:"#fff",borderBottom:"1px solid var(--line)"}}>
+      <section style={{background:"var(--paper)",borderBottom:"1px solid var(--line)"}}>
         <div className="container">
           <div className="b-stats-4">
             {stats.map((s,i)=>(
@@ -863,7 +863,7 @@ function PharmacyPage({ b }) {
       <section className="branch-hero-split">
 
         {/* LEFT - white panel with big typography */}
-        <div style={{background:"#fff",display:"flex",flexDirection:"column",justifyContent:"center",padding:"clamp(60px,8vw,100px) clamp(32px,5vw,72px)",position:"relative",zIndex:1}}>
+        <div style={{background:"var(--paper)",display:"flex",flexDirection:"column",justifyContent:"center",padding:"clamp(60px,8vw,100px) clamp(32px,5vw,72px)",position:"relative",zIndex:1}}>
           <Reveal>
             <div style={{display:"inline-flex",alignItems:"center",gap:9,background:`color-mix(in oklab,${M} 8%,#fff)`,border:`1px solid color-mix(in oklab,${M} 20%,#fff)`,borderRadius:999,padding:"5px 14px 5px 7px",width:"fit-content",marginBottom:32,fontSize:12,fontWeight:700,letterSpacing:".05em",color:M}}>
               <BranchMark branch={b} size={24} circle={false} style={{borderRadius:7}}/>
@@ -1073,7 +1073,7 @@ function PharmacyPage({ b }) {
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(320px,1fr))",gap:24}}>
               {b.posts.map((post,i)=>(
                 <Reveal key={i} delay={i*60}>
-                  <div style={{borderRadius:20,overflow:"hidden",background:"#fff",boxShadow:"var(--sh-1)",border:"1px solid var(--line)",display:"flex",flexDirection:"column",transition:"box-shadow .3s,transform .3s"}}
+                  <div style={{borderRadius:20,overflow:"hidden",background:"var(--paper)",boxShadow:"var(--sh-1)",border:"1px solid var(--line)",display:"flex",flexDirection:"column",transition:"box-shadow .3s,transform .3s"}}
                     onMouseEnter={e=>{e.currentTarget.style.boxShadow="var(--sh-3)";e.currentTarget.style.transform="translateY(-5px)"}}
                     onMouseLeave={e=>{e.currentTarget.style.boxShadow="var(--sh-1)";e.currentTarget.style.transform="translateY(0)"}}
                   >
@@ -1211,7 +1211,7 @@ function CharityPage({ b }) {
       </section>
 
       {/* ── Impact stats ── */}
-      <section style={{background:"#fff",borderBottom:"1px solid var(--line)",borderTop:"1px solid var(--line)"}}>
+      <section style={{background:"var(--paper)",borderBottom:"1px solid var(--line)",borderTop:"1px solid var(--line)"}}>
         <div className="container">
           <div className="b-stats-4">
             {[
@@ -1232,7 +1232,7 @@ function CharityPage({ b }) {
       <section style={{paddingBlock:"clamp(56px,6vw,80px)",background:CPALE}}>
         <div className="container two-col-grid" style={{gap:24}}>
           <Reveal>
-            <div style={{background:"#fff",borderRadius:"var(--r-xl)",padding:"clamp(32px,4vw,52px)",boxShadow:"var(--sh-1)",border:"1px solid var(--line)",height:"100%",display:"flex",flexDirection:"column",gap:16}}>
+            <div style={{background:"var(--paper)",borderRadius:"var(--r-xl)",padding:"clamp(32px,4vw,52px)",boxShadow:"var(--sh-1)",border:"1px solid var(--line)",height:"100%",display:"flex",flexDirection:"column",gap:16}}>
               <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:C}}>About</span>
               <h2 style={{fontSize:"clamp(22px,2.5vw,34px)",fontWeight:800,lineHeight:1.1}}>What this branch is.</h2>
               <p style={{fontSize:15,color:"var(--ink2)",lineHeight:1.8}}>{b.about}</p>
@@ -1315,7 +1315,7 @@ function CharityPage({ b }) {
                 const cc = colors[i%colors.length];
                 return (
                   <Reveal key={i} delay={i*60}>
-                    <div style={{background:"#fff",borderRadius:"var(--r-lg)",border:"1px solid var(--line)",overflow:"hidden",boxShadow:"var(--sh-1)",transition:"box-shadow .25s,transform .25s"}}
+                    <div style={{background:"var(--paper)",borderRadius:"var(--r-lg)",border:"1px solid var(--line)",overflow:"hidden",boxShadow:"var(--sh-1)",transition:"box-shadow .25s,transform .25s"}}
                       onMouseEnter={e=>{e.currentTarget.style.boxShadow="var(--sh-2)";e.currentTarget.style.transform="translateY(-3px)"}}
                       onMouseLeave={e=>{e.currentTarget.style.boxShadow="var(--sh-1)";e.currentTarget.style.transform="translateY(0)"}}
                     >
@@ -1407,7 +1407,7 @@ function DentistryPage({ b }) {
       {/* ── HERO: white left / blue right ── */}
       <section className="branch-hero-split">
         {/* LEFT - white, big type */}
-        <div style={{background:"#fff",display:"flex",flexDirection:"column",justifyContent:"center",padding:"clamp(60px,8vw,100px) clamp(32px,5vw,72px)",position:"relative",zIndex:1}}>
+        <div style={{background:"var(--paper)",display:"flex",flexDirection:"column",justifyContent:"center",padding:"clamp(60px,8vw,100px) clamp(32px,5vw,72px)",position:"relative",zIndex:1}}>
           <Reveal>
             <div style={{display:"inline-flex",alignItems:"center",gap:9,background:`color-mix(in oklab,${D} 8%,#fff)`,border:`1px solid color-mix(in oklab,${D} 20%,#fff)`,borderRadius:999,padding:"5px 14px 5px 7px",width:"fit-content",marginBottom:32,fontSize:12,fontWeight:700,letterSpacing:".05em",color:D}}>
               <BranchMark branch={b} size={24} circle={false} style={{borderRadius:7}}/>
@@ -1513,7 +1513,7 @@ function DentistryPage({ b }) {
                 return (
                   <Reveal key={i} delay={i*60}>
                     <div style={{
-                      background:"#fff",borderRadius:20,border:"1px solid var(--line)",
+                      background:"var(--paper)",borderRadius:20,border:"1px solid var(--line)",
                       overflow:"hidden",boxShadow:"var(--sh-1)",
                       display:"grid",gridTemplateColumns:"auto 1fr",
                       transition:"box-shadow .3s,transform .3s",
@@ -1798,7 +1798,7 @@ function NeuroPsychPage({ b }) {
       <section style={{paddingBlock:"clamp(48px,5vw,72px)",background:PPALE}}>
         <div className="container two-col-grid" style={{gap:24}}>
           <Reveal>
-            <div style={{padding:"clamp(32px,4vw,48px)",background:"#fff",borderRadius:"var(--r-xl)",border:`1px solid rgba(139,92,246,.15)`,boxShadow:`0 4px 28px rgba(139,92,246,.08)`,height:"100%",display:"flex",flexDirection:"column",gap:16}}>
+            <div style={{padding:"clamp(32px,4vw,48px)",background:"var(--paper)",borderRadius:"var(--r-xl)",border:`1px solid rgba(139,92,246,.15)`,boxShadow:`0 4px 28px rgba(139,92,246,.08)`,height:"100%",display:"flex",flexDirection:"column",gap:16}}>
               <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:P}}>About</span>
               <h2 style={{fontSize:"clamp(22px,2.4vw,32px)",fontWeight:800,lineHeight:1.15}}>What this branch is.</h2>
               <p style={{fontSize:15,color:"var(--ink2)",lineHeight:1.85,flex:1}}>{b.about}</p>
@@ -1831,7 +1831,7 @@ function NeuroPsychPage({ b }) {
                 return (
                   <Reveal key={i} delay={i*40}>
                     <motion.div
-                      style={{borderRadius:20,padding:"28px 22px",background:"#fff",border:`1px solid var(--line)`,borderTop:`3px solid ${col}`,boxShadow:"var(--sh-1)",height:"100%",display:"flex",flexDirection:"column",gap:14,cursor:"default"}}
+                      style={{borderRadius:20,padding:"28px 22px",background:"var(--paper)",border:`1px solid var(--line)`,borderTop:`3px solid ${col}`,boxShadow:"var(--sh-1)",height:"100%",display:"flex",flexDirection:"column",gap:14,cursor:"default"}}
                       whileHover={{y:-8,boxShadow:`0 20px 48px ${col}30`,borderColor:col,transition:{duration:.2}}}
                     >
                       <div style={{width:44,height:44,borderRadius:12,background:`${col}18`,display:"flex",alignItems:"center",justifyContent:"center",color:col}}>
@@ -1862,7 +1862,7 @@ function NeuroPsychPage({ b }) {
                 return (
                   <Reveal key={i} delay={i*55}>
                     <motion.div
-                      style={{background:"#fff",borderRadius:20,border:"1px solid var(--line)",overflow:"hidden",boxShadow:"var(--sh-1)",display:"grid",gridTemplateColumns:"auto 1fr"}}
+                      style={{background:"var(--paper)",borderRadius:20,border:"1px solid var(--line)",overflow:"hidden",boxShadow:"var(--sh-1)",display:"grid",gridTemplateColumns:"auto 1fr"}}
                       whileHover={{y:-3,boxShadow:`0 12px 40px ${acc}28`,transition:{duration:.2}}}
                     >
                       <div style={{background:`linear-gradient(180deg,${acc},${acc}cc)`,width:72,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:12,padding:"28px 0"}}>
@@ -1979,7 +1979,7 @@ function BranchPage({ slug }) {
             <div style={{
               aspectRatio:"1/1",
               borderRadius:"var(--r-xl)",
-              background:"linear-gradient(180deg, color-mix(in oklab, var(--accent) 20%, #fff), color-mix(in oklab, var(--accent) 5%, #fff))",
+              background:"linear-gradient(180deg, color-mix(in oklab, var(--accent) 20%, var(--paper)), color-mix(in oklab, var(--accent) 5%, var(--paper)))",
               border:"1px solid color-mix(in oklab, var(--accent) 30%, var(--line))",
               display:"grid", placeItems:"center", color:"var(--g900)",
               padding:24,
@@ -2106,7 +2106,7 @@ function BranchPage({ slug }) {
         <div className="container">
           <div className="card branch-cta-grid" style={{
             padding:"clamp(36px,5vw,64px)",
-            background:"linear-gradient(135deg, color-mix(in oklab, var(--accent) 25%, #fff), #fff)",
+            background:"linear-gradient(135deg, color-mix(in oklab, var(--accent) 25%, var(--paper)), var(--paper))",
             border:"1px solid color-mix(in oklab, var(--accent) 30%, var(--line))",
           }}>
             <div>

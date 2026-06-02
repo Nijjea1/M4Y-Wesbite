@@ -377,7 +377,7 @@ function ImpactStats() {
   const stats = [
     { n: 23, s: "", l: "University chapters", sub: "Across Canada", icon: "pin" },
     { n: 10, s: "", l: "Specialty branches", sub: "Neuro · Psych · Dent · Pharm · BioEng · Optom · Charity · Endopath · Rehab · Surg", icon: "spark" },
-    { n: 62, s: "+", l: "SRP scholars", sub: "Over summer cohorts", icon: "flask" },
+    { n: 300, s: "+", l: "SRP scholars", sub: "Over summer cohorts", icon: "flask" },
     { n: 40, s: "+", l: "Events hosted", sub: "Panels, workshops, competitions", icon: "cal" },
   ];
   return (
