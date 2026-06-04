@@ -207,7 +207,7 @@ function Hero() {
       <ECGLine hovered={hovered} cursor={cursor} />
 
       <M className="container hero-in" style={{ position: "relative", zIndex: 2, opacity: heroFade }}>
-        <div className="hero-layout" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 56, alignItems: "center" }}>
+        <div className="hero-layout" style={{ display: "grid", gridTemplateColumns: "1.1fr 1.05fr", gap: 48, alignItems: "center" }}>
 
           {/* Left - copy */}
           <M className="hero-text-col" style={motion ? { y: textY } : undefined}>
@@ -251,14 +251,14 @@ function Hero() {
           </M>
 
           {/* Right - parallax photo collage with mouse tilt */}
-          <div className="hero-collage" style={{ position: "relative", minHeight: 500, perspective: 1200 }}>
-            <div style={{ position: "absolute", right: 0, top: 20, width: "92%", height: "78%", borderRadius: 24, background: "linear-gradient(180deg,#e7f4d8,#dff0cd)", border: "1px solid #d4e8bf" }} />
+          <div className="hero-collage" style={{ position: "relative", minHeight: 630, perspective: 1200 }}>
+            <div style={{ position: "absolute", right: 0, top: 20, width: "97%", height: "82%", borderRadius: 24, background: "linear-gradient(180deg,#e7f4d8,#dff0cd)", border: "1px solid #d4e8bf" }} />
 
             {/* Main photo - scroll parallax (outer) + mouse tilt (inner) */}
-            <M style={motion ? { y: photoBigY, position: "absolute", right: 22, top: 0, width: "66%", zIndex: 3 } : { position: "absolute", right: 22, top: 0, width: "66%", zIndex: 3 }}>
+            <M style={motion ? { y: photoBigY, position: "absolute", right: 14, top: 0, width: "76%", zIndex: 3 } : { position: "absolute", right: 14, top: 0, width: "76%", zIndex: 3 }}>
               <div style={{ transform: `translate3d(${tilt.x * -22}px, ${tilt.y * -18}px, 0)`, transition: "transform .25s ease-out" }}>
                 <div className="hero-photo">
-                  <PH label="Student conducting mentored laboratory research" src={SITE_PHOTOS.heroMain} aspect="4/5" style={{ borderRadius: 22 }} />
+                  <PH label="Student practising IV insertion on a training arm" src={SITE_PHOTOS.heroMain} aspect="4/5" style={{ borderRadius: 22 }} />
                 </div>
                 <div className="float-badge" style={{ left: 14, top: 14, display: "flex", gap: 8, alignItems: "center" }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#3a8a62", boxShadow: "0 0 0 4px rgba(58,138,98,.18)" }} />
@@ -268,14 +268,14 @@ function Hero() {
             </M>
 
             {/* Secondary photo */}
-            <M style={motion ? { y: photoSmY, position: "absolute", left: 0, bottom: 50, width: "48%", zIndex: 4 } : { position: "absolute", left: 0, bottom: 50, width: "48%", zIndex: 4 }}>
+            <M style={motion ? { y: photoSmY, position: "absolute", left: 0, bottom: 36, width: "46%", zIndex: 4 } : { position: "absolute", left: 0, bottom: 36, width: "46%", zIndex: 4 }}>
               <div className="hero-photo" style={{ transform: `translate3d(${tilt.x * 26}px, ${tilt.y * 20}px, 0)`, transition: "transform .25s ease-out" }}>
-                <PH label="Chapter members hosting a campus bake sale fundraiser" src={SITE_PHOTOS.heroCommunity} aspect="4/3" style={{ borderRadius: 18 }} />
+                <PH label="Students gathered around a clinical skills demonstration" src={SITE_PHOTOS.heroCommunity} aspect="4/3" style={{ borderRadius: 18 }} />
               </div>
             </M>
 
             {/* Small photo + counter badge */}
-            <M style={motion ? { y: photoTinyY, position: "absolute", right: 34, bottom: 0, width: "34%", zIndex: 5 } : { position: "absolute", right: 34, bottom: 0, width: "34%", zIndex: 5 }}>
+            <M style={motion ? { y: photoTinyY, position: "absolute", right: 28, bottom: 0, width: "32%", zIndex: 5 } : { position: "absolute", right: 28, bottom: 0, width: "32%", zIndex: 5 }}>
               <div style={{ transform: `translate3d(${tilt.x * 34}px, ${tilt.y * 26}px, 0)`, transition: "transform .25s ease-out" }}>
                 <div className="hero-photo">
                   <PH label="Medicine4Youth leaders collaborating" src={SITE_PHOTOS.heroLeaders} aspect="4/5" style={{ borderRadius: 18 }} />
@@ -620,8 +620,8 @@ function InstagramFeed() {
     { src: SITE_PHOTOS.heroCommunity, likes: 312, caption: "Our Windsor chapter running a bake sale fundraiser for the community 🍰", tag: "Community" },
     { src: SITE_PHOTOS.srpSpotlight, likes: 284, caption: "SRP scholars presenting at the 2025 Research Symposium 🔬", tag: "Research" },
     { src: SITE_PHOTOS.aboutTeam, likes: 198, caption: "McMaster chapter team photo - proud of everyone showing up 💚", tag: "Chapter" },
-    { src: SITE_PHOTOS.aboutPrograms, likes: 241, caption: "Workshop day with our Healthcare Horizons panel guests 📚", tag: "Events" },
-    { src: SITE_PHOTOS.srpHeroWide, likes: 376, caption: "Clinical skills training with our partners at IMSF 🩺", tag: "Programs" },
+    { src: SITE_PHOTOS.aboutPrograms, likes: 241, caption: "Valentine's fundraiser with Charity4Youth x Médecins Sans Frontières 🌹", tag: "Events" },
+    { src: SITE_PHOTOS.srpHeroWide, likes: 376, caption: "Stop the Bleed training session - clinical skills with our chapter partners 🩺", tag: "Programs" },
     { src: SITE_PHOTOS.srpHeroPoster, likes: 159, caption: "Lab hands-on with SRP mentors - science is fun when it's real 🧬", tag: "SRP" },
     { src: SITE_PHOTOS.heroLeaders, likes: 203, caption: "Behind the scenes with the M4Y leadership team 🤝", tag: "Team" },
     { src: SITE_PHOTOS.eventsFeaturedBowl, likes: 322, caption: "Healthcare Bowl team collaboration - case season is heating up 📋", tag: "Bowl" },

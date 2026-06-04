@@ -230,7 +230,6 @@ const BRANCHES = [
     ],
     future: [
       { t: "NeuroPsych Research Workshop", d: "An interactive workshop introducing students to key concepts and skills in neuroscience and psychology research - covering finding opportunities, cold-emailing professors, creating research posters, wet and dry lab techniques, and advancements in emerging technologies.", when: "Fall 2026" },
-      { t: "NeuroPsych Mentorship Program", d: "A drop-in mentorship opportunity where students connect with mentors for guidance on career planning, academic pathways, and research involvement. Includes a self-assessment activity followed by mentorship circles in breakout rooms.", when: "TBD 2026" },
     ],
     focuses: [
       "Mental health awareness & stigma reduction",
@@ -468,7 +467,7 @@ const SPONSORS = [
     code: null,
     benefit:
       "Coordinates networks across campus chapters to deliver standardized training (e.g. suturing workshops) and structured admissions support for students pursuing medical school abroad.",
-    category: "Training & admissions",
+    category: "Study Abroad",
   },
   {
     name: "International Medical School Fair (IMSF)",
@@ -538,17 +537,17 @@ const SPONSORS = [
 
 /* Real photography: community, labs, chapters, workshops */
 const SITE_PHOTOS = {
-  heroMain: "./assets/site/lab-research-focus.png",
-  heroCommunity: "./assets/site/chapter-bake-sale-windsor.png",
-  heroLeaders: "./assets/site/leadership-duo-laptops.png",
+  heroMain: "./assets/site/iv-practice-closeup.jpg",
+  heroCommunity: "./assets/site/clinical-skills-workshop.png",
+  heroLeaders: "./assets/site/m4y-chapter-group-banners.jpg",
   srpSpotlight: "./assets/site/chapter-donation-check.png",
-  aboutTeam: "./assets/site/chapter-ubcv-team.png",
-  aboutPrograms: "./assets/site/workshop-classroom.png",
-  srpHeroWide: "./assets/site/clinical-skills-workshop.png",
-  srpHeroPoster: "./assets/site/lab-hands-on-smiling.png",
-  srpHeroLab: "./assets/site/chapters-outdoor-gathering.png",
-  eventsFeaturedBowl: "./assets/site/study-collaboration.png",
-  eventsFeaturedHorizons: "./assets/site/fundraiser-valentines-msf.png",
+  aboutTeam: "./assets/site/m4y-leadership-hoodies.jpg",
+  aboutPrograms: "./assets/site/fundraiser-valentines-msf.png",
+  srpHeroWide: "./assets/site/stop-the-bleed-clinical.jpg",
+  srpHeroPoster: "./assets/site/suturing-workshop-mcmaster.jpg",
+  srpHeroLab: "./assets/site/outdoor-campus-gathering.jpg",
+  eventsFeaturedBowl: "./assets/site/academic-session-m4y.jpg",
+  eventsFeaturedHorizons: "./assets/site/surgery-workshop-classroom.jpg",
 };
 
 /* Flagship M4Y calendar items. Branch-specific panels and workshops live on branch sites. */
@@ -560,7 +559,7 @@ const EVENTS = [
     tag: "Research",
     blurb:
       "Closing symposium for the Summer Research Program: scholar posters, mentorship, and celebration of student-led inquiry aligned with your academic interests.",
-    photo: "./assets/site/lab-hands-on-smiling.png",
+    photo: "./assets/site/iv-administration-demo.jpg",
   },
   {
     t: "Healthcare Bowl",
@@ -569,7 +568,7 @@ const EVENTS = [
     tag: "Programs",
     blurb:
       "M4Y's annual case-based competition where student teams work through healthcare scenarios together with near-peer and clinical mentorship.",
-    photo: "./assets/site/lab-research-focus.png",
+    photo: "./assets/site/chapter-bake-sale-windsor.png",
   },
   {
     t: "Healthcare Horizons",
@@ -578,7 +577,7 @@ const EVENTS = [
     tag: "Events",
     blurb:
       "Interdisciplinary careers panel spanning medicine, dentistry, pharmacy, and optometry: admissions pathways, workforce themes, and practical insight. Our last session welcomed about 100 attendees.",
-    photo: "./assets/site/clinical-skills-workshop.png",
+    photo: "./assets/site/outdoor-campus-gathering.jpg",
   },
 ];
 

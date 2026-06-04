@@ -350,6 +350,26 @@ function GlobalStyles() {
         border-color: var(--g500);
       }
 
+      /* ── Pharmacy4Youth upcoming event cards — hardcoded #fff bg breaks dark mode ── */
+      [data-theme="dark"] .pharm-upcoming-card {
+        background: var(--paper) !important;
+        border-color: var(--line2) !important;
+        box-shadow: var(--sh-2) !important;
+      }
+      [data-theme="dark"] .pharm-upcoming-card:hover {
+        box-shadow: 0 16px 48px rgba(0,0,0,.55) !important;
+      }
+      [data-theme="dark"] .pharm-upcoming-pill {
+        background: rgba(220,80,80,.18) !important;
+        color: #f09090 !important;
+      }
+      [data-theme="dark"] .pharm-upcoming-orb {
+        background: rgba(220,80,80,.12) !important;
+      }
+      [data-theme="dark"] .pharm-accent-text {
+        color: #f09090 !important;
+      }
+
       /* ── Chapters page: "National ecosystem" CTA card (inline bg uses var(--g900) which is near-white in dark) ── */
       [data-theme="dark"] .chapters-eco-card {
         background: #0c1f18 !important;

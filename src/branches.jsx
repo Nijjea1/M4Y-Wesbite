@@ -1100,22 +1100,22 @@ function PharmacyPage({ b }) {
         <section style={{paddingBlock:"clamp(64px,7vw,96px)"}}>
           <div className="container">
             <Reveal><div style={{marginBottom:40}}>
-              <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:M}}>On the horizon</span>
+              <span className="pharm-accent-text" style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:M}}>On the horizon</span>
               <h2 style={{fontSize:"clamp(28px,3.2vw,48px)",fontWeight:900,marginTop:8,lineHeight:1}}>What's next.</h2>
             </div></Reveal>
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(380px,1fr))",gap:24}}>
               {b.future.map((e,i)=>(
                 <Reveal key={i} delay={i*70}>
-                  <div style={{borderRadius:20,padding:"clamp(30px,4vw,48px)",background:`linear-gradient(135deg,color-mix(in oklab,${M} 5%,#fff),#fff)`,border:`1px solid color-mix(in oklab,${M} 15%,var(--line))`,position:"relative",overflow:"hidden",transition:"box-shadow .3s,transform .3s",boxShadow:"var(--sh-1)"}}
+                  <div className="pharm-upcoming-card" style={{borderRadius:20,padding:"clamp(30px,4vw,48px)",background:`linear-gradient(135deg,color-mix(in oklab,${M} 5%,#fff),#fff)`,border:`1px solid color-mix(in oklab,${M} 15%,var(--line))`,position:"relative",overflow:"hidden",transition:"box-shadow .3s,transform .3s",boxShadow:"var(--sh-1)"}}
                     onMouseEnter={e2=>{e2.currentTarget.style.boxShadow=`0 16px 48px ${M}20`;e2.currentTarget.style.transform="translateY(-5px)"}}
                     onMouseLeave={e2=>{e2.currentTarget.style.boxShadow="var(--sh-1)";e2.currentTarget.style.transform="translateY(0)"}}
                   >
                     <div style={{position:"absolute",top:0,left:0,width:"100%",height:4,background:`linear-gradient(90deg,${M},${ML})`}}/>
-                    <div style={{position:"absolute",right:-20,bottom:-20,width:120,height:120,borderRadius:"50%",background:`color-mix(in oklab,${M} 6%,transparent)`}}/>
-                    <span style={{display:"inline-block",fontSize:10,fontWeight:700,letterSpacing:".09em",textTransform:"uppercase",background:`color-mix(in oklab,${M} 10%,#fff)`,color:M,padding:"5px 12px",borderRadius:999,marginBottom:16}}>Upcoming</span>
+                    <div className="pharm-upcoming-orb" style={{position:"absolute",right:-20,bottom:-20,width:120,height:120,borderRadius:"50%",background:`color-mix(in oklab,${M} 6%,transparent)`}}/>
+                    <span className="pharm-upcoming-pill" style={{display:"inline-block",fontSize:10,fontWeight:700,letterSpacing:".09em",textTransform:"uppercase",background:`color-mix(in oklab,${M} 10%,#fff)`,color:M,padding:"5px 12px",borderRadius:999,marginBottom:16}}>Upcoming</span>
                     <h3 style={{fontSize:"clamp(18px,2vw,24px)",fontWeight:800,lineHeight:1.2,color:"var(--ink)"}}>{e.t}</h3>
                     <p style={{fontSize:14,color:"var(--ink2)",lineHeight:1.75,marginTop:12}}>{e.d}</p>
-                    <div style={{fontFamily:"var(--f-mono)",fontSize:12,color:M,fontWeight:700,letterSpacing:".05em",marginTop:20}}>{e.when}</div>
+                    <div className="pharm-accent-text" style={{fontFamily:"var(--f-mono)",fontSize:12,color:M,fontWeight:700,letterSpacing:".05em",marginTop:20}}>{e.when}</div>
                   </div>
                 </Reveal>
               ))}
@@ -1186,6 +1186,35 @@ function CharityPage({ b }) {
               <Link to="/join" className="btn btn-lg" style={{background:"#fff",color:CD,fontWeight:800,border:"none",borderRadius:999}}>Join this branch <I.arrow className="arr"/></Link>
               <Link to="/branches" className="btn btn-lg btn-ghost" style={{color:"#fff",border:"1px solid rgba(255,255,255,.3)",borderRadius:999}}>All branches</Link>
             </div>
+            <a
+              href="https://charity4youthorg.wixsite.com/charity4youth"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display:"inline-flex", alignItems:"center", gap:8,
+                width:"fit-content", marginTop:2,
+                padding:"9px 18px 9px 12px",
+                background:"rgba(255,255,255,.12)",
+                border:"1px solid rgba(255,255,255,.22)",
+                borderRadius:999,
+                backdropFilter:"blur(10px)",
+                color:"rgba(255,255,255,.92)",
+                fontSize:13, fontWeight:600, letterSpacing:".01em",
+                textDecoration:"none",
+                transition:"background .2s, border-color .2s, color .2s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background="rgba(255,255,255,.22)"; e.currentTarget.style.color="#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background="rgba(255,255,255,.12)"; e.currentTarget.style.color="rgba(255,255,255,.92)"; }}
+            >
+              <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="10" cy="10" r="8"/>
+                <path d="M2 10h16M10 2c-2.5 3-4 5-4 8s1.5 5 4 8M10 2c2.5 3 4 5 4 8s-1.5 5-4 8"/>
+              </svg>
+              charity4youthorg.wixsite.com
+              <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{opacity:.65}}>
+                <path d="M6 3H3v10h10v-3M9 3h4v4M13 3 8 8"/>
+              </svg>
+            </a>
           </div>
           {/* Photo collage */}
           <Reveal delay={100}>
