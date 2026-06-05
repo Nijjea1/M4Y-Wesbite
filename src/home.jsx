@@ -617,14 +617,14 @@ function SRPSpotlight() {
    ============================================================ */
 function InstagramFeed() {
   const posts = [
-    { src: SITE_PHOTOS.heroCommunity, likes: 312, caption: "Our Windsor chapter running a bake sale fundraiser for the community 🍰", tag: "Community" },
-    { src: SITE_PHOTOS.srpSpotlight, likes: 284, caption: "SRP scholars presenting at the 2025 Research Symposium 🔬", tag: "Research" },
-    { src: SITE_PHOTOS.aboutTeam, likes: 198, caption: "McMaster chapter team photo - proud of everyone showing up 💚", tag: "Chapter" },
-    { src: SITE_PHOTOS.aboutPrograms, likes: 241, caption: "Valentine's fundraiser with Charity4Youth x Médecins Sans Frontières 🌹", tag: "Events" },
-    { src: SITE_PHOTOS.srpHeroWide, likes: 376, caption: "Stop the Bleed training session - clinical skills with our chapter partners 🩺", tag: "Programs" },
-    { src: SITE_PHOTOS.srpHeroPoster, likes: 159, caption: "Lab hands-on with SRP mentors - science is fun when it's real 🧬", tag: "SRP" },
-    { src: SITE_PHOTOS.heroLeaders, likes: 203, caption: "Behind the scenes with the M4Y leadership team 🤝", tag: "Team" },
-    { src: SITE_PHOTOS.eventsFeaturedBowl, likes: 322, caption: "Healthcare Bowl team collaboration - case season is heating up 📋", tag: "Bowl" },
+    { src: SITE_PHOTOS.heroCommunity, likes: 312, caption: "Our Windsor chapter running a bake sale fundraiser for the community", tag: "Community" },
+    { src: SITE_PHOTOS.srpSpotlight, likes: 284, caption: "The M4Y team at our Summer Research Program showcase - connecting students with research opportunities", tag: "Research" },
+    { src: SITE_PHOTOS.aboutTeam, likes: 198, caption: "M4Y and Dentistry4Youth chapter leads in their 2025 branded gear", tag: "Chapter" },
+    { src: SITE_PHOTOS.aboutPrograms, likes: 241, caption: "Valentine's fundraiser with Charity4Youth x Medecins Sans Frontieres", tag: "Events" },
+    { src: SITE_PHOTOS.srpHeroWide, likes: 376, caption: "Stop the Bleed training session - clinical skills with our chapter partners", tag: "Programs" },
+    { src: SITE_PHOTOS.srpHeroPoster, likes: 159, caption: "McMaster suturing workshop - students practicing with real surgical instruments", tag: "SRP" },
+    { src: SITE_PHOTOS.heroLeaders, likes: 203, caption: "Behind the scenes with the M4Y leadership team", tag: "Team" },
+    { src: SITE_PHOTOS.eventsFeaturedBowl, likes: 322, caption: "Academic prep session with M4Y and Prep101 - getting ready for Healthcare Bowl", tag: "Bowl" },
   ];
   return (
     <section className="section ig-section">

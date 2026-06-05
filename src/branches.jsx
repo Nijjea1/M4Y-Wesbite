@@ -114,6 +114,35 @@ function O4YStat({ value, label, prefix, suffix, accentColor }) {
   );
 }
 
+/* ── Optometry logo with coin-spin on mount ── */
+function OptomLogo({ src }) {
+  React.useEffect(() => {
+    if (document.getElementById("o4y-coin-spin")) return;
+    const s = document.createElement("style");
+    s.id = "o4y-coin-spin";
+    s.textContent = `
+      @keyframes o4yCoinSpin {
+        0%   { transform: rotateY(1800deg) scale(0.8); opacity: 0; }
+        8%   { opacity: 1; }
+        100% { transform: rotateY(0deg)    scale(1);   opacity: 1; }
+      }
+    `;
+    document.head.appendChild(s);
+  }, []);
+  return (
+    <img
+      src={src}
+      alt="Optometry4Youth logo"
+      style={{
+        width: "min(88%,320px)",
+        height: "min(88%,320px)",
+        objectFit: "contain",
+        animation: "o4yCoinSpin 1.8s cubic-bezier(0.12,0.8,0.32,1) forwards",
+      }}
+    />
+  );
+}
+
 /* ── Optometry4Youth full page ── */
 function OptomPage({ b }) {
   const TEAL = "#509090";
@@ -173,13 +202,7 @@ function OptomPage({ b }) {
           </div>
 
           <div style={{display:"grid", placeItems:"center"}}>
-            {b.logo ? (
-              <img src={b.logo} alt="Optometry4Youth logo"
-                style={{width:"min(88%,320px)", height:"min(88%,320px)", objectFit:"contain"}}
-              />
-            ) : (
-              <I.eye style={{width:80, height:80, color:"rgba(255,255,255,.8)"}}/>
-            )}
+            {b.logo ? <OptomLogo src={b.logo}/> : <I.eye style={{width:80, height:80, color:"rgba(255,255,255,.8)"}}/>}
           </div>
         </div>
       </section>
@@ -269,6 +292,7 @@ function OptomPage({ b }) {
                           width:"100%", height:"100%",
                           borderRadius:0,
                           transition:"transform .5s ease",
+                          objectPosition: e.imgPos || "center center",
                         }}
                       />
                       <div style={{
@@ -298,6 +322,79 @@ function OptomPage({ b }) {
           </div>
         </section>
       )}
+
+      {/* ── Ghana Eyeglasses Drive Impact ── */}
+      <section style={{
+        background:`linear-gradient(135deg, ${TEAL_DARK} 0%, #1d4545 100%)`,
+        paddingBlock:"clamp(64px,8vw,96px)",
+        position:"relative", overflow:"hidden",
+      }}>
+        {/* BG decoration */}
+        <svg style={{position:"absolute",right:"-4%",top:"-20%",opacity:.08,pointerEvents:"none"}} width="480" height="480" viewBox="0 0 480 480">
+          {[60,120,180,240,300,360].map(r=><circle key={r} cx="440" cy="80" r={r} stroke="#fff" strokeWidth="1.2" fill="none"/>)}
+        </svg>
+        <div style={{position:"absolute",left:"5%",bottom:"-10%",opacity:.06,pointerEvents:"none"}}>
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            {Array.from({length:16}).map((_,i)=><circle key={i} cx={(i%4)*48+24} cy={Math.floor(i/4)*48+24} r="4" fill="#fff"/>)}
+          </svg>
+        </div>
+
+        <div className="container" style={{position:"relative"}}>
+          <Reveal>
+            <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:32}}>
+              <div style={{
+                width:40, height:40, borderRadius:10,
+                background:"rgba(255,255,255,.15)",
+                display:"flex", alignItems:"center", justifyContent:"center",
+              }}>
+                <I.globe style={{color:"#fff", width:18, height:18}}/>
+              </div>
+              <span style={{fontSize:11, fontWeight:700, letterSpacing:".12em", textTransform:"uppercase", color:"rgba(255,255,255,.55)"}}>Community Outreach · Ghana</span>
+            </div>
+          </Reveal>
+
+          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, alignItems:"center"}}>
+            {/* Left: headline + body */}
+            <Reveal>
+              <div style={{display:"flex", flexDirection:"column", gap:20, color:"#fff"}}>
+                <h2 style={{fontSize:"clamp(32px,4vw,56px)", color:"#fff", lineHeight:1, letterSpacing:"-.02em"}}>
+                  100+ pairs.<br/>
+                  <span style={{opacity:.65}}>One country.</span>
+                </h2>
+                <p style={{fontSize:17, color:"rgba(255,255,255,.78)", lineHeight:1.75, maxWidth:440}}>
+                  O4Y ran a cross-campus eyeglasses drive, placing donation boxes at 6 Canadian universities. Every pair collected was sent through Foundation Glasses to the St. Ignatius Eye Centre in Ghana, where clear vision changes educational outcomes and daily life.
+                </p>
+                <p style={{fontSize:14, color:"rgba(255,255,255,.45)", lineHeight:1.6}}>
+                  In partnership with Foundation Glasses and St. Ignatius Eye Centre, Sunyani, Ghana.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Right: stat cards */}
+            <Reveal delay={100}>
+              <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16}}>
+                {[
+                  { value:"100+", label:"Pairs Collected" },
+                  { value:"6",    label:"Campuses" },
+                  { value:"1",    label:"Country Reached" },
+                  { value:"1",    label:"Eye Centre Supported" },
+                ].map((s,i) => (
+                  <div key={i} style={{
+                    background:"rgba(255,255,255,.1)",
+                    border:"1px solid rgba(255,255,255,.15)",
+                    borderRadius:16, padding:"24px 20px",
+                    backdropFilter:"blur(8px)",
+                    display:"flex", flexDirection:"column", gap:6,
+                  }}>
+                    <span style={{fontSize:"clamp(28px,3vw,40px)", fontWeight:900, color:"#fff", letterSpacing:"-.02em", lineHeight:1}}>{s.value}</span>
+                    <span style={{fontSize:12, fontWeight:600, color:"rgba(255,255,255,.55)", letterSpacing:".06em", textTransform:"uppercase"}}>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       {/* ── Current Initiatives ── */}
       {b.initiatives && b.initiatives.length > 0 && (
@@ -1786,19 +1883,19 @@ function NeuroPsychPage({ b }) {
 
         {/* RIGHT - logo + rings */}
         <div style={{position:"relative",zIndex:2,display:"flex",alignItems:"center",justifyContent:"center",padding:"60px 40px"}}>
-          {[260,330,410].map((size,i)=>(
+          {[480,600,720].map((size,i)=>(
             <motion.div key={i} style={{position:"absolute",width:size,height:size,borderRadius:"50%",border:`1px solid rgba(${i===0?"236,72,153":"139,92,246"},${0.28-i*0.07})`}}
               animate={{scale:[1,1.05,1],opacity:[0.35,0.65,0.35]}}
               transition={{duration:3.5+i,repeat:Infinity,delay:i*0.9,ease:"easeInOut"}}
             />
           ))}
-          <motion.div style={{position:"absolute",width:240,height:240,borderRadius:"50%",background:`radial-gradient(circle,${P}35 0%,transparent 70%)`,filter:"blur(22px)"}}
+          <motion.div style={{position:"absolute",width:460,height:460,borderRadius:"50%",background:`radial-gradient(circle,${P}35 0%,transparent 70%)`,filter:"blur(36px)"}}
             animate={{scale:[1,1.25,1],opacity:[0.5,0.85,0.5]}}
             transition={{duration:4.5,repeat:Infinity,ease:"easeInOut"}}
           />
           {b.logo && (
             <motion.img src={b.logo} alt="NP4Y"
-              style={{width:"min(210px,27vw)",objectFit:"contain",position:"relative",zIndex:1,filter:`drop-shadow(0 0 36px ${P}90) drop-shadow(0 0 10px ${PINK}70)`}}
+              style={{width:"min(440px,50vw)",objectFit:"contain",position:"relative",zIndex:1,filter:`drop-shadow(0 0 64px ${P}90) drop-shadow(0 0 20px ${PINK}70)`}}
               animate={{y:[0,-14,0],rotate:[-1,1,-1]}}
               transition={{duration:5.5,repeat:Infinity,ease:"easeInOut"}}
             />

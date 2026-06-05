@@ -151,6 +151,14 @@ const BRANCHES = [
       "Equip and inspire the next generation of optometry professionals by providing accessible resources, personalized support, and meaningful opportunities. We have reached hundreds of students through interactive events, engaging educational content, and community outreach focused on vision health and the path to optometry school.",
     past: [
       {
+        t: "Eyeglasses Drive for Ghana",
+        d: "O4Y collected over 100 pairs of glasses across 6 Canadian university campuses. All donated glasses were sent through Foundation Glasses to support the St. Ignatius Eye Centre in Ghana, providing clearer vision and broader opportunity to those in need.",
+        tag: "Community Impact",
+        stat: "100+ pairs · 6 campuses",
+        img: "./assets/optom/glasses-donation-ghana.jpg",
+        imgPos: "center 60%",
+      },
+      {
         t: "Waterloo Optometry Info Panel",
         d: "Moderated Q&A with current University of Waterloo Optometry students who shared their journeys, challenges, and advice for future applicants - giving students real, unfiltered insight into what it takes to get in.",
         img: "./assets/optom/berkeley-admissions.png",
@@ -176,7 +184,7 @@ const BRANCHES = [
     initiatives: [
       {
         t: "Glasses Donation Drive",
-        d: "In collaboration with 20/20 Mission and M4Y chapters, O4Y places eyeglass donation boxes across Canadian university campuses. Collected glasses are sorted, cleaned, and redistributed to individuals in low-income communities locally and internationally.",
+        d: "O4Y places eyeglass donation boxes across Canadian university campuses. Our most recent drive collected 100+ pairs across 6 campuses, sent through Foundation Glasses to the St. Ignatius Eye Centre in Ghana. The drive continues at active chapters each semester.",
         tag: "Active · Ongoing",
         icon: "heart2",
       },
@@ -482,7 +490,7 @@ const SPONSORS = [
     logo: "/assets/event-sponsors/oztrekk.png",
     code: null,
     benefit:
-      "Connects students with medical and dental schools in Australia with guidance through the application process; supports local chapter events and resources.",
+      "OzTREKK is a Canadian education agency connecting pre-med and pre-dental students with leading Australian universities, including Bond University, Griffith, and University of Queensland. They support school selection, GAMSAT and DAT prep resources, visa processing, and pre-departure planning. Degrees from OzTREKK partner schools are recognized for Canadian licensing (MCCQE), keeping the return-to-Canada path open after graduating abroad.",
     category: "Study abroad",
   },
   {
@@ -506,7 +514,7 @@ const SPONSORS = [
     logo: "/assets/event-sponsors/booster-prep.png",
     code: "med4youth",
     benefit:
-      "High-yield question banks, full-length exams, flashcards, and analytics for standardized tests. Partner provisions: 90- and 180-day DATBooster Premium; 90- and 180-day OATBooster Premium; 30- and 60-day Casper memberships.",
+      "High-yield question banks, full-length exams, flashcards, and analytics for pre-health standardized tests. DATBooster and OATBooster feature 10,000+ practice questions, timed full-length mocks, and subject-level score breakdowns. CASPer memberships cover scenario-based prep for the Altus Suite test. Partner provisions: 90- and 180-day DATBooster Premium; 90- and 180-day OATBooster Premium; 30- and 60-day CASPer memberships.",
     category: "Test prep",
   },
   {
@@ -540,14 +548,14 @@ const SITE_PHOTOS = {
   heroMain: "./assets/site/iv-practice-closeup.jpg",
   heroCommunity: "./assets/site/clinical-skills-workshop.png",
   heroLeaders: "./assets/site/m4y-chapter-group-banners.jpg",
-  srpSpotlight: "./assets/site/chapter-donation-check.png",
-  aboutTeam: "./assets/site/m4y-leadership-hoodies.jpg",
-  aboutPrograms: "./assets/site/fundraiser-valentines-msf.png",
-  srpHeroWide: "./assets/site/stop-the-bleed-clinical.jpg",
-  srpHeroPoster: "./assets/site/suturing-workshop-mcmaster.jpg",
-  srpHeroLab: "./assets/site/outdoor-campus-gathering.jpg",
-  eventsFeaturedBowl: "./assets/site/academic-session-m4y.jpg",
-  eventsFeaturedHorizons: "./assets/site/surgery-workshop-classroom.jpg",
+  srpSpotlight: "./assets/site/srp-team-event.jpg",
+  aboutTeam: "./assets/site/m4y-chapter-banners-group.jpg",
+  aboutPrograms: "./assets/site/chapter-donation-check.png",
+  srpHeroWide: "./assets/site/stop-the-bleed-workshop.jpg",
+  srpHeroPoster: "./assets/site/suturing-students-mcmaster.jpg",
+  srpHeroLab: "./assets/site/chapter-outdoor-campus.jpg",
+  eventsFeaturedBowl: "./assets/site/academic-bowl-session.jpg",
+  eventsFeaturedHorizons: "./assets/site/healthcare-horizons-booths.jpg",
 };
 
 /* Flagship M4Y calendar items. Branch-specific panels and workshops live on branch sites. */
@@ -559,7 +567,7 @@ const EVENTS = [
     tag: "Research",
     blurb:
       "Closing symposium for the Summer Research Program: scholar posters, mentorship, and celebration of student-led inquiry aligned with your academic interests.",
-    photo: "./assets/site/iv-administration-demo.jpg",
+    photo: "./assets/site/m4y-chapter-banners-group.jpg",
   },
   {
     t: "Healthcare Bowl",
@@ -568,7 +576,7 @@ const EVENTS = [
     tag: "Programs",
     blurb:
       "M4Y's annual case-based competition where student teams work through healthcare scenarios together with near-peer and clinical mentorship.",
-    photo: "./assets/site/chapter-bake-sale-windsor.png",
+    photo: "./assets/site/healthcare-bowl-clinical-demo.jpg",
   },
   {
     t: "Healthcare Horizons",
@@ -577,7 +585,7 @@ const EVENTS = [
     tag: "Events",
     blurb:
       "Interdisciplinary careers panel spanning medicine, dentistry, pharmacy, and optometry: admissions pathways, workforce themes, and practical insight. Our last session welcomed about 100 attendees.",
-    photo: "./assets/site/outdoor-campus-gathering.jpg",
+    photo: "./assets/site/healthcare-horizons-crowd.jpg",
   },
 ];
 

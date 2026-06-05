@@ -86,7 +86,8 @@ function AboutPage() {
                 n:"Anita Alizadeh",
                 r:"Founder & President",
                 photo:"./assets/headshots/anita.png",
-                b:"Anita is a McMaster University graduate. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leads outreach efforts, and builds the community connections that keep M4Y moving."
+                b:"Anita is a McMaster University graduate. Her research interests focus on psychedelics and neuropharmacology within psychology and neuroscience. As Founder and President, Anita oversees the organization's growth, leads outreach efforts, and builds the community connections that keep M4Y moving.",
+                li:"https://www.linkedin.com/in/anita-alizadeh-a60ba8286/"
               },
               {
                 n:"Ibrahim Khan",
@@ -384,6 +385,16 @@ function PhilippinesSection() {
             </div>
           </div>
           <div className="stack" style={{gap:16}}>
+            <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
+              <div style={{borderRadius:14, overflow:"hidden", aspectRatio:"4/3", position:"relative"}}>
+                <img src="./assets/site/philippines-tutoring-1.png" alt="M4Y volunteer tutoring children in the Philippines" loading="lazy" decoding="async"
+                  style={{width:"100%", height:"100%", objectFit:"cover", display:"block", filter:"brightness(.92)"}}/>
+              </div>
+              <div style={{borderRadius:14, overflow:"hidden", aspectRatio:"4/3", position:"relative"}}>
+                <img src="./assets/site/philippines-teaching.png" alt="M4Y volunteer teaching a class in the Philippines" loading="lazy" decoding="async"
+                  style={{width:"100%", height:"100%", objectFit:"cover", display:"block", filter:"brightness(.92)"}}/>
+              </div>
+            </div>
             <div className="grid two-col-grid-sm" style={{gap:14}}>
               {[
                 ["Partner","Solander PH - a Philippines-based not-for-profit"],
@@ -760,14 +771,14 @@ function SponsorsPage() {
       />
       <section className="section">
         <div className="container">
-          <div className="two-col-grid" style={{alignItems:"start", gap:24}}>
+          <div className="two-col-grid" style={{alignItems:"stretch", gap:24}}>
             {SPONSORS.map((s,i) => (
-              <Reveal key={s.name} delay={i*40}>
+              <Reveal key={s.name} delay={i*40} style={{height:"100%"}}>
                 <div style={{
                   borderRadius:"var(--r-lg)", overflow:"hidden",
                   border:"1px solid var(--line)", background:"var(--paper)",
                   boxShadow:"var(--sh-1)",
-                  display:"flex", flexDirection:"column",
+                  display:"flex", flexDirection:"column", height:"100%",
                   transition:"transform .25s, box-shadow .25s",
                 }}
                   onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="var(--sh-2)"}}
