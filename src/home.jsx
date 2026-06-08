@@ -317,10 +317,10 @@ function FeaturedProjects() {
       desc: "Community engagement, advocacy, and tangible social impact. Charity4Youth mobilizes our members to lead fundraisers, volunteer initiatives, and outreach programs that serve underserved populations across Canada.",
       cta: "Explore the branch", href: "/branches/charity", external: false,
       stat1: ["Local", "Chapters"], stat2: ["Fundraisers", "& Drives"], color: "rgba(120,30,30,.8)", accent: "#f4a0a0" },
-    { tag: "Upcoming", tagAccent: false, title: "SRP Research Symposium", subtitle: "Annual Symposium · Aug 2026",
+    { tag: "Upcoming", tagAccent: false, title: "SRP Research Symposium", subtitle: "Annual Symposium · Aug 8, 2026",
       desc: "The closing showcase for our Summer Research Program cohort. Scholars present their mentored research through posters and lightning talks to an audience of clinicians, faculty, and peers - then move into the M4Y publication pipeline.",
       cta: "Learn about SRP", href: "/srp", external: false,
-      stat1: ["Aug 22", "2026"], stat2: ["Hybrid", "Event"], color: "rgba(30,60,45,.9)", accent: "#a8dba0" },
+      stat1: ["Aug 8", "2026"], stat2: ["Hybrid", "Event"], color: "rgba(30,60,45,.9)", accent: "#a8dba0" },
   ];
   return (
     <section className="featured-projects-section">

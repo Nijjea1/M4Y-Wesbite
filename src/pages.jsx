@@ -1153,6 +1153,8 @@ function ContactPage() {
     return e;
   }
 
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbzyKP-UChXPJEUPzog4xbzdqUySWCcYCMuqDA2dS-o-sofBMgS6GePFQds0IyBd8otz5g/exec";
+
   async function handleSubmit(e) {
     e.preventDefault();
     const errs = validate();
@@ -1161,23 +1163,21 @@ function ContactPage() {
     setSubmitting(true);
     setServerError(null);
     try {
-      const res = await fetch("https://formspree.io/f/REPLACE_WITH_REAL_ID", {
+      await fetch(SHEET_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          first: form.first.trim(),
-          last:  form.last.trim(),
-          email: form.email.trim(),
-          school: form.school.trim(),
-          grade: form.grade,
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          timestamp: new Date().toISOString(),
+          first:     form.first.trim(),
+          last:      form.last.trim(),
+          email:     form.email.trim(),
+          school:    form.school.trim(),
+          grade:     form.grade,
           interests: form.interests.join(", "),
-        }),
+        }).toString(),
       });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setServerError("Something went wrong. Please try again.");
-      }
+      setSubmitted(true);
     } catch {
       setServerError("Network error. Please check your connection and try again.");
     } finally {

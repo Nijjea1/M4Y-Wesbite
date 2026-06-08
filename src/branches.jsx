@@ -2071,16 +2071,578 @@ function NeuroPsychPage({ b }) {
   );
 }
 
+/* ── Rehab4Youth page ── */
+function RehabPage({ b }) {
+  const R  = "#d03868";
+  const RD = "#8a1a3a";
+  const RM = "#b82255";
+
+  const stats = [
+    { value:"120+", label:"Students Reached" },
+    { value:"2",    label:"Events Hosted" },
+    { value:"3",    label:"Allied Health Fields" },
+    { value:"1",    label:"Shadowing Program" },
+  ];
+
+  const fields = [
+    {
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="5" r="2"/><path d="M5 20l2.5-6.5L9 16l3-9 3 9 1.5-2.5L19 20"/></svg>,
+      name: "Physiotherapy",
+      desc: "Movement rehabilitation, musculoskeletal assessment, and exercise-based recovery. One of Canada's fastest-growing health professions.",
+    },
+    {
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
+      name: "Occupational Therapy",
+      desc: "Restoring independence through adaptive strategies, assistive technology, and client-centred daily function.",
+    },
+    {
+      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+      name: "Speech-Language Pathology",
+      desc: "Diagnosing and treating communication disorders, voice, fluency, and swallowing dysfunction across the lifespan.",
+    },
+  ];
+
+  return (
+    <div data-branch={b.slug}>
+
+      {/* Hero */}
+      <section style={{
+        position:"relative", overflow:"hidden",
+        background:`linear-gradient(135deg,${RD} 0%,${R} 55%,#e8507a 100%)`,
+        minHeight:520, display:"grid", placeItems:"center",
+        paddingBlock:"clamp(72px,10vw,120px)",
+      }}>
+        <svg style={{position:"absolute",bottom:"20%",left:0,right:0,width:"100%",opacity:.09,pointerEvents:"none"}}
+          viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <polyline points="0,30 180,30 220,8 260,52 300,30 480,30 520,14 560,46 600,30 1440,30"
+            fill="none" stroke="#fff" strokeWidth="2"/>
+        </svg>
+        <svg style={{position:"absolute",right:"5%",top:"10%",opacity:.1,pointerEvents:"none"}} width="180" height="180" viewBox="0 0 180 180">
+          {Array.from({length:25}).map((_,i)=><circle key={i} cx={(i%5)*36+8} cy={Math.floor(i/5)*36+8} r="2.5" fill="#fff"/>)}
+        </svg>
+        <svg style={{position:"absolute",left:"-5%",bottom:"-15%",opacity:.07,pointerEvents:"none"}} width="320" height="320" viewBox="0 0 320 320">
+          {[60,110,160,210].map(r=><circle key={r} cx="60" cy="260" r={r} stroke="#fff" strokeWidth="1" fill="none"/>)}
+        </svg>
+
+        <div className="container b-grid-hero" style={{position:"relative"}}>
+          <div className="stack" style={{gap:24,color:"#fff"}}>
+            <span style={{
+              display:"inline-flex",alignItems:"center",gap:10,
+              background:"rgba(255,255,255,.15)",backdropFilter:"blur(8px)",
+              border:"1px solid rgba(255,255,255,.25)",
+              borderRadius:999,padding:"6px 16px 6px 8px",
+              fontSize:13,fontWeight:600,letterSpacing:".04em",width:"fit-content",
+            }}>
+              <BranchMark branch={b} size={28} circle={false} style={{borderRadius:8}}/>
+              Rehab4Youth · M4Y Branch
+            </span>
+            <h1 style={{fontSize:"clamp(40px,5.5vw,72px)",color:"#fff",lineHeight:.95}}>
+              Rehab<br/><span style={{opacity:.6}}>4Youth</span>
+            </h1>
+            <p style={{fontSize:18,color:"rgba(255,255,255,.82)",maxWidth:500,lineHeight:1.65}}>{b.tagline}</p>
+            <div style={{display:"flex",gap:12,marginTop:8,flexWrap:"wrap"}}>
+              <Link to="/join" className="btn btn-primary" style={{background:"#fff",color:RD,border:"none",fontWeight:700}}>
+                Join this branch <I.arrow className="arr"/>
+              </Link>
+              <Link to="/branches" className="btn btn-ghost" style={{color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>All branches</Link>
+            </div>
+          </div>
+          <div style={{display:"grid",placeItems:"center"}}>
+            {b.logo
+              ? <img src={b.logo} alt="Rehab4Youth" style={{width:"min(88%,300px)",height:"min(88%,300px)",objectFit:"contain"}}/>
+              : <div style={{width:120,height:120,borderRadius:"50%",background:"rgba(255,255,255,.15)",display:"grid",placeItems:"center"}}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" strokeWidth="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+            }
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section style={{background:"var(--paper)",borderBottom:"1px solid var(--line)"}}>
+        <div className="container">
+          <div className="b-stats-4">
+            {stats.map((s,i)=>(
+              <div key={i} style={{borderRight:i<stats.length-1?"1px solid var(--line)":"none"}}>
+                <div style={{padding:"28px 0",textAlign:"center"}}>
+                  <div style={{fontSize:"clamp(28px,3vw,42px)",fontWeight:900,color:R,lineHeight:1,letterSpacing:"-.02em"}}>{s.value}</div>
+                  <div style={{fontSize:12,fontWeight:600,color:"var(--mute)",letterSpacing:".06em",textTransform:"uppercase",marginTop:6}}>{s.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About + Mission */}
+      <section style={{paddingBlock:"clamp(48px,6vw,72px)"}}>
+        <div className="container two-col-grid" style={{gap:32}}>
+          <Reveal>
+            <div className="card" style={{padding:"clamp(28px,4vw,44px)",height:"100%",display:"flex",flexDirection:"column",gap:16}}>
+              <span className="eyebrow">About</span>
+              <h2 style={{fontSize:"clamp(22px,2.5vw,32px)",lineHeight:1.15}}>What this branch does.</h2>
+              <p style={{fontSize:16,color:"var(--ink2)",lineHeight:1.8,flex:1}}>{b.about}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <div style={{
+              padding:"clamp(28px,4vw,44px)",
+              background:`linear-gradient(135deg,${R} 0%,${RD} 100%)`,
+              borderRadius:"var(--r-lg)",
+              height:"100%",display:"flex",flexDirection:"column",gap:16,color:"#fff",
+              position:"relative",overflow:"hidden",
+            }}>
+              <svg style={{position:"absolute",top:"-20%",right:"-8%",opacity:.12,pointerEvents:"none"}} width="200" height="200" viewBox="0 0 200 200">
+                {[40,80,120,160].map(r=><circle key={r} cx="180" cy="30" r={r} stroke="#fff" strokeWidth="1.2" fill="none"/>)}
+              </svg>
+              <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(255,255,255,.55)"}}>Our Mission</span>
+              <h2 style={{fontSize:"clamp(22px,2.5vw,32px)",lineHeight:1.15,color:"#fff"}}>Why it matters.</h2>
+              <p style={{fontSize:17,color:"rgba(255,255,255,.85)",lineHeight:1.75,flex:1,position:"relative",zIndex:1}}>{b.mission}</p>
+              <Link to="/join" className="btn" style={{
+                marginTop:"auto",alignSelf:"flex-start",
+                background:"rgba(255,255,255,.18)",color:"#fff",
+                border:"1px solid rgba(255,255,255,.3)",backdropFilter:"blur(4px)",
+              }}>Get involved <I.arrow className="arr"/></Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Allied Health Fields */}
+      <section style={{paddingBlock:"clamp(56px,7vw,80px)",background:"var(--g50)",borderBlock:"1px solid var(--line)"}}>
+        <div className="container">
+          <Reveal>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",flexWrap:"wrap",gap:16,marginBottom:40}}>
+              <div>
+                <span className="eyebrow">Fields we explore</span>
+                <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10,lineHeight:1.05}}>Three paths in rehab.</h2>
+              </div>
+              <p style={{fontSize:15,color:"var(--ink2)",maxWidth:380,lineHeight:1.7}}>
+                Each field has its own career pathway, clinical focus, and graduate training route.
+              </p>
+            </div>
+          </Reveal>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(min(100%,260px),1fr))",gap:16}}>
+            {fields.map((f,i)=>(
+              <Reveal key={i} delay={i*80}>
+                <div className="card" style={{
+                  padding:28,display:"flex",flexDirection:"column",gap:16,height:"100%",
+                  borderTop:`3px solid ${R}`,
+                }}>
+                  <div style={{
+                    width:44,height:44,borderRadius:12,
+                    background:`${R}12`,border:`1px solid ${R}28`,
+                    display:"grid",placeItems:"center",color:R,
+                  }}>{f.icon}</div>
+                  <h3 style={{fontSize:17,fontWeight:800,lineHeight:1.25}}>{f.name}</h3>
+                  <p style={{fontSize:14,color:"var(--ink2)",lineHeight:1.7,flex:1}}>{f.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section style={{paddingBlock:"clamp(48px,6vw,72px)"}}>
+        <div className="container">
+          <Reveal>
+            <div style={{marginBottom:32}}>
+              <span className="eyebrow">Gallery</span>
+              <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10,lineHeight:1.05}}>Rehab in action.</h2>
+            </div>
+          </Reveal>
+          <div style={{display:"grid",gridTemplateColumns:"1.25fr 1fr",gap:16}}>
+            <Reveal>
+              <PH label="Rehabilitation session" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" aspect="3/4"
+                style={{borderRadius:"var(--r-lg)",height:"100%",minHeight:280}}/>
+            </Reveal>
+            <div style={{display:"flex",flexDirection:"column",gap:16}}>
+              <Reveal delay={80}>
+                <PH label="Athlete training" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" aspect="4/3"
+                  style={{borderRadius:"var(--r-lg)"}}/>
+              </Reveal>
+              <Reveal delay={150}>
+                <PH label="Rehab exercise" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" aspect="4/3"
+                  style={{borderRadius:"var(--r-lg)"}}/>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Past Events */}
+      {b.past && b.past.length > 0 && (
+        <section style={{paddingBlock:"clamp(48px,6vw,72px)",background:"var(--g50)",borderBlock:"1px solid var(--line)"}}>
+          <div className="container">
+            <Reveal>
+              <div style={{marginBottom:32}}>
+                <span className="eyebrow">Past Events</span>
+                <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10}}>What we've done.</h2>
+              </div>
+            </Reveal>
+            <div style={{display:"flex",flexDirection:"column",gap:16}}>
+              {b.past.map((e,i)=>(
+                <Reveal key={i} delay={i*70}>
+                  <div className="card" style={{padding:0,overflow:"hidden",display:"grid",gridTemplateColumns:"5px 1fr"}}>
+                    <div style={{background:`linear-gradient(180deg,${R},${RM})`}}/>
+                    <div style={{padding:"28px 32px",display:"flex",flexDirection:"column",gap:10}}>
+                      <span style={{fontSize:11,fontWeight:700,color:R,letterSpacing:".06em",textTransform:"uppercase"}}>Past Event</span>
+                      <h3 style={{fontSize:"clamp(18px,2vw,24px)",fontWeight:800,lineHeight:1.2}}>{e.t}</h3>
+                      <p style={{fontSize:14.5,color:"var(--ink2)",lineHeight:1.75}}>{e.d}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Upcoming */}
+      {b.future && b.future.length > 0 && (
+        <section style={{paddingBlock:"clamp(40px,5vw,64px)"}}>
+          <div className="container">
+            <Reveal><div style={{marginBottom:32}}>
+              <span className="eyebrow">Upcoming</span>
+              <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10}}>What's next.</h2>
+            </div></Reveal>
+            <div className="two-col-grid">
+              {b.future.map((e,i)=>(
+                <Reveal key={i} delay={i*60}>
+                  <div className="card" style={{padding:0,overflow:"hidden",display:"flex",flexDirection:"column"}}>
+                    <div style={{height:4,background:`linear-gradient(90deg,${R},${RM})`}}/>
+                    <div style={{padding:"28px 32px",flex:1,display:"flex",flexDirection:"column",gap:12}}>
+                      <span className="pill sage" style={{alignSelf:"flex-start",fontSize:11}}>Upcoming</span>
+                      <h3 style={{fontSize:20,lineHeight:1.2}}>{e.t}</h3>
+                      <p style={{fontSize:14,color:"var(--ink2)",lineHeight:1.65,flex:1}}>{e.d}</p>
+                      {e.when && <div style={{fontFamily:"var(--f-mono)",fontSize:12,color:"var(--mute)",marginTop:4}}>{e.when}</div>}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section style={{paddingBlock:"clamp(64px,8vw,96px)",background:RD,position:"relative",overflow:"hidden"}}>
+        <svg style={{position:"absolute",right:0,top:0,opacity:.07,pointerEvents:"none"}} width="420" height="420" viewBox="0 0 420 420">
+          {[70,130,190,250,310].map(r=><circle key={r} cx="420" cy="0" r={r} stroke="#fff" strokeWidth="1.2" fill="none"/>)}
+        </svg>
+        <div className="container" style={{position:"relative"}}>
+          <Reveal>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:40,flexWrap:"wrap"}}>
+              <div style={{color:"#fff"}}>
+                <span style={{fontSize:11,fontWeight:700,letterSpacing:".12em",textTransform:"uppercase",color:"rgba(255,255,255,.45)"}}>Get involved</span>
+                <h2 style={{fontSize:"clamp(28px,3.5vw,48px)",color:"#fff",marginTop:12}}>Join Rehab4Youth.</h2>
+                <p style={{fontSize:17,color:"rgba(255,255,255,.68)",marginTop:12,maxWidth:480,lineHeight:1.65}}>
+                  Members receive branch-specific mentorship, event invites, and early access to shadowing in physiotherapy, OT, and SLP.
+                </p>
+              </div>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+                <Link to="/join" className="btn btn-lg" style={{background:"#fff",color:RD,fontWeight:700,border:"none"}}>Join the branch <I.arrow className="arr"/></Link>
+                <Link to="/branches" className="btn btn-lg btn-ghost" style={{color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>Browse others</Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ── Surgery4Youth page ── */
+function SurgeryPage({ b }) {
+  const { motion } = window.Motion || {};
+  const S  = "#603098";
+  const SD = "#3a1060";
+  const SM = "#8040b8";
+  const SL = "#ede8f8";
+
+  const stats = [
+    { value:"200+", label:"Students Reached" },
+    { value:"3",    label:"Events Hosted" },
+    { value:"1",    label:"Publication" },
+    { value:"2+",   label:"Surgeon Speakers" },
+  ];
+
+  return (
+    <div data-branch={b.slug}>
+
+      {/* ── Hero ── */}
+      <section style={{
+        position:"relative",overflow:"hidden",
+        background:`linear-gradient(135deg,${SD} 0%,${S} 60%,#8050c0 100%)`,
+        minHeight:520,display:"grid",placeItems:"center",
+        paddingBlock:"clamp(72px,10vw,120px)",
+      }}>
+        {/* Scalpel-style cross-hatch lines */}
+        <svg style={{position:"absolute",inset:0,width:"100%",height:"100%",opacity:.06,pointerEvents:"none"}} viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+          {Array.from({length:12}).map((_,i)=>(
+            <line key={i} x1={-100+i*80} y1="0" x2={i*80+200} y2="500" stroke="#fff" strokeWidth="1"/>
+          ))}
+        </svg>
+        {/* Corner rings */}
+        <svg style={{position:"absolute",right:"-6%",top:"-18%",opacity:.1,pointerEvents:"none"}} width="440" height="440" viewBox="0 0 440 440">
+          {[60,110,165,220,280].map(r=><circle key={r} cx="420" cy="80" r={r} stroke="#fff" strokeWidth="1" fill="none"/>)}
+        </svg>
+        <svg style={{position:"absolute",left:"-4%",bottom:"-15%",opacity:.07,pointerEvents:"none"}} width="280" height="280" viewBox="0 0 280 280">
+          {[50,95,140].map(r=><circle key={r} cx="20" cy="260" r={r} stroke="#fff" strokeWidth="1" fill="none"/>)}
+        </svg>
+
+        <div className="container b-grid-hero" style={{position:"relative"}}>
+          <div className="stack" style={{gap:24,color:"#fff"}}>
+            <span style={{
+              display:"inline-flex",alignItems:"center",gap:10,
+              background:"rgba(255,255,255,.14)",backdropFilter:"blur(8px)",
+              border:"1px solid rgba(255,255,255,.22)",
+              borderRadius:999,padding:"6px 16px 6px 8px",
+              fontSize:13,fontWeight:600,letterSpacing:".04em",width:"fit-content",
+            }}>
+              <BranchMark branch={b} size={28} circle={false} style={{borderRadius:8}}/>
+              Surgery4Youth · M4Y Branch
+            </span>
+            <h1 style={{fontSize:"clamp(40px,5.5vw,72px)",color:"#fff",lineHeight:.95}}>
+              Surgery<br/><span style={{opacity:.6}}>4Youth</span>
+            </h1>
+            <p style={{fontSize:18,color:"rgba(255,255,255,.8)",maxWidth:500,lineHeight:1.65}}>{b.tagline}</p>
+            <div style={{display:"flex",gap:12,marginTop:8,flexWrap:"wrap"}}>
+              <Link to="/join" className="btn btn-primary" style={{background:"#fff",color:SD,border:"none",fontWeight:700}}>
+                Join this branch <I.arrow className="arr"/>
+              </Link>
+              <Link to="/branches" className="btn btn-ghost" style={{color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>All branches</Link>
+            </div>
+          </div>
+          <div style={{display:"grid",placeItems:"center"}}>
+            {b.logo
+              ? <img src={b.logo} alt="Surgery4Youth" style={{width:"min(88%,300px)",height:"min(88%,300px)",objectFit:"contain"}}/>
+              : <I.scalpel style={{width:80,height:80,color:"rgba(255,255,255,.7)"}}/>
+            }
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats ── */}
+      <section style={{background:"var(--paper)",borderBottom:"1px solid var(--line)"}}>
+        <div className="container">
+          <div className="b-stats-4">
+            {stats.map((s,i)=>(
+              <div key={i} style={{borderRight:i<stats.length-1?"1px solid var(--line)":"none"}}>
+                <div style={{padding:"28px 0",textAlign:"center"}}>
+                  <div style={{fontSize:"clamp(28px,3vw,42px)",fontWeight:900,color:S,lineHeight:1,letterSpacing:"-.02em"}}>{s.value}</div>
+                  <div style={{fontSize:12,fontWeight:600,color:"var(--mute)",letterSpacing:".06em",textTransform:"uppercase",marginTop:6}}>{s.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About + Mission ── */}
+      <section style={{paddingBlock:"clamp(48px,6vw,72px)"}}>
+        <div className="container two-col-grid" style={{gap:32}}>
+          <Reveal>
+            <div className="card" style={{padding:"clamp(28px,4vw,44px)",height:"100%",display:"flex",flexDirection:"column",gap:16}}>
+              <span className="eyebrow">About</span>
+              <h2 style={{fontSize:"clamp(22px,2.5vw,32px)",lineHeight:1.15}}>What this branch is.</h2>
+              <p style={{fontSize:16,color:"var(--ink2)",lineHeight:1.8,flex:1}}>{b.about}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <div style={{
+              padding:"clamp(28px,4vw,44px)",
+              background:`linear-gradient(135deg,${S} 0%,${SD} 100%)`,
+              borderRadius:"var(--r-lg)",
+              height:"100%",display:"flex",flexDirection:"column",gap:16,color:"#fff",
+              position:"relative",overflow:"hidden",
+            }}>
+              <svg style={{position:"absolute",top:"-20%",right:"-8%",opacity:.12,pointerEvents:"none"}} width="220" height="220" viewBox="0 0 220 220">
+                {[40,80,120,160].map(r=><circle key={r} cx="200" cy="30" r={r} stroke="#fff" strokeWidth="1.2" fill="none"/>)}
+              </svg>
+              <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(255,255,255,.5)"}}>Our Mission</span>
+              <h2 style={{fontSize:"clamp(22px,2.5vw,32px)",lineHeight:1.15,color:"#fff"}}>Why it matters.</h2>
+              <p style={{fontSize:17,color:"rgba(255,255,255,.85)",lineHeight:1.75,flex:1,position:"relative",zIndex:1}}>{b.mission}</p>
+              <Link to="/join" className="btn" style={{
+                marginTop:"auto",alignSelf:"flex-start",
+                background:"rgba(255,255,255,.18)",color:"#fff",
+                border:"1px solid rgba(255,255,255,.3)",backdropFilter:"blur(4px)",
+              }}>Get involved <I.arrow className="arr"/></Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Photo grid ── */}
+      <section style={{paddingBlock:"clamp(48px,6vw,72px)",background:"var(--g50)",borderBlock:"1px solid var(--line)"}}>
+        <div className="container">
+          <Reveal>
+            <div style={{marginBottom:32}}>
+              <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:S}}>Events & Speakers</span>
+              <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10,lineHeight:1.05}}>Surgery in action.</h2>
+            </div>
+          </Reveal>
+          <div style={{display:"flex",flexDirection:"column",gap:16}}>
+            <Reveal>
+              <PH label="Women in Surgery Panel" src="./assets/surgery/women-in-surgery-panel.png" aspect="16/9"
+                style={{borderRadius:"var(--r-lg)"}}/>
+            </Reveal>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+              <Reveal delay={80}>
+                <PH label="Surgery Unscripted with Dr. Dehghan" src="./assets/surgery/surgery-unscripted-dehghan.png" aspect="4/3"
+                  style={{borderRadius:"var(--r-lg)"}}/>
+              </Reveal>
+              <Reveal delay={150}>
+                <PH label="Surgery Unscripted with Dr. Zakhary" src="./assets/surgery/surgery-unscripted-zakhary.png" aspect="4/3"
+                  style={{borderRadius:"var(--r-lg)"}}/>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Past Events ── */}
+      {b.past && b.past.length > 0 && (
+        <section style={{paddingBlock:"clamp(48px,6vw,72px)"}}>
+          <div className="container">
+            <Reveal><div style={{marginBottom:32}}>
+              <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:S}}>Past Events</span>
+              <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10}}>What we've done.</h2>
+            </div></Reveal>
+            <div style={{display:"flex",flexDirection:"column",gap:16}}>
+              {b.past.map((e,i)=>(
+                <Reveal key={i} delay={i*70}>
+                  <div style={{
+                    borderRadius:"var(--r-lg)",border:"1px solid var(--line)",
+                    background:"var(--paper)",boxShadow:"var(--sh-1)",
+                    overflow:"hidden",display:"grid",
+                    gridTemplateColumns:i%2===0?"5px 1fr":"1fr 5px",
+                    transition:"transform .25s,box-shadow .25s",
+                  }}
+                    onMouseEnter={ev=>{ev.currentTarget.style.transform="translateY(-3px)";ev.currentTarget.style.boxShadow=`0 16px 48px ${S}22`}}
+                    onMouseLeave={ev=>{ev.currentTarget.style.transform="";ev.currentTarget.style.boxShadow="var(--sh-1)"}}
+                  >
+                    {i%2===0 && <div style={{background:`linear-gradient(180deg,${S},${SM})`}}/>}
+                    <div style={{padding:"28px 32px",display:"flex",flexDirection:"column",gap:10}}>
+                      <span style={{fontSize:11,fontWeight:700,color:S,letterSpacing:".06em",textTransform:"uppercase"}}>Past Event</span>
+                      <h3 style={{fontSize:"clamp(18px,2vw,24px)",fontWeight:800,lineHeight:1.2}}>{e.t}</h3>
+                      <p style={{fontSize:14.5,color:"var(--ink2)",lineHeight:1.75}}>{e.d}</p>
+                    </div>
+                    {i%2!==0 && <div style={{background:`linear-gradient(180deg,${S},${SM})`}}/>}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Magazine ── */}
+      <section style={{paddingBlock:"clamp(48px,6vw,72px)",background:"var(--paper)",borderBlock:"1px solid var(--line)"}}>
+        <div className="container">
+          <Reveal><div style={{marginBottom:40}}>
+            <span style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:S}}>Publications</span>
+            <h2 style={{fontSize:"clamp(28px,3vw,42px)",marginTop:10}}>Surgery4Youth Magazine.</h2>
+            <p style={{fontSize:16,color:"var(--ink2)",marginTop:12,maxWidth:560,lineHeight:1.65}}>The official publication of Surgery4Youth - case discussions, surgical op-eds, and interviews with practicing surgeons.</p>
+          </div></Reveal>
+          <div className="two-col-grid" style={{gap:20}}>
+            <Reveal>
+              <div style={{
+                aspectRatio:"3/4",borderRadius:"var(--r-lg)",overflow:"hidden",
+                background:`linear-gradient(155deg,${SD} 0%,${S} 60%,${SM} 100%)`,
+                display:"flex",flexDirection:"column",justifyContent:"flex-end",
+                padding:28,position:"relative",boxShadow:"var(--sh-2)",
+              }}>
+                <svg style={{position:"absolute",top:0,right:0,opacity:.12,pointerEvents:"none"}} width="200" height="200" viewBox="0 0 200 200">
+                  {[40,80,120].map(r=><circle key={r} cx="180" cy="30" r={r} stroke="#fff" strokeWidth="1" fill="none"/>)}
+                </svg>
+                <div style={{position:"absolute",bottom:-24,left:-24,width:140,height:140,borderRadius:"50%",background:"rgba(255,255,255,.06)"}}/>
+                <div style={{position:"relative"}}>
+                  <div style={{fontFamily:"var(--f-mono)",fontSize:10,letterSpacing:".12em",textTransform:"uppercase",color:"rgba(255,255,255,.6)",marginBottom:10}}>Surgery4Youth</div>
+                  <h3 style={{color:"#fff",fontSize:24,lineHeight:1.15,fontWeight:900}}>The Surgical<br/>Magazine</h3>
+                  <div style={{marginTop:10,fontSize:13,color:"rgba(255,255,255,.5)"}}>Issue · Coming 2026</div>
+                  <div style={{
+                    marginTop:20,padding:"9px 16px",borderRadius:999,
+                    background:"rgba(255,255,255,.18)",border:"1px solid rgba(255,255,255,.3)",
+                    display:"inline-flex",alignItems:"center",gap:8,
+                    fontSize:12,color:"rgba(255,255,255,.85)",fontWeight:600,
+                  }}>
+                    <I.book style={{width:14}}/> Preview coming soon
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            <div className="stack" style={{gap:16}}>
+              <Reveal>
+                <div style={{borderRadius:"var(--r-lg)",overflow:"hidden",border:"1px solid var(--line)",background:"var(--paper)",boxShadow:"var(--sh-1)",display:"flex",flexDirection:"column"}}>
+                  <div style={{height:4,background:`linear-gradient(90deg,${S},${SM})`}}/>
+                  <div style={{padding:"28px 32px",display:"flex",flexDirection:"column",gap:12}}>
+                    <span className="pill deep" style={{alignSelf:"flex-start",fontSize:11,background:SL,color:S}}>Past Issue</span>
+                    <h3 style={{fontSize:19,lineHeight:1.2}}>Surgical Magazine / Journal - Vol. 1</h3>
+                    <p style={{color:"var(--ink2)",fontSize:14,lineHeight:1.65}}>Our inaugural youth-led publication featured case discussions, candid interviews with surgeons across specialties, and editorial perspectives on training and identity in the OR.</p>
+                    <div style={{display:"flex",gap:10,marginTop:8,flexWrap:"wrap"}}>
+                      <span className="pill" style={{cursor:"pointer"}}><I.download style={{width:13}}/> PDF (Coming soon)</span>
+                      <span className="pill" style={{cursor:"pointer"}}><I.ext style={{width:13}}/> View issue</span>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={60}>
+                <div style={{borderRadius:"var(--r-lg)",overflow:"hidden",border:"1px solid var(--line)",background:"var(--g50)",boxShadow:"var(--sh-1)",display:"flex",flexDirection:"column"}}>
+                  <div style={{height:4,background:`linear-gradient(90deg,${SM},#a070d8)`}}/>
+                  <div style={{padding:"28px 32px",display:"flex",flexDirection:"column",gap:10}}>
+                    <div style={{fontFamily:"var(--f-mono)",fontSize:12,color:"var(--mute)"}}>Vol. 2 · 2026</div>
+                    <h3 style={{fontSize:18,lineHeight:1.2}}>Next Edition - Submissions Open</h3>
+                    <p style={{color:"var(--ink2)",fontSize:14,lineHeight:1.65}}>We're accepting case write-ups, perspective pieces, and Q&A submissions for the next issue. Open to all M4Y members.</p>
+                    <Link to="/join" className="btn btn-sm" style={{marginTop:8,alignSelf:"flex-start",background:S,color:"#fff",border:"none"}}>Submit a piece <I.arrow className="arr"/></Link>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section style={{paddingBlock:"clamp(64px,8vw,96px)",background:SD,position:"relative",overflow:"hidden"}}>
+        <svg style={{position:"absolute",right:0,top:0,opacity:.07,pointerEvents:"none"}} width="420" height="420" viewBox="0 0 420 420">
+          {[70,130,190,250,310].map(r=><circle key={r} cx="420" cy="0" r={r} stroke="#fff" strokeWidth="1.2" fill="none"/>)}
+        </svg>
+        <div className="container" style={{position:"relative"}}>
+          <Reveal>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:40,flexWrap:"wrap"}}>
+              <div style={{color:"#fff"}}>
+                <span style={{fontSize:11,fontWeight:700,letterSpacing:".12em",textTransform:"uppercase",color:"rgba(255,255,255,.45)"}}>Get involved</span>
+                <h2 style={{fontSize:"clamp(28px,3.5vw,48px)",color:"#fff",marginTop:12}}>Join Surgery4Youth.</h2>
+                <p style={{fontSize:17,color:"rgba(255,255,255,.68)",marginTop:12,maxWidth:480,lineHeight:1.65}}>
+                  Members receive branch-specific mentorship, event invites, and access to the Surgery4Youth publication.
+                </p>
+              </div>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+                <Link to="/join" className="btn btn-lg" style={{background:"#fff",color:SD,fontWeight:700,border:"none"}}>Join the branch <I.arrow className="arr"/></Link>
+                <Link to="/branches" className="btn btn-lg btn-ghost" style={{color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>Browse others</Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function BranchPage({ slug }) {
   const b = BRANCHES.find(x => x.slug === slug);
   if (!b) return <div style={{padding:80, textAlign:"center"}}>Branch not found.</div>;
 
-  if (b.slug === "optom") return <OptomPage b={b}/>;
-  if (b.slug === "endo")  return <EndoPathPage b={b}/>;
+  if (b.slug === "optom")     return <OptomPage b={b}/>;
+  if (b.slug === "endo")      return <EndoPathPage b={b}/>;
   if (b.slug === "neuro")     return <NeuroPsychPage b={b}/>;
   if (b.slug === "pharmacy")  return <PharmacyPage b={b}/>;
   if (b.slug === "charity")   return <CharityPage b={b}/>;
   if (b.slug === "dentistry") return <DentistryPage b={b}/>;
+  if (b.slug === "rehab")     return <RehabPage b={b}/>;
+  if (b.slug === "surgery")   return <SurgeryPage b={b}/>;
 
   const Ic = I[b.icon];
 

@@ -562,7 +562,7 @@ const SITE_PHOTOS = {
 const EVENTS = [
   {
     t: "SRP Research Symposium",
-    date: "Aug 22, 2026",
+    date: "Aug 8, 2026",
     loc: "Hybrid",
     tag: "Research",
     blurb:
